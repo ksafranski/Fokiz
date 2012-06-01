@@ -1,0 +1,21 @@
+.block { min-height: 100px; float: left; display: inline; padding: 0; margin: 0; }
+    
+.block.intro { display: block; float: none; clear: both; margin-bottom: 4%; }
+
+/* Default */
+.tpl_default .block { width: 100%; }
+
+/* Two-Column */
+.tpl_two_column_even .block.left { width: 46%; margin-right: 8%; }
+.tpl_two_column_even .block.right { width: 46%; }
+
+.tpl_two_column_left .block.left { width: 62%; margin-right: 8%; }
+.tpl_two_column_left .block.right { width: 30%; }
+
+.tpl_two_column_right .block.left { width: 30%; margin-right: 8%; }
+.tpl_two_column_right .block.right { width: 62%; }
+
+/* Three-Column */    
+.tpl_three_column .block.left { width: 28.5%; margin-right: 8%; }
+.tpl_three_column .block.middle { width: 27%; margin-right: 8%; }
+.tpl_three_column .block.right { width: 28.5%; }

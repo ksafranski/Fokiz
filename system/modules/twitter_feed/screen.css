@@ -1,0 +1,4 @@
+.twitter_feed { margin: 0; padding: 0; }
+.twitter_feed ul { margin: 0; padding: 0; }
+.twitter_feed ul li { margin: 0 0 10px 0; padding: 0 0 10px 0; list-style: none; border-bottom: 1px dotted #e6e6e6; line-height: 150%; }
+.twitter_feed .follow_link { text-align: right; }

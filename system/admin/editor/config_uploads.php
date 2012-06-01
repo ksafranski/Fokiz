@@ -1,0 +1,5 @@
+<?php
+
+$baseUrl = '/assets/';
+
+?>

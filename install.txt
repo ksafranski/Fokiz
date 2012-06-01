@@ -1,0 +1,24 @@
+Installing Fokiz:
+----------------------------------------------------------------------
+
+In order to install Fokiz follow the steps below:
+
+1. Ensure that you have created a MySQL database and have the connection
+   information including host, username, password and database name
+   
+2. Edit the /config.php, changing lines 25-28 to contain the correct
+   MySQL database connection information.
+
+   If you installing to a folder that is not a root or vhost directory, 
+   modify line 34 with the path (leading and trailing slashes) as well
+   as the ReWriteBase line in the /.htaccess file.
+   
+3. Upload the contents of the Fokiz system to the web root of your server
+
+4. Ensure the following are writeable:
+    /assets (and all sub-directories)
+    /sitemap.xml
+    /rss.xml
+    
+5. Navigate to your site in your browser. The system will check that the
+   requirements have been met and proceed with installation

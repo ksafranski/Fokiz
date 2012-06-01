@@ -1,0 +1,10 @@
+.feed_listing_item_hidden { display: none; }
+
+.feed_listing_item { margin: 10px 0 15px 0; border-bottom: 1px solid #e6e6e6; }
+.feed_listing_item header { margin: 0; padding: 0; }
+.feed_listing_item header date { display: block; float: right; margin: 15px 0 0 0; color: #666; }
+.feed_listing_item header h2 { font-size: 22px; margin: 0 0 15px 0; }
+.feed_listing_item p { margin: 5px 0; }
+
+#feed_listing_newer { display: none; float: right; font-weight: bold; }
+#feed_listing_older { display: none; float: left; font-weight: bold; }

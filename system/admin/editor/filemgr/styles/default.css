@@ -1,0 +1,368 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+        html {
+          font: normal 13px 'Ubuntu', Verdana, Arial, sans-serif; 
+          line-height: 150%;
+            color: #333;
+            background: #dedede;
+            width: 100%;
+            height: 100%;
+            margin: 0; padding: 0;
+        }
+        
+        body {
+          margin: 0 auto;
+          width: 670px;
+          padding: 0;
+        }
+
+/* LINKS */
+
+        a, a:link, a:visited { color: #666; text-decoration: none; cursor: pointer; outline: none; }
+        
+        a:hover, a:active { color: #000; text-decoration: none; }
+
+/* HEADINGS */
+
+        h1 { font: bold 2.5em 'Ubuntu', Verdana, Arial, sans-serif; }
+        
+        h2 { font: normal 14px 'Ubuntu', Verdana, Arial, sans-serif; margin-top: 0; }
+        
+        h3 { font: normal 18px 'Ubuntu', Verdana, Arial, sans-seriff; }
+        
+        h4 { font: bold 1em 'Ubuntu', Verdana, Arial, sans-serif; }
+        
+        h5 { font: bold 0.9em 'Ubuntu', Verdana, Arial, sans-serif; }
+
+/* PARAGRAPH */
+
+        p { font: inherit; }
+
+/* LISTS */
+
+        ul { margin: 0 10px; padding: 5px; }
+            
+        ul li { margin: 0 5px; padding: 5px 0 0 0; list-style: circle; }
+            
+        ol { margin: 0 10px; padding: 5px 0; }
+        
+        ol li { margin: 0 15px; padding: 5px 0 0 0; }
+
+/* FORMS */
+
+        label { display: block; font-weight: bold; color: #666; margin: 15px 0 5px 0; font-size: 14px; }
+        
+        input, textarea, select { width: 100%; display: inline !important; line-height: 100%; outline: none; padding: 5px 10px; margin: 5px 10px 0 0; background: #fff; color: #707070; border: 1px solid #b8b8b8; font: normal 13px 'Ubuntu', Verdana, Arial, sans-serif;
+    -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+    
+
+        
+          input:focus, textarea:focus, select:focus { border: 1px solid #8c8c8c; }
+          
+          input[type="file"] { display: none; }
+#fileInput { display: none !important; }
+        
+            .focus { border: 1px solid #003399; } /* ...Since :focus pseudo class won't work on IE */
+        
+        .button { width: auto;padding: 5px 15px; cursor: pointer; color: #333; margin: 10px 10px 0 0; 'Ubuntu', Verdana, Arial, sans-serif;
+    background: rgb(247,247,247); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(206,206,206,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,1)), color-stop(100%,rgba(206,206,206,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(206,206,206,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(206,206,206,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(206,206,206,1) 100%); /* IE10+ */
+    background: linear-gradient(top, rgba(247,247,247,1) 0%,rgba(206,206,206,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#cecece',GradientType=0 ); /* IE6-9 */ }
+    
+    .button:hover {
+ background: rgb(255,255,255); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+    background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */   
+}
+
+/* OTHER */
+
+        hr { height: 1px; background: none; border:0; border-top: 1px dotted #ccc; }
+        
+        table { border-collapse: collapse; }
+        
+        strong { font-weight: bold; }
+        
+        em { font-style: italic; }
+        
+        .right { float: right; }
+        
+        .left { float: left; }
+        
+        .align-right { text-align: right; }
+        
+        .align-left { text-align: left; }
+        
+        .align-center { text-align: center; }
+        
+        .align-justify { text-align: justify; }
+        
+        .hide { display: none; }
+        
+        .clear { clear: both; }
+        
+        .bold { font-weight: bold; }
+        
+        .italic { font-style: italic; }
+        
+        .underline { border-bottom: 1px solid; }
+        
+        .uppercase { text-transform: uppercase; }
+        
+        .message { font-weight: bold; color: #990000; }
+        
+        #name_warning { font-weight: bold; color: #990000; }
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ COLUMNS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* SPECIFIC COLS */
+
+#col_folders { width: 240px; float: left; margin: 0; padding: 0; }
+
+#col_files { width: 420px; float: left; margin: 0 0 0 10px; padding: 0; display: inline; }
+
+/* HEADER/BODY STYLING */
+
+.col_header { height: 34px; padding: 0; margin: 10px 0 0 0; border: 2px solid #d4d4d4;
+    background: rgb(247,247,247); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(219,219,219,1) 100%, rgba(214,214,214,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,1)), color-stop(100%,rgba(219,219,219,1)), color-stop(100%,rgba(214,214,214,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(219,219,219,1) 100%,rgba(214,214,214,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(219,219,219,1) 100%,rgba(214,214,214,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(219,219,219,1) 100%,rgba(214,214,214,1) 100%); /* IE10+ */
+    background: linear-gradient(top, rgba(247,247,247,1) 0%,rgba(219,219,219,1) 100%,rgba(214,214,214,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-9 */
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.col_header h2 { padding: 9px 0 0 10px; color:#666; letter-spacing: 0; }
+
+.col_header span { display: block; float: right; width: 13px;    height: 34px; }
+
+.col_body { border: 2px solid #d4d4d4; border-top: none; background: #fff; margin:0; padding:0; }
+
+/* ACTIONS FOOTER */
+
+.actions { height: 25px; border-left: 2px solid #d4d4d4; border-right: 2px solid #d4d4d4; border-bottom: 2px solid #d4d4d4; background: #f7f8fa; padding: 8px 10px 0 10px; }
+
+a.action_icon { display: block; padding: 0 10px 0 20px; line-height: 18px; white-space: nowrap; float: left; }
+
+  #action_divider { height: 18px; width: 1px; border-left: 1px dotted #999; padding: 0 20px 0 0; margin: 0 0 0 10px; float: left; }
+    
+    #file_rename { background: url(../images/icon_file_rename.png) left top no-repeat; }
+    #file_move { background: url(../images/icon_file_move.png) left top no-repeat; }
+    #file_delete { background: url(../images/icon_file_delete.png) left top no-repeat; }
+    #file_upload { background: url(../images/icon_file_upload.png) left top no-repeat; }
+    #file_view { background: url(../images/icon_file_view.png) left top no-repeat; float: right; }
+    
+    #folder_add { background: url(../images/icon_folder_add.png) left top no-repeat; }
+    #folder_rename { background: url(../images/icon_folder_rename.png) left top no-repeat; }
+    #folder_delete { background: url(../images/icon_folder_delete.png) left top no-repeat; }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYNAMIC REGIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#folders { padding: 10px 10px 0 10px; margin: 0; height: 400px; overflow: auto; }
+
+#files { padding: 10px 10px 0 10px; margin: 0; height: 400px; overflow: auto; }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FILES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.fileInfo {
+  display: block;
+    float: right;
+}
+
+.nofiles {
+  display: block;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+}
+
+.thumbnail {
+  max-width: 200px;
+    max-height: 200px;
+}
+
+.fileUploadQueueItem {
+    font: 11px Verdana, Geneva, sans-serif;
+    background-color: #F5F5F5;
+    border: 3px solid #E5E5E5;
+    margin-top: 5px;
+    padding: 10px;
+    width: 300px;
+}
+.fileUploadQueueItem .cancel {
+    float: right;
+}
+.fileUploadProgress {
+    background-color: #FFFFFF;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #C5C5C5;
+    border-bottom: 1px solid #C5C5C5;
+    margin-top: 10px;
+    width: 100%;
+}
+.fileUploadProgressBar {
+    background-color: #0099FF;
+}
+
+/*
+#fileInput4Uploader { z-index: 9999; width: 110px; height: 30px; margin: 10px auto; overflow: hidden; }
+
+.fileUploaderBtn { z-index: 9999; width: 100px; height: 30px; padding: 10px; margin: 10px auto; overflow: hidden; }
+*/
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ JQUERY FILE TREE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+UL.jqueryFileTree {
+    font-family: Verdana, sans-serif;
+    font-size: 11px;
+    line-height: 18px;
+    padding: 0px;
+    margin: 0px;
+}
+
+UL.jqueryFileTree LI {
+    list-style: none;
+    padding: 0px;
+    padding-left: 20px;
+    margin: 0px;
+    white-space: nowrap;
+}
+
+UL.jqueryFileTree A {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 0px 2px;
+    margin: 0;
+    border: 1px solid #fff;
+}
+
+UL.jqueryFileTree A:hover {
+    background: #F2F3F9;
+    border: 1px dashed #ccc;
+}
+
+UL.jqueryFileTree A.itemSelected {
+  background: #F4F4F4;
+    border: 1px dashed #ccc;
+}
+
+/* Core Styles */
+.jqueryFileTree LI.directory { background: url(../images/directory.png) left top no-repeat; }
+.jqueryFileTree LI.expanded { background: url(../images/folder_open.png) left top no-repeat; }
+.jqueryFileTree LI.file { background: url(../images/file.png) left top no-repeat; }
+.jqueryFileTree LI.wait { background: url(../images/spinner.gif) left top no-repeat; }
+/* File Extensions*/
+.jqueryFileTree LI.ext_3gp { background: url(../images/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_afp { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_afpa { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_asp { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_aspx { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_avi { background: url(../images/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_bat { background: url(../images/application.png) left top no-repeat; }
+.jqueryFileTree LI.ext_bmp { background: url(../images/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_c { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_cfm { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_cgi { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_com { background: url(../images/application.png) left top no-repeat; }
+.jqueryFileTree LI.ext_cpp { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_css { background: url(../images/css.png) left top no-repeat; }
+.jqueryFileTree LI.ext_doc { background: url(../images/doc.png) left top no-repeat; }
+.jqueryFileTree LI.ext_docx { background: url(../images/doc.png) left top no-repeat; }
+.jqueryFileTree LI.ext_exe { background: url(../images/application.png) left top no-repeat; }
+.jqueryFileTree LI.ext_gif { background: url(../images/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_fla { background: url(../images/flash.png) left top no-repeat; }
+.jqueryFileTree LI.ext_h { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_htm { background: url(../images/html.png) left top no-repeat; }
+.jqueryFileTree LI.ext_html { background: url(../images/html.png) left top no-repeat; }
+.jqueryFileTree LI.ext_jar { background: url(../images/java.png) left top no-repeat; }
+.jqueryFileTree LI.ext_jpg { background: url(../images/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_jpeg { background: url(../images/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_js { background: url(../images/script.png) left top no-repeat; }
+.jqueryFileTree LI.ext_lasso { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_log { background: url(../images/txt.png) left top no-repeat; }
+.jqueryFileTree LI.ext_m4p { background: url(../images/music.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mov { background: url(../images/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mp3 { background: url(../images/music.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mp4 { background: url(../images/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mpg { background: url(../images/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mpeg { background: url(../images/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_ogg { background: url(../images/music.png) left top no-repeat; }
+.jqueryFileTree LI.ext_pcx { background: url(../images/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_pdf { background: url(../images/pdf.png) left top no-repeat; }
+.jqueryFileTree LI.ext_php { background: url(../images/php.png) left top no-repeat; }
+.jqueryFileTree LI.ext_png { background: url(../images/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_ppt { background: url(../images/ppt.png) left top no-repeat; }
+.jqueryFileTree LI.ext_pptx { background: url(../images/ppt.png) left top no-repeat; }
+.jqueryFileTree LI.ext_psd { background: url(../images/psd.png) left top no-repeat; }
+.jqueryFileTree LI.ext_pl { background: url(../images/script.png) left top no-repeat; }
+.jqueryFileTree LI.ext_py { background: url(../images/script.png) left top no-repeat; }
+.jqueryFileTree LI.ext_rb { background: url(../images/ruby.png) left top no-repeat; }
+.jqueryFileTree LI.ext_rbx { background: url(../images/ruby.png) left top no-repeat; }
+.jqueryFileTree LI.ext_rhtml { background: url(../images/ruby.png) left top no-repeat; }
+.jqueryFileTree LI.ext_rpm { background: url(../images/linux.png) left top no-repeat; }
+.jqueryFileTree LI.ext_ruby { background: url(../images/ruby.png) left top no-repeat; }
+.jqueryFileTree LI.ext_sql { background: url(../images/db.png) left top no-repeat; }
+.jqueryFileTree LI.ext_swf { background: url(../images/flash.png) left top no-repeat; }
+.jqueryFileTree LI.ext_tif { background: url(../images/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_tiff { background: url(../images/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_txt { background: url(../images/txt.png) left top no-repeat; }
+.jqueryFileTree LI.ext_vb { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_wav { background: url(../images/music.png) left top no-repeat; }
+.jqueryFileTree LI.ext_wmv { background: url(../images/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_xls { background: url(../images/xls.png) left top no-repeat; }
+.jqueryFileTree LI.ext_xlsx { background: url(../images/xls.png) left top no-repeat; }
+.jqueryFileTree LI.ext_xml { background: url(../images/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_zip { background: url(../images/zip.png) left top no-repeat; }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~MODAL DIALOG ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.jqmWindow {
+    display: none;
+    
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    
+    background: #eee;
+    color: #333;
+    border: 3px solid #eee;
+    padding: 0;
+    
+}
+
+.modal_contents {
+  background: #fff;
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 0 15px 15px 15px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, .4); -moz-box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, .4); box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, .4); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+}
+
+.jqmOverlay { background-color: #dedede; height: 100%; }

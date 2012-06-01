@@ -1,0 +1,103 @@
+@import url("reset.css");
+@import url("templates.css");
+
+/* DOCUMENT */
+
+    html { width: 100%; height: 100%; overflow: scroll; font: normal 14px Georgia, Palatino Linotype, Book Antiqua, Times, serif; color: #1a1a1a; line-height: 175%; }
+    body { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
+    
+/* GLOBALS */
+
+    h1,h2,h3,h4,h5,h6 { margin: 15px 0; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 28px; }
+    h3 { font-size: 24px; }
+    h4 { font-size: 20px; }
+    h5 { /* Seriously? */ }
+    h6 { /* You're Joking, Right? */ }
+    
+    p { margin: 15px 0; line-height: 175%; }
+    
+    strong { font-weight: 800; }
+
+    a,a:link,a:visited { cursor: pointer; color: #244970; text-decoration: none; }
+    a:hover,a:active { text-decoration: underline; outline: none; }
+    
+    ul, ol { margin: 0 0 0 10px; padding: 0; }
+    ul li { margin: 10px 25px; padding: 0; list-style: disc; }
+    ol li { margin: 10px 25px; padding: 0; list-style: decimal; }
+    
+    .hide { display: none; }
+    .right { float: right; }
+    .left { float: left; }
+    .clear { clear: both; }
+    
+/* FORMS */
+
+    label { display: block; margin: 10px 0 10px 0; font-size: 14px; color: #666; font-weight: bold; }        
+        
+    input, select, textarea, button { display: block; width: 100%; padding: 8px 10px; margin: 5px 0 15px 0; color: #4d4d4d; border: 1px solid #ccc; background: #fff;
+        box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+        -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+    }
+    
+    textarea { font-family: Arial, Helvetica, sans-serif; font-size: 1em; min-height: 100px; }
+        
+    input:focus, select:focus, textarea:focus { border: 1px solid #999; outline: none; color: #000; background: #fff; }
+    
+    input[type="hidden"] { display: none; }
+    
+    button, input[type="button"], input[type="submit"] { background: #dbdbdb; width: auto; padding: 6px 15px; cursor: pointer; border: 1px solid #ccc;
+        outline: none;
+        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.25, rgb(224,224,224)), color-stop(0.75, rgb(240,240,240)));
+        background-image: -moz-linear-gradient(center bottom, rgb(224,224,224) 25%, rgb(240,240,240) 75%);
+        -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+    }
+    
+    button:hover, input[type="button"]:hover, input[type="submit"]:hover, button:focus, input[type="button"]:focus, input[type="submit"]:focus {
+        outline: none;
+        border: 1px solid #bababa;
+        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.25, rgb(212,212,212)), color-stop(0.75, rgb(240,240,240)));
+        background-image: -moz-linear-gradient(center bottom, rgb(212,212,212) 25%, rgb(240,240,240) 75%);
+        -webkit-box-shadow: 1px 1px 1px 0px rgba(100, 100, 100, .1);
+        -moz-box-shadow: 1px 1px 1px 0px rgba(100, 100, 100, .1);
+        box-shadow: 1px 1px 1px 0px rgba(100, 100, 100, .1);
+    }
+            
+
+/* HEADER */
+
+    header { padding: 25px 0; }
+    header h1 { font-size: 42px; }
+    
+/* NAV */
+
+    nav { display: block; margin: 10px 0 0 -15px; padding: 0; }
+        nav a.mobile_handle { display: none; }
+        nav ul { display: block; margin: 0; padding: 0; }
+        nav ul li { display: inline; position: relative; float: left; list-style: none; margin: 0; padding: 0; }
+          nav ul a, nav ul a:link, nav ul a:visited { display: block; float: left; padding: 2px 15px 4px 15px; margin: 0; font-size: 16px; line-height: 120%; color: #000; }
+          nav ul a:hover, nav ul a:active, nav ul li a.active { color: #0000ff; }
+        
+        /* Sub-Nav */
+        nav ul ul { display: none; position: absolute; top: 18px; left: 7px; width: 120px; padding: 5px; background-color: #000; background-color: rgba(0, 0, 0, .7); }
+          nav ul ul li { display: block; float: none; clear: both; }
+          nav ul ul a, nav ul ul a:link, nav ul ul a:visited { display: block; float: none; border: 0; padding: 5px; margin: 0; color: #fff; }
+          nav ul ul a:hover, nav ul ul a:active, nav ul ul a.active { color: #0000ff; }
+          
+              /* Third-Level */
+              nav ul ul ul { top: 0; left: 125px; }                
+
+/* FOLLOW */
+
+    .follow { display: block; margin: 0; padding: 0; }
+    .follow li { float: left; display: inline; list-style: none; margin: 0; padding: 0; }
+    .follow li a, .follow li a:link, .follow li a:visited { display: block; float: left; margin: 0 10px; padding: 3px 5px; }
+
+/* CONTENT */
+
+    #main { margin: 25px 0; padding: 35px 0; border: 1px solid #e1e1e1; border-left: none; border-right: none; }
+
+/* FOOTER */
+
+    footer { clear: both; }
