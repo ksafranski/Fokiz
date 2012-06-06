@@ -35,7 +35,7 @@ class Page {
     public $content       = "";
     public $temp          = false;
     public $pub_notes     = "";
-    
+    public $tags          = "";
     
     //////////////////////////////////////////////////////////////////
     // METHODS
@@ -67,6 +67,7 @@ class Page {
             $this->created = "0000-00-00 00:00:00";
             $this->modified = "0000-00-00 00:00:00";
             $this->content = file_get_contents(BASE_PATH . "templates/404.php");
+            $this->tags = "";
         }else{        
             $loaded = false;        
             // Admin login - check for temp/edits
@@ -82,6 +83,10 @@ class Page {
                     $this->created = "0000-00-00 00:00:00";
                     $this->modified = "0000-00-00 00:00:00";
                     $this->content = $this->MapContent();
+                    $rs2 = mysql_query("SELECT * FROM cms_tags WHERE tag_pag_id=" . $this->id);
+                    while($row2 = mysql_fetch_array($rs2)){
+                        array_push($this->tags, $row2['tag_title']);
+                    }
                     $loaded = true;
                 }
             }          
@@ -98,6 +103,11 @@ class Page {
                 $this->created = $row['pag_created'];
                 $this->modified = $row['pag_modified'];
                 $this->content = $this->MapContent();
+                $this->tags =array();
+                $rs2 = mysql_query("SELECT * FROM cms_tags WHERE tag_pag_id=" . $this->id);
+                    while($row2 = mysql_fetch_array($rs2)){
+                       array_push($this->tags, $row2['tag_title']);
+                    }
             }
         }
     }
