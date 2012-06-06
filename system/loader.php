@@ -33,8 +33,8 @@
     $load->content        = "";
     $load->admin_elements = "";
     $load->follow         = "";
+    $load->tags           = "";
     
-
     //////////////////////////////////////////////////////////////////
     // LOAD SYSTEM
     //////////////////////////////////////////////////////////////////
@@ -88,7 +88,8 @@
         $load->keywords = ltrim(rtrim(implode(",",$keywords),","),","); // Remove lead/trail comma's and compile
     $load->content = render($page->content,$load);
     $load->page_id = $page->id;
-    
+    //load tags
+    $load->tags = $page->tags;
     // Follow Links
     if($follow){
         $follow_list = "<ul class=\"follow\">";
@@ -109,7 +110,7 @@
     if((isset($_GET['load']) && $_GET['load']=="admin") || (isset($_GET['query']) && $_GET['query']=="admin") || (isset($_SESSION['admin']))){ 
         $load->add_css .= "<link rel=\"stylesheet\" href=\"" . FOKIZ_PATH . "system/admin/css/screen.css\" media=\"screen\">\n";
         $load->admin_elements  .= "<!-- Admin Elements -->\n";
-        $load->admin_elements .= "    <div id=\"adm_modal\"><div title=\"Move this window\" id=\"adm_drag_handle\"></div><div id=\"adm_modal_contents\"></div></div>\n";
+        $load->admin_elements .= "    <div id=\"adm_modal\"><div id=\"adm_modal_contents\"></div></div>\n";
         $load->admin_elements .= "    <div id=\"adm_bar\"><div id=\"adm_bar_contents\"></div><div id=\"adm_bar_control\"><a rel=\"0\"></a></div></div>\n";
         $load->admin_elements .= "    <div id=\"adm_overlay\"></div>\n";
         $load->admin_elements .= "    <!-- /Admin Elements -->\n";
