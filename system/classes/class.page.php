@@ -84,6 +84,7 @@ class Page {
                     $this->modified = "0000-00-00 00:00:00";
                     $this->content = $this->MapContent();
                     $rs2 = mysql_query("SELECT * FROM cms_tags WHERE tag_pag_id=" . $this->id);
+                    $this->tags =array();
                     while($row2 = mysql_fetch_array($rs2)){
                         array_push($this->tags, $row2['tag_title']);
                     }
