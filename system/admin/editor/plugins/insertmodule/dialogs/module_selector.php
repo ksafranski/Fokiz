@@ -9,14 +9,16 @@ $modules = array();
 // Build modules array
 foreach(glob('../../../../../modules/*', GLOB_ONLYDIR) as $dir) {
     $dir = str_replace("../../../../../modules/","",$dir);
-    require("../../../../../modules/$dir/config.php");
-    $modules[] = array(
-        'folder'=>$dir,
-        'name'=>$module->name,
-        'desc'=>$module->description,
-        'param'=>$module->param,
-        'param_options'=>$module->param_options
-    );
+    if(file_exists("../../../../../modules/$dir/config.php")){
+        require("../../../../../modules/$dir/config.php");
+        $modules[] = array(
+            'folder'=>$dir,
+            'name'=>$module->name,
+            'desc'=>$module->description,
+            'param'=>$module->param,
+            'param_options'=>$module->param_options
+        );
+    }
 }
 
 ?>
