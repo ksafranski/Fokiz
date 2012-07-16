@@ -22,10 +22,10 @@
     // DATABASE 
     //////////////////////////////////////////////////////////////////
     
-    define("DB_HOST", "SERVER");
-    define("DB_USER", "USERNAME");
-    define("DB_PASS", "PASSWORD");
-    define("DB_NAME", "DATABASE");
+    define("DB_HOST", "host");
+    define("DB_USER", "username");
+    define("DB_PASS", "password");
+    define("DB_NAME", "database");
     
     //////////////////////////////////////////////////////////////////
     // ROOT PATH (Requires trailing and leading slash, "/" for root)
@@ -94,6 +94,7 @@
     require_once('system/classes/class.feed.php');
     require_once('system/classes/class.tag.php');
     require_once('system/classes/class.image.php');
+    require_once('system/classes/class.apiql.php');
     require_once('system/loader.php');
     }
 
