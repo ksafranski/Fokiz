@@ -64,7 +64,7 @@ class Tag {
     
     public function GetList(){
         $tags = array();
-        if($this->pag_id=='all' && $this->pag_id!=0){ // Get full list
+        if($this->pag_id==0){ // Get full list
             $rs = mysql_query("SELECT DISTINCT tag_title FROM cms_tags ORDER BY tag_title");
         }else{ // Get page specific
             $rs = mysql_query("SELECT DISTINCT tag_title FROM cms_tags WHERE tag_pag_id=" . $this->pag_id . " ORDER BY tag_title");
