@@ -9,16 +9,14 @@ $modules = array();
 // Build modules array
 foreach(glob('../../../../../modules/*', GLOB_ONLYDIR) as $dir) {
     $dir = str_replace("../../../../../modules/","",$dir);
-    if(file_exists("../../../../../modules/$dir/config.php")){
-        require("../../../../../modules/$dir/config.php");
-        $modules[] = array(
-            'folder'=>$dir,
-            'name'=>$module->name,
-            'desc'=>$module->description,
-            'param'=>$module->param,
-            'param_options'=>$module->param_options
-        );
-    }
+    require("../../../../../modules/$dir/config.php");
+    $modules[] = array(
+        'folder'=>$dir,
+        'name'=>$module->name,
+        'desc'=>$module->description,
+        'param'=>$module->param,
+        'param_options'=>$module->param_options
+    );
 }
 
 ?>
@@ -83,7 +81,8 @@ Module:<br />
 ?>
 
 <!-- This content gets inserted... -->
-<input type="hidden" id="embed" value="STUFF..." />
+<input type="hidden" id="embed" value="none" />
+<input type="hidden" id="class" value="none" />
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery-1.6.2.min.js"%3E%3C/script%3E'));</script>
@@ -91,7 +90,8 @@ Module:<br />
 <script>
 
     selector = $('#module_selector');
-    embed = $('#embed');
+    m_embed = $('#embed');
+    m_class = $('#class');
 
     $(function(){
     
@@ -113,10 +113,11 @@ Module:<br />
     function buildEmbed(){
         var param = $('#'+selector.val()+'>#param').val();
         if(param!="" && param!=undefined){
-            embed.val('[[module:'+selector.val()+'=>'+$('#'+selector.val()+'>[name="param"]').val()+']]');
+            m_embed.val('[[module:'+selector.val()+'=>'+$('#'+selector.val()+'>[name="param"]').val()+']]');
         }else{
-            embed.val('[[module:'+selector.val()+']]');
+            m_embed.val('[[module:'+selector.val()+']]');
         }
+        m_class.val(selector.val());
     }
 
 </script>
