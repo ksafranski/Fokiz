@@ -33,13 +33,14 @@
                  {
                       for (var i=0; i<window.frames.length; i++) {
                          if(window.frames[i].name == 'iframeinsertmodule') {
-                            var content = window.frames[i].document.getElementById("embed").value;
+                            var module_content = window.frames[i].document.getElementById("embed").value;
+                            var module_class = window.frames[i].document.getElementById("class").value;
                          }
                       }
-                      final_html = escape('<div class="module">'+content+'</div><p>&nbsp;</p>');
+                      final_html = escape('');
                       editor.insertHtml(final_html);
                       updated_editor_data = editor.getData();
-                      clean_editor_data = updated_editor_data.replace(final_html,'<div class="module">'+content+'</div><p>&nbsp;</p>');
+                      clean_editor_data = updated_editor_data.replace(final_html,'<div class="module '+module_class+'">'+module_content+'</div><p>&nbsp;</p>');
                       editor.setData(clean_editor_data);
                  }
               };
