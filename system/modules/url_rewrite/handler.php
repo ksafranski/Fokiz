@@ -26,8 +26,10 @@
 
     $current_path = formatPath($_SERVER['REQUEST_URI']);
     
-    if(array_key_exists($current_path, $url_rewrites)){
-        $redirect = $url_rewrites[$current_path];
+    if(count($url_rewrites)){
+        if(array_key_exists($current_path, $url_rewrites)){
+            $redirect = $url_rewrites[$current_path];
+        }
     }
     
     if($redirect){
