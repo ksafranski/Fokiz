@@ -1,7 +1,4 @@
-<?php 
-require_once('config.php');
-require_once('system/modules/url_rewrite/handler.php'); 
-?>
+<?php require_once('config.php'); ?>
 <!doctype html>
 
 <!--[if lte IE 8 ]><html class="ie"><![endif]-->
