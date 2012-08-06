@@ -11,12 +11,12 @@
     nav ul a, nav ul a:link, nav ul a:visited { display: block; position: relative; float: none; padding: 15px 10px; clear: both; }
         
     /* 2ND LEVEL */  
-        nav ul ul { display: none; position: relative; width: 100%; top: 0; left: 0; margin: 0; padding: 0; background: none; border-bottom: 2px solid #757575; }
+        nav ul ul { display: none; position: relative; width: 100%; top: 0; left: 0; margin: 0; padding: 0; background: none; border-bottom: 2px solid #757575; z-index: 999999; }
             nav ul ul li { background: #cfcfcf; }
             nav ul ul a, nav ul ul a:link, nav ul ul a:visited { padding: 15px 10px 15px 25px; color: #000; }
         
         /* 3RD LEVEL */
-        nav ul ul ul { top: 0; left: 0; }
+        nav ul ul ul { top: 0; left: 0; z-index: 999999; }
             nav ul ul ul li { background: #b3b3b3; }
             nav ul ul ul a, nav ul ul ul a:link, nav ul ul ul a:visited { padding: 15px 10px 15px 45px; }
         
