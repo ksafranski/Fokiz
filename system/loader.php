@@ -33,6 +33,7 @@
     $load->content        = "";
     $load->admin_elements = "";
     $load->follow         = "";
+    $load->tags           = "";
     
 
     //////////////////////////////////////////////////////////////////
@@ -88,6 +89,8 @@
         $load->keywords = ltrim(rtrim(implode(",",$keywords),","),","); // Remove lead/trail comma's and compile
     $load->content = render($page->content,$load);
     $load->page_id = $page->id;
+    // Load tags
+    $load->tags = $page->tags;
     
     // Follow Links
     if($follow){
