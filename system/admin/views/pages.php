@@ -21,10 +21,10 @@
 require_once('../controllers/pages.php'); 
 
 ?>
-
-<button class="right" onclick="modal.open('system/admin/views/page_editor.php?id=new',500);"><?php lang('Create New Page'); ?></button>
-
 <h1><?php lang('Page Manager'); ?></h1>
+
+<button onclick="modal.open('system/admin/views/page_editor.php?id=new',500);"><?php lang('Create New Page'); ?></button>
+<div class="adm_v_spacer"></div>
 
 <input type="hidden" id="cur_page" value="<?php echo($_SESSION['cur_page']); ?>" />
 <input type="hidden" id="def_page" value="<?php echo($system->default_page); ?>" />
@@ -32,19 +32,32 @@ require_once('../controllers/pages.php');
 <table id="pages" class="adm_datatable">
     <thead>
         <tr>
+            <th class="no-sort"></th>
             <th><?php lang('Title'); ?></th>
             <th><?php lang('Description'); ?></th>
             <th><?php lang('Keywords'); ?></th>
             <th><?php lang('Created'); ?></th>
             <th><?php lang('Modified'); ?></th>
-            <th></th>
-            <th></th>
+            <th class="no-sort"></th>
+            <th class="no-sort"></th>
         </tr>
     </thead>
     <tbody>
         <?php foreach($list as $page){ ?>
-        <tr valign="top" id="page_<?php echo($page['id']); ?>">
-            <td><?php echo($page['title']); ?></td>
+        <tr valign="top" id="page_<?php echo($page['id']); ?>" <?php if($page['pending']){ echo("style=\"font-weight:bold;\""); } ?>>
+            <td>
+            <?php 
+            if($page['pending']){
+                echo("<a title=\"Pending Changes\" href=\"" . BASE_URL . $page['url'] . "\"><img width=\"12\" height=\"12\" src=\"system/admin/editor/filemgr/images/icon_file_rename.png\"></a>");
+            }
+            ?>
+            </td>
+            <td>
+            <?php
+            
+            echo($page['title']); 
+             
+            ?></td>
             <td><span class="adm_breakable"><?php echo($page['description']); ?></span></td>
             <td><span class="adm_breakable"><?php echo($page['keywords']); ?></span></td>
             <td><?php echo(formatTimestamp($page['created'])); ?></td>
