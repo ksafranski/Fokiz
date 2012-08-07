@@ -22,7 +22,7 @@
     // DATABASE 
     //////////////////////////////////////////////////////////////////
     
-    define("DB_HOST", "localhost");
+    define("DB_HOST", "127.0.1.1");
     define("DB_USER", "fokiz_db_user");
     define("DB_PASS", "fokiz_db_password");
     define("DB_NAME", "fokiz_database");

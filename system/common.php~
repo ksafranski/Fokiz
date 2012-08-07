@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-    define("VERSION","2.5");
+    define("VERSION","2.4");
 
     //////////////////////////////////////////////////////////////////
     // Error reporting  
