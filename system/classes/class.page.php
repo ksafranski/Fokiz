@@ -35,7 +35,7 @@ class Page {
     public $content       = "";
     public $temp          = false;
     public $pub_notes     = "";
-    public $tags          = "";
+    
     
     //////////////////////////////////////////////////////////////////
     // METHODS
@@ -67,7 +67,6 @@ class Page {
             $this->created = "0000-00-00 00:00:00";
             $this->modified = "0000-00-00 00:00:00";
             $this->content = file_get_contents(BASE_PATH . "templates/404.php");
-            $this->tags = "";
         }else{        
             $loaded = false;        
             // Admin login - check for temp/edits
@@ -83,11 +82,6 @@ class Page {
                     $this->created = "0000-00-00 00:00:00";
                     $this->modified = "0000-00-00 00:00:00";
                     $this->content = $this->MapContent();
-                    $rs2 = mysql_query("SELECT * FROM cms_tags WHERE tag_pag_id=" . $this->id);
-                    $this->tags =array();
-                    while($row2 = mysql_fetch_array($rs2)){
-                        array_push($this->tags, $row2['tag_title']);
-                    }
                     $loaded = true;
                 }
             }          
@@ -104,11 +98,6 @@ class Page {
                 $this->created = $row['pag_created'];
                 $this->modified = $row['pag_modified'];
                 $this->content = $this->MapContent();
-                $this->tags =array();
-                $rs2 = mysql_query("SELECT * FROM cms_tags WHERE tag_pag_id=" . $this->id);
-                    while($row2 = mysql_fetch_array($rs2)){
-                       array_push($this->tags, $row2['tag_title']);
-                    }
             }
         }
     }
@@ -349,11 +338,37 @@ class Page {
                     "description" => stripslashes($row['pag_description']),
                     "keywords"    => stripslashes($row['pag_keywords']),
                     "created"     => $row['pag_created'],
-                    "modified"    => $row['pag_modified']
+                    "modified"    => $row['pag_modified'],
+                    "pending"     => $this->CheckPending($row['pag_id'])
                 ); 
             }
         }
         return $output; 
+    
+    }
+    
+    //////////////////////////////////////////////////////////////////
+    // CHECK PENDING SAVE
+    //////////////////////////////////////////////////////////////////
+    
+    public function CheckPending($id){
+    
+        $pending = false;
+
+        // Check page edits
+        $rs = mysql_query("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=$id");
+        if(mysql_num_rows($rs)!=0){ $pending = true; }
+        
+        // Check block edits
+        $rs = mysql_query("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=$id");
+        if(mysql_num_rows($rs)!=0){
+            while($row=mysql_fetch_array($rs)){
+                $rsCheckBlock = mysql_query("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=" . $row['map_blk_id']);
+                if(mysql_num_rows($rsCheckBlock)!=0){ $pending = true; break; } 
+            }
+        }
+        
+        return $pending;
     
     }
     
