@@ -34,7 +34,7 @@ require_once('../controllers/bar.php');
     <li><a onclick="modal.open('system/admin/views/pages.php',700);"><?php lang('Page Manager'); ?></a></li>
     <li><a onclick="modal.open('system/admin/views/navigation.php',600);"><?php lang('Navigation'); ?></a></li>
     <li><a onclick="modal.open('system/admin/views/system.php',500);"><?php lang('Sitewide Settings'); ?></a></li>
-    <li><a onclick="modal.open('system/admin/views/users.php',400);"><?php lang('User Management'); ?></a></li>
+    <li><a onclick="modal.open('system/admin/views/users.php',500);"><?php lang('User Management'); ?></a></li>
 </ul>
 <?php } ?>
 

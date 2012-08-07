@@ -22,9 +22,11 @@ require_once('../controllers/users.php');
 
 ?>
 
-<button class="right" onclick="editUser('new');"><?php lang('Create New User'); ?></button>
-
 <h1><?php lang('User Management'); ?></h1>
+
+<button onclick="editUser('new');"><?php lang('Create New User'); ?></button>
+
+<div class="adm_v_spacer"></div>
 
 <input id="cur_user" type="hidden" value="<?php echo($_SESSION['admin']); ?>" />
 
@@ -33,9 +35,9 @@ require_once('../controllers/users.php');
         <tr>
             <th><?php lang('Username'); ?></th>
             <th><?php lang('Type'); ?></th>
-            <th width="5"><?php lang('Modify'); ?></th>
-            <th width="5"><?php lang('Password'); ?></th>
-            <th width="5"></th>
+            <th width="5" class="no-sort"></th>
+            <th width="5" class="no-sort"></th>
+            <th width="5" class="no-sort"></th>
         </tr>
     </thead>
     <tbody>
@@ -44,7 +46,7 @@ require_once('../controllers/users.php');
             <td><?php echo($user['login']); ?></td>
             <td><?php if($user['type']==0){ lang('Administrator'); }else{ lang('Editor'); } ?></td>
             <td class="adm_datatable_center"><a onclick="editUser(<?php echo($user['id']); ?>);"><?php lang('Settings'); ?></a></td>
-            <td class="adm_datatable_center"><a onclick="changePassword(<?php echo($user['id']); ?>);"><?php lang('Change'); ?></a></td>
+            <td class="adm_datatable_center"><a onclick="changePassword(<?php echo($user['id']); ?>);"><?php lang('Password'); ?></a></td>
             <td class="adm_datatable_center"><a onclick="deleteUser(<?php echo($user['id']); ?>);"><?php lang('Delete'); ?></a></td>
         </tr>
         <?php } ?>

@@ -245,11 +245,24 @@
     var datatable = {
         
         init : function(id){
-            $('#'+id).tableScroll({ height: 300 });
-            $('#'+id+' tr').hover(function(){
-                $(this).children('td').addClass('dt_hover');
-            },function(){
-                $(this).children('td').removeClass('dt_hover');
+            // Build sorting array
+            //"aoColumns": [null,null,{ "bSortable": false },null]
+            var aoColumns = [];
+            $('#'+id+' thead th').each( function(){
+                if($(this).hasClass('no-sort')){
+                    aoColumns.push({ "bSortable": false });
+                }else{
+                    aoColumns.push(null);
+                }
+            });
+            $('#'+id).dataTable({
+                "bJQueryUI": true,
+                "sPaginationType": "full_numbers",
+                "aoColumns": aoColumns,
+                "fnDrawCallback": function(){
+                  $('table#'+id+' td').bind('mouseenter', function () { $(this).parent().children().each(function(){$(this).addClass('datatablerowhighlight');}); });
+                  $('table#'+id+' td').bind('mouseleave', function () { $(this).parent().children().each(function(){$(this).removeClass('datatablerowhighlight');}); });
+                }
             });
         }
         

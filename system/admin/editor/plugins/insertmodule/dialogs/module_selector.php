@@ -83,8 +83,7 @@ Module:<br />
 ?>
 
 <!-- This content gets inserted... -->
-<input type="hidden" id="embed" value="none" />
-<input type="hidden" id="class" value="none" />
+<input type="hidden" id="embed" value="STUFF..." />
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery-1.6.2.min.js"%3E%3C/script%3E'));</script>
@@ -92,8 +91,7 @@ Module:<br />
 <script>
 
     selector = $('#module_selector');
-    m_embed = $('#embed');
-    m_class = $('#class');
+    embed = $('#embed');
 
     $(function(){
     
@@ -115,11 +113,10 @@ Module:<br />
     function buildEmbed(){
         var param = $('#'+selector.val()+'>#param').val();
         if(param!="" && param!=undefined){
-            m_embed.val('[[module:'+selector.val()+'=>'+$('#'+selector.val()+'>[name="param"]').val()+']]');
+            embed.val('[[module:'+selector.val()+'=>'+$('#'+selector.val()+'>[name="param"]').val()+']]');
         }else{
-            m_embed.val('[[module:'+selector.val()+']]');
+            embed.val('[[module:'+selector.val()+']]');
         }
-        m_class.val(selector.val());
     }
 
 </script>

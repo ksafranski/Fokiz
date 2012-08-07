@@ -144,34 +144,11 @@
 #adm_modal label { display: block; font-weight: bold; color: #666; margin: 15px 0 5px 0; }
 #adm_modal input, #adm_modal select, #adm_modal textarea { display: block; width: 100%; margin-bottom: 5px; }
 
+.adm_v_spacer { clear: both; display: block; width: 100%; height: 10px; }
+
 /* DATATABLES */
 
 .adm_datatable { width: 100%; }
-.tablescroll {  }
-.tablescroll td, .tablescroll_wrapper, .tablescroll_head, .tablescroll_foot { border:1px solid #ccc; }
-.tablescroll th, .tablescroll td { padding:5px 10px; background-color: #f2f2f2; padding: 5px 10px; text-align: left; cursor: pointer; }
-.tablescroll th { font-weight: bold; border:1px solid #ccc;
-    background: rgb(247,247,247); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(219,219,219,1) 100%, rgba(214,214,214,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,1)), color-stop(100%,rgba(219,219,219,1)), color-stop(100%,rgba(214,214,214,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(219,219,219,1) 100%,rgba(214,214,214,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(219,219,219,1) 100%,rgba(214,214,214,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(219,219,219,1) 100%,rgba(214,214,214,1) 100%); /* IE10+ */
-    background: linear-gradient(top, rgba(247,247,247,1) 0%,rgba(219,219,219,1) 100%,rgba(214,214,214,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-9 */
-}
-.tablescroll_wrapper { border-left:0; } 
-.tablescroll_head {  }
-.tablescroll thead td { border-right:0; border-bottom:0; }
-.tablescroll tbody td { border-right:0; border-bottom:0; }
-.tablescroll tbody tr.first td { border-top:0; }
-.tablescroll_foot { font-weight:bold; background-color:#eee; border-left:0; border-top:0; margin-top:3px; }
-.tablescroll tfoot td { border-right:0; border-bottom:0; }
-
-td.adm_datatable_center { text-align: center !important; }
-
-td.dt_hover { background-color: #eaebf7 !important; }
-
 .adm_breakable { word-wrap: break-word; word-break: break-all; }
 
 /* LOGIN */
