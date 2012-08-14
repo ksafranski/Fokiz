@@ -30,7 +30,6 @@ require_once('../controllers/block_editor.php');
 
     saved = false;
 
-    var codemirror_rootpath = 'system/admin/editor/codemirror/';
     var instance = "adm_content_editor";
     if (CKEDITOR.instances[instance]) { CKEDITOR.remove(CKEDITOR.instances[instance]); } // Cleanup (AJAX)
     var editor = CKEDITOR.replace(instance,{

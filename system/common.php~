@@ -166,7 +166,7 @@
             foreach($aryMatch[1] as $m_key=>$m_val) {
                 if (!array_key_exists($aryMatch[0][$m_key],$aryInsert)){
                     $cur_key = $aryMatch[2][$m_key];
-                    switch($m_val){
+                    switch($val){
                         case 'module':
                             $path = "";
                             $param = "";
