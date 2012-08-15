@@ -18,6 +18,8 @@ require_once('system/modules/url_rewrite/handler.php');
     <script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js">IE7_PNG_SUFFIX=".png";</script>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="<?php echo(FOKIZ_PATH); ?>css/reset.css" media="screen">
+    <link rel="stylesheet" href="<?php echo(FOKIZ_PATH); ?>css/templates.css" media="screen">
     <link rel="stylesheet" href="<?php echo(FOKIZ_PATH); ?>css/screen.css" media="screen">
     <link rel="stylesheet" href="<?php echo(FOKIZ_PATH); ?>css/mobile.css" media="screen and (max-width: 600px)" />
     <link rel="stylesheet" href="<?php echo(FOKIZ_PATH); ?>css/print.css" media="print">

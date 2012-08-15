@@ -1,6 +1,3 @@
-@import url("reset.css");
-@import url("templates.css");
-
 /* DOCUMENT */
 
     html { width: 100%; height: 100%; overflow: scroll; font: normal 14px Georgia, Palatino Linotype, Book Antiqua, Times, serif; color: #1a1a1a; line-height: 175%; }
