@@ -1,8 +1,9 @@
 <?php require_once('config.php'); ?>
 
-<button class="right" onclick="b_editor.open('new','no');">Add New Block</button>
-
 <h1>Common Blocks</h1>
+
+<button onclick="b_editor.open('new','no');">Add New Block</button>
+<br><br>
 
 <div id="adm_error"></div>
 
