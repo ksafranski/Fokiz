@@ -1,7 +1,7 @@
 /* DOCUMENT */
 
     html { width: 100%; height: 100%; overflow: scroll; font: normal 14px Georgia, Palatino Linotype, Book Antiqua, Times, serif; color: #1a1a1a; line-height: 175%; }
-    body { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
+    body { max-width: 1000px; margin: 0 auto; padding: 0 30px; background-color: #fff; }
     
 /* GLOBALS */
 

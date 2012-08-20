@@ -50,8 +50,8 @@ require_once('system/modules/url_rewrite/handler.php');
     
     <?php echo($load->admin_elements); ?>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php echo(FOKIZ_PATH); ?>js/jquery-1.6.2.min.js"%3E%3C/script%3E'));</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php echo(FOKIZ_PATH); ?>js/jquery-1.7.2.min.js"%3E%3C/script%3E'));</script>
 
 <!-- Default Scripts -->
 <script src="<?php echo(FOKIZ_PATH); ?>js/jquery.responsinav.min.js"></script>
