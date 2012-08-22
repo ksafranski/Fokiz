@@ -12,7 +12,7 @@
     $module->load           = "default.php";
     $module->css            = "screen.css";
     $module->js             = "common.js";
-    $module->param          = "Recipient Email Address";
+    $module->param          = "Recipient Email Address or Comma-Separated List";
     $module->param_options  = "";
     
     //////////////////////////////////////////////////////////////////

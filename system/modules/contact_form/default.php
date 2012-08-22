@@ -19,6 +19,7 @@ $id = rand(1,10000);
     <div class="contact_form_thank_you" id="contact_form_thank_you_<?php echo($id); ?>"></div>
     
     <input type="hidden" name="To" value="<?php echo($param); ?>" />
+    <input type="hidden" name="Form" value="<?php echo($module->name); ?>" />
 
     <label>Name*</label>
     <input type="text" name="Name" class="contact_form_required" />
