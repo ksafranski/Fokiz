@@ -53,8 +53,8 @@
         $URL = 'http';
         if(!empty($_SERVER['HTTPS'])){ $URL .= "s"; }
         $URL .= "://";
-        if($_SERVER["SERVER_PORT"]!="80" && $_SERVER["SERVER_PORT"]!="443"){ $URL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]; } 
-        else { $URL .= $_SERVER["SERVER_NAME"]; }
+        if($_SERVER["SERVER_PORT"]!="80" && $_SERVER["SERVER_PORT"]!="443"){ $URL .= $_SERVER['HTTP_HOST'].":".$_SERVER["SERVER_PORT"]; } 
+        else { $URL .= $_SERVER['HTTP_HOST']; }
         return $URL . FOKIZ_PATH;
     }
     
