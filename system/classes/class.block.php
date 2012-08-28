@@ -54,7 +54,7 @@ class Block {
         }
         
         // Load live block contents //////////////////////////////////
-        if($this->temp==false){
+        if(!$this->temp){
             $rs = mysql_query("SELECT * FROM cms_blocks WHERE blk_id=" . $this->id);
             if(mysql_num_rows($rs)!=0){
                 $row = mysql_fetch_array($rs);
@@ -72,7 +72,7 @@ class Block {
     public function Save(){
     
         // Save temp/edit block //////////////////////////////////////
-        if($this->temp==true){
+        if($this->temp){
             $rs = mysql_query("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=" . $this->id);
             if(mysql_num_rows($rs)==0){
                 // Create temp

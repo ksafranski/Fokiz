@@ -98,7 +98,7 @@ class Image{
             
             // Square crop
             
-            if($this->square==true){
+            if($this->square){
                 $rszWidth = $this->max;
                 $rszHeight = $this->max;
                 

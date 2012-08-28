@@ -38,7 +38,7 @@
 #adm_bar a, #adm_modal a, #adm_bar a:link, #adm_modal a:link, #adm_bar a:visited, #adm_modal a:visited { color: #244970 !important; text-decoration: none; }
 #adm_bar a:hover, #adm_modal a:hover { text-decoration: underline; }
 
-#adm_bar_contents { font: normal 13px 'Ubuntu', Verdana, Arial, sans-serif; height: 29px; line-height: 200%; padding: 11px 10px; overflow: hidden; }
+#adm_bar_contents { font: normal 13px 'Ubuntu', Verdana, Arial, sans-serif; height: 50px; line-height: 200%; padding: 11px 10px; overflow: hidden; }
 
 #adm_bar_control { position: absolute; bottom: -10px; left: 0; width: 100%; height: 10px; background: none; }
 #adm_bar_control a { display: block; width: 30px; height: 17px; margin: 0 auto; background: #999; border: 2px solid #fff; cursor: pointer;

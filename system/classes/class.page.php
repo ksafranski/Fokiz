@@ -92,7 +92,7 @@ class Page {
                 }
             }          
             // Load live content
-            if($loaded==false){
+            if(!$loaded){
                 // Load Page
                 $rs = mysql_query("SELECT * FROM cms_pages WHERE pag_id=" . $this->id);
                 $row = mysql_fetch_array($rs);
@@ -239,7 +239,7 @@ class Page {
         $this->FormatURL();
     
         // Save temp/edit page ///////////////////////////////////////
-        if($this->temp==true){
+        if($this->temp){
             $rs = mysql_query("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=" . $this->id);
             if(mysql_num_rows($rs)==0){
                 // Create temp
