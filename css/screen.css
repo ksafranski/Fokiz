@@ -35,7 +35,7 @@
         
     input, select, textarea, button { display: block; width: 100%; padding: 8px 10px; margin: 5px 0 15px 0; color: #4d4d4d; border: 1px solid #ccc; background: #fff;
         box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
-        -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+        border-radius: 3px;
     }
     
     textarea { font-family: Arial, Helvetica, sans-serif; font-size: 1em; min-height: 100px; }
@@ -48,7 +48,7 @@
         outline: none;
         background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.25, rgb(224,224,224)), color-stop(0.75, rgb(240,240,240)));
         background-image: -moz-linear-gradient(center bottom, rgb(224,224,224) 25%, rgb(240,240,240) 75%);
-        -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+        border-radius: 3px;
     }
     
     button:hover, input[type="button"]:hover, input[type="submit"]:hover, button:focus, input[type="button"]:focus, input[type="submit"]:focus {
@@ -56,8 +56,6 @@
         border: 1px solid #bababa;
         background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.25, rgb(212,212,212)), color-stop(0.75, rgb(240,240,240)));
         background-image: -moz-linear-gradient(center bottom, rgb(212,212,212) 25%, rgb(240,240,240) 75%);
-        -webkit-box-shadow: 1px 1px 1px 0px rgba(100, 100, 100, .1);
-        -moz-box-shadow: 1px 1px 1px 0px rgba(100, 100, 100, .1);
         box-shadow: 1px 1px 1px 0px rgba(100, 100, 100, .1);
     }
             
