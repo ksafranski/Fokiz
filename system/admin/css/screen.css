@@ -168,7 +168,7 @@
 
 /* MISC */
 
-#adm_modal .nav_col, #adm_modal .nav_col_last { width: 180px; float: left; margin: 0 25px 0 0; }
+#adm_modal .nav_col, #adm_modal .nav_col_last { width: 168px; float: left; margin: 0 25px 0 0; }
 #adm_modal .nav_col_last { margin: 0; }
 #adm_modal .add_nav { margin: -10px -10px 0 10px; float: right; }
 #adm_modal .nav_col button, #adm_modal .nav_col_last button { display: block; padding: 1px 10px 3px 10px; }

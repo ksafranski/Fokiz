@@ -50,7 +50,7 @@ require_once('../controllers/navigation.php');
     <input type="hidden" name="level" />
     <input type="hidden" name="parent" />
     <input type="hidden" name="index" />
-    <table style="width:610px;">
+    <table style="width:100%;">
         <tr>
             <td><label><?php lang('Title'); ?></label></td>
             <td><label><?php lang('URL'); ?></label></td>
