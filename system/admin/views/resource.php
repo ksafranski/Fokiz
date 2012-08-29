@@ -18,7 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+require_once('../../../config.php');
+
 ?>
+<div>
 <h1><?php echo(urldecode($_GET['title'])); ?></h1> 
-<iframe width="100%" height="100%" style="border: 2px solid #fff; height: <?php echo($_GET['height']-85); ?>px;" frameborder="0" src="<?php echo($_GET['ext_url']); ?>"></iframe>
+<iframe width="100%" height="100%" style="border: 2px solid #fff; height: <?php echo($_GET['height']-115); ?>px;" frameborder="0" src="<?php echo($_GET['ext_url']); ?>"></iframe>
 <button onclick="modal.hide();"><?php lang('Close'); ?></button>
+<div class="clear"></div>
+</div>
