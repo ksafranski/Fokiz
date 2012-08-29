@@ -44,7 +44,7 @@ require_once('../controllers/user_editor.php');
 
 </div>
 
-<button id="adm_btn_save" class="btn_left" onclick="saveUser();"><?php lang('Save'); ?></button><button class="btn_right" onclick="modal.open('system/admin/views/users.php',400);"><?php lang('Close'); ?></button>
+<button id="adm_btn_save" class="btn_left" onclick="saveUser();"><?php lang('Save'); ?></button><button class="btn_right" onclick="modal.open('system/admin/views/users.php',500);"><?php lang('Close'); ?></button>
 
 <script>
 
