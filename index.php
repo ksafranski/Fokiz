@@ -55,6 +55,7 @@ require_once('system/modules/url_rewrite/handler.php');
 
 <!-- Default Scripts -->
 <script src="<?php echo(FOKIZ_PATH); ?>js/jquery.responsinav.min.js"></script>
+<script src="<?php echo(FOKIZ_PATH); ?>js/jquery.css3finalize.js"></script>
 <script src="<?php echo(FOKIZ_PATH); ?>js/common.js"></script>
 
 <?php echo($load->add_js); ?>
