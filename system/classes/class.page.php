@@ -184,7 +184,6 @@ class Page {
         $cur_url = $rowCur['pag_url'];
 
         $new_url = $rowCur['pag_url'];
-        // $rsNew = mysql_query("SELECT ptp_url FROM cms_pages_temp WHERE ptp_pag_id=" . $this->id);
         $rsNew = $conn->prepare("SELECT ptp_url FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($this->id));
         if($rsNew->rowCount() != 0){
             $rowNew = $rsNew->fetch();
@@ -285,18 +284,11 @@ class Page {
             $rs = $conn->prepare("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($this->id));
             if($rs->rowCount() == 0){
                 // Create temp
-                // $rs = mysql_query("INSERT INTO cms_pages_temp (ptp_pag_id,ptp_title,ptp_template,ptp_url,ptp_description,ptp_keywords) VALUES ("
-                //     . $this->id . ",'" . scrub($this->title) . "'," . $this->template . ",'" . $this->url . "','" . scrub($this->description) . "','" . scrub($this->keywords) . "')");
-                // $this->id = mysql_insert_id();
-
                 $rs = $conn->prepare("INSERT INTO cms_pages_temp (ptp_pag_id,ptp_title,ptp_template,ptp_url,ptp_description,ptp_keywords) VALUES (?,?,?,?,?,?)");
                 $rs->execute(array($this->id, $this->title, $this->template, $this->url, $this->description, $this->keywords));
                 $this->id = $conn->lastInsertId();
             }else{
                 // Update temp
-                // $rs = mysql_query("UPDATE cms_pages_temp SET ptp_title='" . scrub($this->title) . "', ptp_template=" . $this->template . ", ptp_url='" . $this->url
-                //     . "', ptp_description='" . scrub($this->description) . "', ptp_keywords='" . scrub($this->keywords) . "' WHERE ptp_pag_id=" . $this->id);
-
                 $rs = $conn->prepare("UPDATE cms_pages_temp SET ptp_title=?, ptp_template=?, ptp_url=?, ptp_description=?, ptp_keywords=? WHERE ptp_pag_id=?");
                 $rs->execute(array($this->title, $this->template, $this->url, $this->description, $this->keywords, $this->id));
             }
@@ -305,10 +297,6 @@ class Page {
         }else{
             if($this->id==0){
                 // Create live
-                // $rs = mysql_query("INSERT INTO cms_pages (pag_title,pag_template,pag_url,pag_description,pag_keywords,pag_created,pag_modified) VALUES ('"
-                //     . scrub($this->title) . "'," . $this->template . ",'" . $this->url . "','" . scrub($this->description) . "','" . scrub($this->keywords) . "',now(),now())");
-                // $_SESSION['cur_page'] = mysql_insert_id();
-
                 $rs = $conn->prepare("INSERT INTO cms_pages (pag_title,pag_template,pag_url,pag_description,pag_keywords,pag_created,pag_modified) VALUES (?,?,?,?,?,now(),now())");
                 $rs->execute(array($this->title, $this->template, $this->url, $this->description, $this->keywords));
                 $_SESSION['cur_page'] = $conn->lastInsertId();
@@ -316,9 +304,6 @@ class Page {
                 $return = $this->url;
             }else{
                 // Update live
-                // $rs = mysql_query("UPDATE cms_pages SET pag_title='" . scrub($this->title) . "', pag_template=" . $this->template . ", pag_url='" . $this->url
-                //     . "', pag_description='" . scrub($this->description) . "', pag_keywords='" . scrub($this->keywords) . "', pag_modified=now() WHERE pag_id=" . $this->id);
-
                 $rs = $conn->prepare("UPDATE cms_pages SET pag_title=?, pag_template=?, pag_url=?, pag_description=?, pag_keywords=?, pag_modified=now() WHERE pag_id=?");
                 $rs->execute(array($this->title, $this->template, $this->url, $this->description, $this->keywords, $this->id));
             }
@@ -340,7 +325,6 @@ class Page {
         $blk_count = $templates[$this->template]['blocks'];
         $i = 1;
         while($i<=$blk_count){
-            // $rs = mysql_query("SELECT * FROM cms_mapping WHERE map_pag_id=" . $_SESSION['cur_page'] . " AND map_region=" . ($i-1));
             $rs = $conn->prepare("SELECT * FROM cms_mapping WHERE map_pag_id=? AND map_region=?");
             $rs->execute(array($_SESSION['cur_page'], ($i-1)));
             if($rs->rowCount() == 0){
