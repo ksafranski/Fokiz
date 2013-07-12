@@ -37,15 +37,17 @@ $pag_id = $_GET['page'];
     $pending = false;
 
     // Check page edits
-    $rs = $conn->prepare("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($pag_id));
+    $rs = $conn->prepare("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=?");
+    $rs->execute(array($pag_id));
     if($rs->rowCount() != 0){ $pending = true; }
 
     // Check block edits
-    $rs = $conn->prepare("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=?")->execute(array($pag_id));
+    $rs = $conn->prepare("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=?");
+    $rs->execute(array($pag_id));
     if($rs->rowCount() != 0){
         while($row = $rs->fetch()){
-            $rsCheckBlock = $conn->prepare("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=?")
-                ->execute(array($row['map_blk_id']));
+            $rsCheckBlock = $conn->prepare("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=?");
+            $rsCheckBlock->execute(array($row['map_blk_id']));
             if($rsCheckBlock->rowCount() != 0){ $pending = true; break; }
         }
     }

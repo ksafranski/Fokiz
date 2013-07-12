@@ -45,7 +45,8 @@ class Block {
 
         // Admin login - check for temp/edits ////////////////////////
         if(isset($_SESSION['admin'])){
-            $rs = $conn->prepare("SELECT btp_content FROM cms_blocks_temp WHERE btp_blk_id=?")->execute(array($this->id));
+            $rs = $conn->prepare("SELECT btp_content FROM cms_blocks_temp WHERE btp_blk_id=?");
+            $rs->execute(array($this->id));
             if($rs->rowCount() != 0){
                 // Pull from temp/edits
                 $row = $rs->fetch();
@@ -75,14 +76,16 @@ class Block {
         global $conn;
         // Save temp/edit block //////////////////////////////////////
         if($this->temp){
-            $rs = $conn->prepare("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=?")->execute(array($this-id));
+            $rs = $conn->prepare("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=?");
+            $rs->execute(array($this-id));
             if($rs->rowCount() == 0){
                 // Create temp
                 $rs = $conn->prepare("INSERT INTO cms_blocks_temp (btp_blk_id,btp_content) VALUES (?,?)")
                     ->execute(array($this->id, $this->content));
             }else{
                 // Update temp
-                $rs = $conn->prepare("UPDATE cms_blocks_temp SET btp_content=? WHERE btp_blk_id=?")->execute(array($this->content , $this->id));
+                $rs = $conn->prepare("UPDATE cms_blocks_temp SET btp_content=? WHERE btp_blk_id=?")
+                    ->execute(array($this->content , $this->id));
             }
 
         // Save live content block ///////////////////////////////////
@@ -94,7 +97,8 @@ class Block {
                 $this->id = $rs->lastInsertId();
             }else{
                 // Update live
-                $rs = $conn->prepare("UPDATE cms_blocks SET blk_content=? WHERE blk_id=?")->execute(array($this->content, $this->id));
+                $rs = $conn->prepare("UPDATE cms_blocks SET blk_content=? WHERE blk_id=?")
+                    ->execute(array($this->content, $this->id));
             }
         }
     }
@@ -107,10 +111,12 @@ class Block {
         global $conn;
         // Delete temp/edits /////////////////////////////////////////
         if($this->$temp==true){
-            $rs = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?")->execute(array($this->id));
+            $rs = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?")
+                ->execute(array($this->id));
         // Delete live block /////////////////////////////////////////
         }else{
-            $rs = $conn->prepare("DELETE FROM cms_blocks WHERE blk_id=?")->execute(array($this->id));
+            $rs = $conn->prepare("DELETE FROM cms_blocks WHERE blk_id=?")
+                ->execute(array($this->id));
         }
     }
 

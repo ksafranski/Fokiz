@@ -69,7 +69,8 @@ class Navigation {
 
     public function GetNode(){
         global $conn;
-        $rs = $conn->prepare("SELECT * FROM cms_navigation WHERE nav_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("SELECT * FROM cms_navigation WHERE nav_id=?");
+        $rs->execute(array($this->id));
         if($rs->rowCount() != 0){
             $row = $rs->fetch();
             $this->parent = $row['nav_parent'];
@@ -86,8 +87,8 @@ class Navigation {
     public function ReturnLevelList(){
         global $conn;
         $list = array();
-        $rs = $conn->prepare("SELECT * FROM cms_navigation WHERE nav_parent=? ORDER BY nav_order")
-            ->execute(array($this->parent));
+        $rs = $conn->prepare("SELECT * FROM cms_navigation WHERE nav_parent=? ORDER BY nav_order");
+        $rs->execute(array($this->parent));
         if($rs->rowCount() != 0){
             while($row = $rs->fetch()){
                 $list[] = array(
@@ -111,8 +112,8 @@ class Navigation {
         // Create new node ///////////////////////////////////////////
         if($this->id=="new"){
             // Get last position
-            $rs = $conn->prepare("SELECT MAX(nav_order) as max_pos FROM cms_navigation WHERE nav_parent=?")
-                ->execute(array($this->parent));
+            $rs = $conn->prepare("SELECT MAX(nav_order) as max_pos FROM cms_navigation WHERE nav_parent=?");
+            $rs->execute(array($this->parent));
             if($rs->rowCount() == 0){
                 $this->order = 0;
             }else{
@@ -141,11 +142,11 @@ class Navigation {
         $cur_pos = $row['nav_order'];
         // Move object up
         if($this->move_dir==0){
-            $rs = $conn->prepare("SELECT nav_id, nav_order FROM cms_navigation WHERE nav_order<? AND nav_parent=? ORDER BY nav_order DESC")
-                ->execute(array($cur_pos, $this->parent));
+            $rs = $conn->prepare("SELECT nav_id, nav_order FROM cms_navigation WHERE nav_order<? AND nav_parent=? ORDER BY nav_order DESC");
+            $rs->execute(array($cur_pos, $this->parent));
         }else{
-            $rs = $conn->prepare("SELECT nav_id, nav_order FROM cms_navigation WHERE nav_order>? AND nav_parent=? ORDER BY nav_order")
-                ->execute(array($cur_pos, $this->parent));
+            $rs = $conn->prepare("SELECT nav_id, nav_order FROM cms_navigation WHERE nav_order>? AND nav_parent=? ORDER BY nav_order");
+            $rs->execute(array($cur_pos, $this->parent));
         }
 
         if($rs->rowCount() != 0){

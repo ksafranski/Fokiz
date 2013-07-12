@@ -43,8 +43,8 @@ class User {
         global $conn;
 
         $this->EncryptPassword();
-        $rs = $conn->prepare("SELECT usr_id, usr_type FROM cms_users WHERE usr_login=? AND usr_password=?")
-            ->execute(array($this->login, $this->password));
+        $rs = $conn->prepare("SELECT usr_id, usr_type FROM cms_users WHERE usr_login=? AND usr_password=?");
+        $rs->execute(array($this->login, $this->password));
 
         if($rs->rowCount() == 0){
             return 0;
@@ -161,8 +161,8 @@ class User {
         global $conn;
         $pass = 0;
 
-        $rs = $conn->prepare("SELECT usr_id FROM cms_users WHERE usr_login=? AND usr_id!=?")
-            ->execute(array($this->login, $this->id));
+        $rs = $conn->prepare("SELECT usr_id FROM cms_users WHERE usr_login=? AND usr_id!=?");
+        $rs->execute(array($this->login, $this->id));
 
         if($rs->rowCount() != 0){
             $pass = 1;

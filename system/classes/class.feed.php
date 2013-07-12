@@ -61,8 +61,8 @@ class Feed {
 
     public function CheckItem(){
         global $conn;
-        $rs = $conn->prepare("SELECT fed_id FROM cms_feed WHERE fed_pag_id=?")
-            ->execute(array($this->pag_id));
+        $rs = $conn->prepare("SELECT fed_id FROM cms_feed WHERE fed_pag_id=?");
+        $rs->execute(array($this->pag_id));
 
         if($rs->rowCount() == 0){
             return false;
@@ -119,8 +119,8 @@ class Feed {
         $rs = $conn->query("SELECT fed_pag_id, fed_pub_date FROM cms_feed ORDER BY fed_pub_date DESC");
         if ($rs->rowCount() > 0){
             while ($row = $rs->fetch()){
-                $rsPage = $conn->prepare("SELECT pag_title, pag_description, pag_url FROM cms_pages WHERE pag_id=?")
-                    ->execute(array($row['fed_pag_id']));
+                $rsPage = $conn->prepare("SELECT pag_title, pag_description, pag_url FROM cms_pages WHERE pag_id=?");
+                $rsPage->execute(array($row['fed_pag_id']));
                 if($rsPage->rowCount()!= 0){
                     $rowPage = $rsPage->fetch();
                     $xml_doc .=  $rootElementStart;
@@ -180,7 +180,5 @@ class Feed {
         $xml_doc .= "</urlset>";
         $fp = fopen($xmlfileName,'w');
         $write = fwrite($fp,$xml_doc);
-
     }
-
 }

@@ -49,15 +49,15 @@ class Page {
 
     public function GetPageID(){
         global $conn;
-        $stmt = $conn->prepare("SELECT pag_id FROM cms_pages WHERE pag_url=?");
-        $stmt->execute(array(strtolower($this->url)));
-        $rowCount = $stmt->rowCount();
+        $rs = $conn->prepare("SELECT pag_id FROM cms_pages WHERE pag_url=?");
+        $rs->execute(array(strtolower($this->url)));
+        $rowCount = $rs->rowCount();
 
         if($rowCount == 0){
             return 0;
         }
 
-        $row = $stmt->fetch();
+        $row = $rs->fetch();
         return $row['pag_id'];
     }
 
@@ -184,7 +184,8 @@ class Page {
         $cur_url = $rowCur['pag_url'];
 
         $new_url = $rowCur['pag_url'];
-        $rsNew = $conn->prepare("SELECT ptp_url FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($this->id));
+        $rsNew = $conn->prepare("SELECT ptp_url FROM cms_pages_temp WHERE ptp_pag_id=?");
+        $rsNew->execute(array($this->id));
         if($rsNew->rowCount() != 0){
             $rowNew = $rsNew->fetch();
             $new_url = $rowNew['ptp_url'];
@@ -215,8 +216,8 @@ class Page {
                 $blk_id = $row['map_blk_id'];
 
                 // Check for block changes
-                $rsUpdateCheck = $conn->prepare("SELECT btp_content FROM cms_blocks_temp WHERE btp_blk_id=?")
-                    ->execute(array($blk_id));
+                $rsUpdateCheck = $conn->prepare("SELECT btp_content FROM cms_blocks_temp WHERE btp_blk_id=?");
+                $rsUpdateCheck->execute(array($blk_id));
 
                 if($rsUpdateCheck->rowCount() != 0){
                     $rowUpdateCheck = $rsUpdateCheck->fetch();
@@ -227,14 +228,16 @@ class Page {
                     $rsSave->execute(array($blk_content, $blk_id));
 
                     // Delete Temp
-                    $rsDelTemp = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?")->execute(array($blk_id));
+                    $rsDelTemp = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?")
+                        ->execute(array($blk_id));
                 }
 
             }
         }
 
         // Remove temp ///////////////////////////////////////////////
-        $rs = $conn->prepare("DELETE FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_pages_temp WHERE ptp_pag_id=?")
+            ->execute(array($this->id));
 
         // Update sitemap.xml ////////////////////////////////////////
         $sitemap = new Feed();
@@ -256,7 +259,8 @@ class Page {
     public function Revert(){
         global $conn;
         // Loop through mappings and delete temp blocks
-        $rs = $conn->prepare("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=?");
+        $rs->execute(array($this->id));
         if($rs->rowCount() != 0){
             while($row = $rs->fetch()){
                 // Delete any lingering temp blocks
@@ -281,7 +285,8 @@ class Page {
 
         // Save temp/edit page ///////////////////////////////////////
         if($this->temp){
-            $rs = $conn->prepare("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($this->id));
+            $rs = $conn->prepare("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=?");
+            $rs->execute(array($this->id));
             if($rs->rowCount() == 0){
                 // Create temp
                 $rs = $conn->prepare("INSERT INTO cms_pages_temp (ptp_pag_id,ptp_title,ptp_template,ptp_url,ptp_description,ptp_keywords) VALUES (?,?,?,?,?,?)");
@@ -347,7 +352,8 @@ class Page {
         global $conn;
 
         // Loop through mappings and delete blocks
-        $rs = $conn->prepare("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=?");
+        $rs->execute(array($this->id));
 
         if($rs->rowCount() != 0){
             while($row = $rs->fetch()){
@@ -416,13 +422,15 @@ class Page {
         $pending = false;
 
         // Check page edits
-        $rs = $conn->prepare("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($id));
+        $rs = $conn->prepare("SELECT ptp_id FROM cms_pages_temp WHERE ptp_pag_id=?");
+        $rs->execute(array($id));
         if($rs->rowCount() != 0){
             $pending = true;
         }
 
         // Check block edits
-        $rs = $conn->prepare("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=?")->execute(array($id));
+        $rs = $conn->prepare("SELECT map_blk_id FROM cms_mapping WHERE map_pag_id=?");
+        $rs->execute(array($id));
         if($rs->rowCount() != 0){
             while($row = $rs->fetch()){
                 $rsCheckBlock = $conn->prepare("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=?")
@@ -447,12 +455,12 @@ class Page {
         $pass = 0;
 
         // Check live
-        $rs = $conn->prepare("SELECT pag_id FROM cms_pages WHERE pag_title=? AND pag_id!=?")
-            ->execute(array($this->title, $this->id));
+        $rs = $conn->prepare("SELECT pag_id FROM cms_pages WHERE pag_title=? AND pag_id!=?");
+        $rs->execute(array($this->title, $this->id));
         if($rs->rowCount() != 0){ $pass = 1; }
         // Check temp
-        $rs = $conn->prepare("SELECT ptp_pag_id FROM cms_pages_temp WHERE ptp_title=? AND ptp_pag_id!=?")
-            ->execute(array($this->title, $this->id));
+        $rs = $conn->prepare("SELECT ptp_pag_id FROM cms_pages_temp WHERE ptp_title=? AND ptp_pag_id!=?");
+        $rs->execute(array($this->title, $this->id));
         if($rs->rowCount() != 0){ $pass = 1; }
         // Check reserved
         if(isReserved($this->title)){ $pass = 1; }

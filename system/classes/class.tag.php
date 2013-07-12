@@ -73,8 +73,8 @@ class Tag {
             $rs = $conn->query("SELECT DISTINCT tag_title FROM cms_tags ORDER BY tag_title");
         // Get page specific
         }else{
-            $rs = $conn->prepare("SELECT DISTINCT tag_title FROM cms_tags WHERE tag_pag_id=? ORDER BY tag_title")
-                ->execute(array($this->pag_id));
+            $rs = $conn->prepare("SELECT DISTINCT tag_title FROM cms_tags WHERE tag_pag_id=? ORDER BY tag_title");
+            $rs->execute(array($this->pag_id));
         }
 
         if($rs->rowCount() != 0){
