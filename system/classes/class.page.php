@@ -433,8 +433,8 @@ class Page {
         $rs->execute(array($id));
         if($rs->rowCount() != 0){
             while($row = $rs->fetch()){
-                $rsCheckBlock = $conn->prepare("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=?")
-                    ->execute(array($row['map_blk_id']));
+                $rsCheckBlock = $conn->prepare("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=?");
+                $rsCheckBlock->execute(array($row['map_blk_id']));
                 if($rsCheckBlock->rowCount() != 0){
                     $pending = true;
                      break;

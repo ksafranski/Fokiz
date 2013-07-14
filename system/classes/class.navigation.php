@@ -169,7 +169,8 @@ class Navigation {
     public function Delete(){
         global $conn;
         function deleteChildren($id){
-            $rs = $conn->prepare("SELECT nav_id FROM cms_navigation WHERE nav_parent=?")->execute(array($id));
+            $rs = $conn->prepare("SELECT nav_id FROM cms_navigation WHERE nav_parent=?");
+            $rs->execute(array($id));
             if($rs->rowCount() != 0){
                 while($row = $rs->fetch()){
                     deleteChildren($row['nav_id']);
