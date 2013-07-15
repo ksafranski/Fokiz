@@ -37,7 +37,6 @@
         $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch (PDOException $e) {
         error_log("Connection failed: ". $e->getMessage());
-        return;
     }
 
     //////////////////////////////////////////////////////////////////
@@ -70,15 +69,14 @@
     // Check if installed
     //////////////////////////////////////////////////////////////////
 
-    $install = false;
-    try{
+    $install = true;
+
+    if(isset($conn)){
         $rs = $conn->query("SELECT sys_id FROM cms_system");
 
-        if(!$rs){
-            $install = true;
+        if($rs!=false){
+            $install = false;
         }
-    } catch (PDOException $e){
-        $install = true;
     }
 
     if($install){
