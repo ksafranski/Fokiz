@@ -41,7 +41,8 @@ class System {
 
     public function Load(){
         global $conn;
-        $row = $conn->query("SELECT * FROM cms_system")->fetch();
+        $rs = $conn->query("SELECT * FROM cms_system");
+        $row = $rs->fetch();
         $this->title = stripslashes($row['sys_title']);
         $this->description = stripslashes($row['sys_description']);
         $this->keywords = stripslashes($row['sys_keywords']);

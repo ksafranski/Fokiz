@@ -72,7 +72,11 @@
 
     $install = false;
     try{
-        $conn->query("SELECT sys_id FROM cms_system");
+        $rs = $conn->query("SELECT sys_id FROM cms_system");
+
+        if(!$rs){
+            $install = true;
+        }
     } catch (PDOException $e){
         $install = true;
     }
