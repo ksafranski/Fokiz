@@ -33,7 +33,7 @@
 
     try {
         $conn = new PDO(DB_DSN, DB_USER, DB_PASS);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
         $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch (PDOException $e) {
         error_log("Connection failed: ". $e->getMessage());
