@@ -1,19 +1,19 @@
 <?php
 
 /*
- * This file is part of the Fokiz Content Management System 
+ * This file is part of the Fokiz Content Management System
  * <http://www.fokiz.com>
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -21,76 +21,91 @@
     define("VERSION","2.5");
 
     //////////////////////////////////////////////////////////////////
-    // Error reporting  
+    // Error reporting
     //////////////////////////////////////////////////////////////////
-    
+
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
-    
+
     //////////////////////////////////////////////////////////////////
     // Database Connection
     //////////////////////////////////////////////////////////////////
-    
-    $conn = @mysql_connect(DB_HOST, DB_USER, DB_PASS);    
-    @mysql_select_db(DB_NAME, $conn);
-    
+
+    try {
+        $conn = new PDO(DB_DSN, DB_USER, DB_PASS);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+        $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    } catch (PDOException $e) {
+        error_log("Connection failed: ". $e->getMessage());
+    }
+
     //////////////////////////////////////////////////////////////////
     // Session initialization
     //////////////////////////////////////////////////////////////////
-    
+
     @session_start();
-    ini_set("session.cache_expire",360000);
+    ini_set("session.cache_expire", 360000);
     ini_set("session.gc_maxlifetime", "3600000");
-    
+
     //////////////////////////////////////////////////////////////////
     // Define Paths
     //////////////////////////////////////////////////////////////////
-    
+
     $_SERVER['DOCUMENT_ROOT'] = $_SERVER['DOCUMENT_ROOT'] . FOKIZ_PATH;
     define("BASE_PATH" , $_SERVER['DOCUMENT_ROOT']);
-    
+
     function defineURL(){
         $URL = 'http';
         if(!empty($_SERVER['HTTPS'])){ $URL .= "s"; }
         $URL .= "://";
-        if($_SERVER["SERVER_PORT"]!="80" && $_SERVER["SERVER_PORT"]!="443"){ $URL .= $_SERVER['HTTP_HOST'].":".$_SERVER["SERVER_PORT"]; } 
+        if($_SERVER["SERVER_PORT"]!="80" && $_SERVER["SERVER_PORT"]!="443"){ $URL .= $_SERVER['HTTP_HOST'].":".$_SERVER["SERVER_PORT"]; }
         else { $URL .= $_SERVER['HTTP_HOST']; }
         return $URL . FOKIZ_PATH;
     }
-    
+
     define("BASE_URL", defineURL());
-    
+
     //////////////////////////////////////////////////////////////////
     // Check if installed
     //////////////////////////////////////////////////////////////////
-    
-    $install = false;
-    $install_test=@mysql_query("SELECT sys_id FROM cms_system");
-    if(!$install_test){
-        $install = true;
-        if($_SERVER['PHP_SELF']!=FOKIZ_PATH.'system/install/index.php' && $_SERVER['PHP_SELF']!=FOKIZ_PATH.'system/install/process.php'){
-            header('location: ' . FOKIZ_PATH . 'system/install/index.php'); 
+
+    $install = true;
+
+    if(isset($conn)){
+        $rs = $conn->query("SELECT sys_id FROM cms_system");
+
+        if($rs!=false){
+            $install = false;
         }
     }
-    
+
+    if($install){
+        if($_SERVER['PHP_SELF']!=FOKIZ_PATH.'system/install/index.php' &&
+           $_SERVER['PHP_SELF']!=FOKIZ_PATH.'system/install/process.php')
+        {
+            header('location: ' . FOKIZ_PATH . 'system/install/index.php');
+        }
+    }
+
+
     //////////////////////////////////////////////////////////////////
     // Check Token
     //////////////////////////////////////////////////////////////////
-    
+
     function checkToken(){
-        if(!isset($_SESSION['admin'])){ 
+        if(!isset($_SESSION['admin'])){
             echo("<script>$(function(){ window.location = '/admin';  });</script>");
-            exit(); 
+            exit();
         }
     }
-    
+
     //////////////////////////////////////////////////////////////////
     // Set Language
     //////////////////////////////////////////////////////////////////
-    
+
     if(!defined('LANGUAGE')){ define("LANGUAGE","en"); }
     require_once('lang/' . strtolower(LANGUAGE) . '.php');
-    
+
     function lang($text){
         global $lang;
         if(isset($lang[$text])){
@@ -99,27 +114,27 @@
             echo("????????");
         }
     }
-    
+
     //////////////////////////////////////////////////////////////////
     // USER TYPES
     //////////////////////////////////////////////////////////////////
-    
+
     $usr_type[0] = $lang['Administrator'];
     $usr_type[1] = $lang['Editor'];
-    
+
     //////////////////////////////////////////////////////////////////
     // Default Block Content
     //////////////////////////////////////////////////////////////////
-    
+
     define("DEFAULT_BLOCK_CONTENT","<h2>Lorem Ipsum Dolor</h2><p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Phasellus quis lectus metus, at posuere neque. Sed pharetra 
-            nibh eget orci convallis at posuere leo convallis. Sed blandit 
-            augue vitae augue scelerisque bibendum. Vivamus sit amet 
-            libero turpis, non venenatis urna. In blandit, odio convallis 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus quis lectus metus, at posuere neque. Sed pharetra
+            nibh eget orci convallis at posuere leo convallis. Sed blandit
+            augue vitae augue scelerisque bibendum. Vivamus sit amet
+            libero turpis, non venenatis urna. In blandit, odio convallis
             suscipit venenatis, ante ipsum cursus augue.
             </p>");
-    
+
     //////////////////////////////////////////////////////////////////
     // Check Reserved Title/URL
     //////////////////////////////////////////////////////////////////
@@ -129,14 +144,6 @@
         $reserved = array("admin","logout");
         if(in_array(strtolower($t),$reserved)){ return true; }
         else{ return false; }
-    }
-    
-    //////////////////////////////////////////////////////////////////
-    // Scrub for Database Entry
-    //////////////////////////////////////////////////////////////////
-
-    function scrub($val){
-        return mysql_real_escape_string($val);
     }
 
     //////////////////////////////////////////////////////////////////
@@ -154,11 +161,11 @@
     function formatTimestamp($val){
         return str_replace(" ", "&nbsp;", date('n/j/y', strtotime($val)));
     }
-    
+
     //////////////////////////////////////////////////////////////////
     // RENDER CUSTOM VARIABLES (MODULES)
     //////////////////////////////////////////////////////////////////
-    
+
     function render($content,$load){
         preg_match_all('/\[\[(.+?):(.+?)\]\]/', $content, $aryMatch, PREG_PATTERN_ORDER);
         if(count($aryMatch[1])>0){
@@ -186,7 +193,7 @@
                                 if($module->js!=""){
                                     $jses = explode(",",$module->js);
                                     foreach($jses as $js){
-                                        $load->add_js .= "<script src=\"" . FOKIZ_PATH . "system/modules/" . $path . "/" . $js . "\"></script>"; 
+                                        $load->add_js .= "<script src=\"" . FOKIZ_PATH . "system/modules/" . $path . "/" . $js . "\"></script>";
                                     }
                                 }
                                 ob_start();
