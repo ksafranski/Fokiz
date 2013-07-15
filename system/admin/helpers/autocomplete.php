@@ -28,7 +28,7 @@ checkToken(); // Check Authentication Token
     //////////////////////////////////////////////////////////////////
 
     $rs = $conn->prepare("SELECT pag_title, pag_url FROM cms_pages WHERE pag_title LIKE ?");
-    $rs->bindValue(1, '$_GET["q"]%', PDO::PARAM_STR);
+    $rs->bindValue(1, '%$_GET["q"]%', PDO::PARAM_STR);
     $rs->execute();
     if($rs->rowCount() != 0){
         while($row = $rs->fetch()){
