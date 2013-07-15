@@ -120,13 +120,13 @@ class Navigation {
                 $row = $rs->fetch();
                 $this->order = $row['max_pos']+1;
             }
-            $rs = $conn->prepare("INSERT INTO cms_navigation(nav_parent,nav_title,nav_url,nav_order) VALUES (?,?,?,?)")
-                ->execute(array($this->parent, $this->title, $this->url, $this->order));
-            return $rs->lastInsertId();
+            $rs = $conn->prepare("INSERT INTO cms_navigation(nav_parent,nav_title,nav_url,nav_order) VALUES (?,?,?,?)");
+            $rs->execute(array($this->parent, $this->title, $this->url, $this->order));
+            return $conn->lastInsertId();
         // Update node ///////////////////////////////////////////////
         }else{
-            $rs = $conn->prepare("UPDATE cms_navigation SET nav_title=?, nav_url=? WHERE nav_id=?")
-                ->execute(array($this->title, $this->url, $this->id));
+            $rs = $conn->prepare("UPDATE cms_navigation SET nav_title=?, nav_url=? WHERE nav_id=?");
+            $rs->execute(array($this->title, $this->url, $this->id));
         }
     }
 
@@ -137,8 +137,9 @@ class Navigation {
     public function Move(){
         global $conn;
 
-        $rs = $conn->prepare("SELECT nav_order FROM cms_navigation WHERE nav_id=?")->execute(array($this->id));
-        $row = $rs->fetch;
+        $rs = $conn->prepare("SELECT nav_order FROM cms_navigation WHERE nav_id=?");
+        $rs->execute(array($this->id));
+        $row = $rs->fetch();
         $cur_pos = $row['nav_order'];
         // Move object up
         if($this->move_dir==0){
@@ -154,10 +155,10 @@ class Navigation {
             $replace = $row['nav_id'];
             $new_pos = $row['nav_order'];
             // Change Up
-            $conn->prepare("UPDATE cms_navigation SET nav_order=$new_pos WHERE nav_id=?")
-                ->execute(array($this->id));
-            $conn->prepare("UPDATE cms_navigation SET nav_order=$cur_pos WHERE nav_id=?")
-                ->execute(array($replace));
+            $rs2 = $conn->prepare("UPDATE cms_navigation SET nav_order=$new_pos WHERE nav_id=?");
+            $rs2->execute(array($this->id));
+            $rs3 = $conn->prepare("UPDATE cms_navigation SET nav_order=$cur_pos WHERE nav_id=?");
+            $rs3->execute(array($replace));
         }
 
     }
@@ -174,14 +175,16 @@ class Navigation {
             if($rs->rowCount() != 0){
                 while($row = $rs->fetch()){
                     deleteChildren($row['nav_id']);
-                    $conn->prepare("DELETE FROM cms_navigation WHERE nav_id=?")->execute(array($row['nav_id']));
+                    $rs2 = $conn->prepare("DELETE FROM cms_navigation WHERE nav_id=?");
+                    $rs2->execute(array($row['nav_id']));
                 }
             }
         }
         // Delete recursive children
         deleteChildren($this->id);
         // Delete object
-        $rs = $conn->prepare("DELETE FROM cms_navigation WHERE nav_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_navigation WHERE nav_id=?");
+        $rs->execute(array($this->id));
     }
 
 }

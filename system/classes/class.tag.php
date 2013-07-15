@@ -40,8 +40,8 @@ class Tag {
 
     public function Add(){
         global $conn;
-        $conn->prepare("INSERT INTO cms_tags (tag_title,tag_pag_id) VALUES (?,?)")
-            ->execute(array($this->title, $this->pag_id));
+        $rs = $conn->prepare("INSERT INTO cms_tags (tag_title,tag_pag_id) VALUES (?,?)");
+        $rs->execute(array($this->title, $this->pag_id));
     }
 
     //////////////////////////////////////////////////////////////////
@@ -52,11 +52,13 @@ class Tag {
         global $conn;
         // Delete by title
         if($this->title != ""){
-            $rs = $conn->prepare("DELETE FROM cms_tags WHERE tag_title=?")->execute(array($this->title));
+            $rs = $conn->prepare("DELETE FROM cms_tags WHERE tag_title=?");
+            $rs->execute(array($this->title));
         }
         // Delete by associated page id
         if($this->pag_id != 0){
-            $rs = $conn->prepare("DELETE FROM cms_tags WHERE tag_pag_id=?")->execute(array($this->pag_id));
+            $rs = $conn->prepare("DELETE FROM cms_tags WHERE tag_pag_id=?");
+            $rs->execute(array($this->pag_id));
         }
     }
 

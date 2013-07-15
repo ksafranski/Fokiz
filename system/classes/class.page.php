@@ -178,7 +178,8 @@ class Page {
         }
 
         // URL Change? Update linkages ///////////////////////////////
-        $rsCur = $conn->prepare("SELECT pag_url FROM cms_pages WHERE pag_id=?")->execute(array($this->id));
+        $rsCur = $conn->prepare("SELECT pag_url FROM cms_pages WHERE pag_id=?");
+        $rsCur->execute(array($this->id));
         $rowCur = $rsCur->fetch();
 
         $cur_url = $rowCur['pag_url'];
@@ -228,16 +229,16 @@ class Page {
                     $rsSave->execute(array($blk_content, $blk_id));
 
                     // Delete Temp
-                    $rsDelTemp = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?")
-                        ->execute(array($blk_id));
+                    $rsDelTemp = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?");
+                    $rsDelTemp->execute(array($blk_id));
                 }
 
             }
         }
 
         // Remove temp ///////////////////////////////////////////////
-        $rs = $conn->prepare("DELETE FROM cms_pages_temp WHERE ptp_pag_id=?")
-            ->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_pages_temp WHERE ptp_pag_id=?");
+        $rs->execute(array($this->id));
 
         // Update sitemap.xml ////////////////////////////////////////
         $sitemap = new Feed();
@@ -264,11 +265,12 @@ class Page {
         if($rs->rowCount() != 0){
             while($row = $rs->fetch()){
                 // Delete any lingering temp blocks
-                $rsDelTempBlock = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?")
-                    ->execute(array($row['map_blk_id']));
+                $rsDelTempBlock = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?");
+                $rsDelTempBlock->execute(array($row['map_blk_id']));
             }
         }
-        $rs = $conn->prepare("DELETE FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_pages_temp WHERE ptp_pag_id=?");
+        $rs->execute(array($this->id));
 
     }
 
@@ -358,21 +360,28 @@ class Page {
         if($rs->rowCount() != 0){
             while($row = $rs->fetch()){
                 // Delete block
-                $rsDelBlock = $conn->prepare("DELETE FROM cms_blocks WHERE blk_id=?")->execute(array($row['map_blk_id']));
+                $rsDelBlock = $conn->prepare("DELETE FROM cms_blocks WHERE blk_id=?");
+                $rsDelBlock->execute(array($row['map_blk_id']));
                 // Delete any lingering temp blocks
-                $rsDelTempBlock = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?")->execute(array($row['map_blk_id']));
+                $rsDelTempBlock = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?");
+                $rsDelTempBlock->execute(array($row['map_blk_id']));
             }
         }
         // Delete mappings
-        $rs = $conn->prepare("DELETE FROM cms_mapping WHERE map_pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_mapping WHERE map_pag_id=?");
+        $rs->execute(array($this->id));
         // Delete any lingering temp page
-        $rs = $conn->prepare("DELETE FROM cms_pages_temp WHERE ptp_pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_pages_temp WHERE ptp_pag_id=?");
+        $rs->execute(array($this->id));
         // Delete the page
-        $rs = $conn->prepare("DELETE FROM cms_pages WHERE pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_pages WHERE pag_id=?");
+        $rs->execute(array($this->id));
         // Delete feed entries
-        $rs = $conn->prepare("DELETE FROM cms_feed WHERE fed_pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_feed WHERE fed_pag_id=?");
+        $rs->execute(array($this->id));
         // Delete tags
-        $rs = $conn->prepare("DELETE FROM cms_tags WHERE tag_pag_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_tags WHERE tag_pag_id=?");
+        $rs->execute(array($this->id));
 
         // Update sitemap.xml
         $sitemap = new Feed();

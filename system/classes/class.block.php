@@ -80,25 +80,25 @@ class Block {
             $rs->execute(array($this-id));
             if($rs->rowCount() == 0){
                 // Create temp
-                $rs = $conn->prepare("INSERT INTO cms_blocks_temp (btp_blk_id,btp_content) VALUES (?,?)")
-                    ->execute(array($this->id, $this->content));
+                $rs = $conn->prepare("INSERT INTO cms_blocks_temp (btp_blk_id,btp_content) VALUES (?,?)");
+                $rs->execute(array($this->id, $this->content));
             }else{
                 // Update temp
-                $rs = $conn->prepare("UPDATE cms_blocks_temp SET btp_content=? WHERE btp_blk_id=?")
-                    ->execute(array($this->content , $this->id));
+                $rs = $conn->prepare("UPDATE cms_blocks_temp SET btp_content=? WHERE btp_blk_id=?");
+                $rs->execute(array($this->content , $this->id));
             }
 
         // Save live content block ///////////////////////////////////
         }else{
             if($this->id=="new"){
                 // Create live
-                $rs = $conn->prepare("INSERT INTO cms_blocks (blk_content,blk_created) VALUES (?, now())")
-                    ->execute(array($this->content));
-                $this->id = $rs->lastInsertId();
+                $rs = $conn->prepare("INSERT INTO cms_blocks (blk_content,blk_created) VALUES (?, now())");
+                $rs->execute(array($this->content));
+                $this->id = $conn->lastInsertId();
             }else{
                 // Update live
-                $rs = $conn->prepare("UPDATE cms_blocks SET blk_content=? WHERE blk_id=?")
-                    ->execute(array($this->content, $this->id));
+                $rs = $conn->prepare("UPDATE cms_blocks SET blk_content=? WHERE blk_id=?");
+                $rs->execute(array($this->content, $this->id));
             }
         }
     }
@@ -111,12 +111,12 @@ class Block {
         global $conn;
         // Delete temp/edits /////////////////////////////////////////
         if($this->$temp==true){
-            $rs = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?")
-                ->execute(array($this->id));
+            $rs = $conn->prepare("DELETE FROM cms_blocks_temp WHERE btp_blk_id=?");
+            $rs->execute(array($this->id));
         // Delete live block /////////////////////////////////////////
         }else{
-            $rs = $conn->prepare("DELETE FROM cms_blocks WHERE blk_id=?")
-                ->execute(array($this->id));
+            $rs = $conn->prepare("DELETE FROM cms_blocks WHERE blk_id=?");
+            $rs->execute(array($this->id));
         }
     }
 

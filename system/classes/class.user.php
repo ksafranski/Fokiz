@@ -65,14 +65,13 @@ class User {
         // Create Account ////////////////////////////////////////////
         if($this->id=="new"){
             $this->EncryptPassword();
-            $rs = $conn->prepare("INSERT INTO cms_users (usr_login,usr_password,usr_type) VALUES (?,?,?)")
-                ->execute(array($this->login, $this->password, $this->type));
-            $this->id = $rs->lastInsertId();
-
+            $rs = $conn->prepare("INSERT INTO cms_users (usr_login,usr_password,usr_type) VALUES (?,?,?)");
+            $rs->execute(array($this->login, $this->password, $this->type));
+            $this->id = $conn->lastInsertId();
         // Modify Account ////////////////////////////////////////////
         }else{
-            $rs = $conn->prepare("UPDATE cms_users SET usr_login=?, usr_type=? WHERE usr_id=?")
-                ->execute(array($this->login, $this->type, $this->id));
+            $rs = $conn->prepare("UPDATE cms_users SET usr_login=?, usr_type=? WHERE usr_id=?");
+            $rs->execute(array($this->login, $this->type, $this->id));
         }
     }
 
@@ -83,8 +82,8 @@ class User {
     public function ChangePassword(){
         global $conn;
         $this->EncryptPassword();
-        $rs = $conn->prepare("UPDATE cms_users SET usr_password=? WHERE usr_id=?")
-                ->execute(array($this->password, $this->id));
+        $rs = $conn->prepare("UPDATE cms_users SET usr_password=? WHERE usr_id=?");
+        $rs->execute(array($this->password, $this->id));
     }
 
     //////////////////////////////////////////////////////////////////
@@ -111,7 +110,8 @@ class User {
 
     public function Delete(){
         global $conn;
-        $conn->prepare("DELETE FROM cms_users WHERE usr_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("DELETE FROM cms_users WHERE usr_id=?");
+        $rs->execute(array($this->id));
     }
 
     //////////////////////////////////////////////////////////////////
@@ -146,7 +146,8 @@ class User {
     public function GetAccount(){
         global $conn;
 
-        $rs = $conn->prepare("SELECT * FROM cms_users WHERE usr_id=?")->execute(array($this->id));
+        $rs = $conn->prepare("SELECT * FROM cms_users WHERE usr_id=?");
+        $rs->execute(array($this->id));
         $row = $rs->fetch();
         $this->login = stripslashes($row['usr_login']);
         $this->type = $row['usr_type'];

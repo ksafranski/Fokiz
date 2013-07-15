@@ -41,8 +41,8 @@ class Feed {
     public function AddItem(){
         global $conn;
         if(!$this->CheckItem()){
-            $conn->prepare("INSERT INTO cms_feed (fed_pag_id,fed_pub_date) VALUES (?,now())")
-                ->execute(array($this->pag_id));
+            $rs = $conn->prepare("INSERT INTO cms_feed (fed_pag_id,fed_pub_date) VALUES (?,now())");
+            $rs->execute(array($this->pag_id));
         }
     }
 
@@ -52,7 +52,8 @@ class Feed {
 
     public function RemoveItem(){
         global $conn;
-        $conn->prepare("DELETE FROM cms_feed WHERE fed_pag_id=?")->execute(array($this->pag_id));
+        $rs = $conn->prepare("DELETE FROM cms_feed WHERE fed_pag_id=?");
+        $rs->execute(array($this->pag_id));
     }
 
     //////////////////////////////////////////////////////////////////
