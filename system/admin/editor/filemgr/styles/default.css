@@ -3,7 +3,7 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
         html {
-          font: normal 13px 'Ubuntu', Verdana, Arial, sans-serif; 
+          font: normal 13px 'Ubuntu', Verdana, Arial, sans-serif;
           line-height: 150%;
             color: #333;
             background: #dedede;
@@ -11,7 +11,7 @@
             height: 100%;
             margin: 0; padding: 0;
         }
-        
+
         body {
           margin: 0 auto;
           width: 670px;
@@ -21,19 +21,19 @@
 /* LINKS */
 
         a, a:link, a:visited { color: #666; text-decoration: none; cursor: pointer; outline: none; }
-        
+
         a:hover, a:active { color: #000; text-decoration: none; }
 
 /* HEADINGS */
 
         h1 { font: bold 2.5em 'Ubuntu', Verdana, Arial, sans-serif; }
-        
+
         h2 { font: normal 14px 'Ubuntu', Verdana, Arial, sans-serif; margin-top: 0; }
-        
+
         h3 { font: normal 18px 'Ubuntu', Verdana, Arial, sans-seriff; }
-        
+
         h4 { font: bold 1em 'Ubuntu', Verdana, Arial, sans-serif; }
-        
+
         h5 { font: bold 0.9em 'Ubuntu', Verdana, Arial, sans-serif; }
 
 /* PARAGRAPH */
@@ -43,30 +43,30 @@
 /* LISTS */
 
         ul { margin: 0 10px; padding: 5px; }
-            
+
         ul li { margin: 0 5px; padding: 5px 0 0 0; list-style: circle; }
-            
+
         ol { margin: 0 10px; padding: 5px 0; }
-        
+
         ol li { margin: 0 15px; padding: 5px 0 0 0; }
 
 /* FORMS */
 
         label { display: block; font-weight: bold; color: #666; margin: 15px 0 5px 0; font-size: 14px; }
-        
+
         input, textarea, select { width: 100%; display: inline !important; line-height: 100%; outline: none; padding: 5px 10px; margin: 5px 10px 0 0; background: #fff; color: #707070; border: 1px solid #b8b8b8; font: normal 13px 'Ubuntu', Verdana, Arial, sans-serif;
     -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
     box-sizing: border-box; }
-    
 
-        
+
+
           input:focus, textarea:focus, select:focus { border: 1px solid #8c8c8c; }
-          
+
           input[type="file"] { display: none; }
 #fileInput { display: none !important; }
-        
+
             .focus { border: 1px solid #003399; } /* ...Since :focus pseudo class won't work on IE */
-        
+
         .button { width: auto;padding: 5px 15px; cursor: pointer; color: #333; margin: 10px 10px 0 0; 'Ubuntu', Verdana, Arial, sans-serif;
     background: rgb(247,247,247); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(247,247,247,1) 0%, rgba(206,206,206,1) 100%); /* FF3.6+ */
@@ -76,7 +76,7 @@
     background: -ms-linear-gradient(top, rgba(247,247,247,1) 0%,rgba(206,206,206,1) 100%); /* IE10+ */
     background: linear-gradient(top, rgba(247,247,247,1) 0%,rgba(206,206,206,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#cecece',GradientType=0 ); /* IE6-9 */ }
-    
+
     .button:hover {
  background: rgb(255,255,255); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
@@ -85,45 +85,45 @@
     background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
     background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */   
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 }
 
 /* OTHER */
 
         hr { height: 1px; background: none; border:0; border-top: 1px dotted #ccc; }
-        
+
         table { border-collapse: collapse; }
-        
+
         strong { font-weight: bold; }
-        
+
         em { font-style: italic; }
-        
+
         .right { float: right; }
-        
+
         .left { float: left; }
-        
+
         .align-right { text-align: right; }
-        
+
         .align-left { text-align: left; }
-        
+
         .align-center { text-align: center; }
-        
+
         .align-justify { text-align: justify; }
-        
+
         .hide { display: none; }
-        
+
         .clear { clear: both; }
-        
+
         .bold { font-weight: bold; }
-        
+
         .italic { font-style: italic; }
-        
+
         .underline { border-bottom: 1px solid; }
-        
+
         .uppercase { text-transform: uppercase; }
-        
+
         .message { font-weight: bold; color: #990000; }
-        
+
         #name_warning { font-weight: bold; color: #990000; }
 
 
@@ -133,7 +133,7 @@
 
 #col_folders { width: 240px; float: left; margin: 0; padding: 0; }
 
-#col_files { width: 420px; float: left; margin: 0 0 0 10px; padding: 0; display: inline; }
+#col_files { width: 380px; float: left; margin: 0 0 0 10px; padding: 0; display: inline; }
 
 /* HEADER/BODY STYLING */
 
@@ -167,13 +167,13 @@
 a.action_icon { display: block; padding: 0 10px 0 20px; line-height: 18px; white-space: nowrap; float: left; }
 
   #action_divider { height: 18px; width: 1px; border-left: 1px dotted #999; padding: 0 20px 0 0; margin: 0 0 0 10px; float: left; }
-    
+
     #file_rename { background: url(../images/icon_file_rename.png) left top no-repeat; }
     #file_move { background: url(../images/icon_file_move.png) left top no-repeat; }
     #file_delete { background: url(../images/icon_file_delete.png) left top no-repeat; }
     #file_upload { background: url(../images/icon_file_upload.png) left top no-repeat; }
     #file_view { background: url(../images/icon_file_view.png) left top no-repeat; float: right; }
-    
+
     #folder_add { background: url(../images/icon_folder_add.png) left top no-repeat; }
     #folder_rename { background: url(../images/icon_folder_rename.png) left top no-repeat; }
     #folder_delete { background: url(../images/icon_folder_delete.png) left top no-repeat; }
@@ -342,16 +342,16 @@ UL.jqueryFileTree A.itemSelected {
 
 .jqmWindow {
     display: none;
-    
+
     position: fixed;
     top: 10%;
     left: 50%;
-    
+
     background: #eee;
     color: #333;
     border: 3px solid #eee;
     padding: 0;
-    
+
 }
 
 .modal_contents {
