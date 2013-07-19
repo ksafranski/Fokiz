@@ -1,5 +1,5 @@
 <?php require_once('../../../../config.php'); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,7 +24,7 @@ sessionId = "<?php echo session_id(); ?>";
         */
         var dialog = window.opener.CKEDITOR.dialog.getCurrent();
         <?php
-        
+
         if($_GET['type']=="File"){
             echo("dialog.setValueOf('info','protocol','');dialog.setValueOf('info','url',val);");
         }
@@ -34,7 +34,7 @@ sessionId = "<?php echo session_id(); ?>";
         if($_GET['type']=="Flash"){
             echo("dialog.setValueOf('info','src',val);");
         }
-    
+
         ?>
     self.close();
     }
@@ -50,13 +50,13 @@ sessionId = "<?php echo session_id(); ?>";
     <span></span>
     <h2><?php lang('Folders'); ?></h2>
   </div>
-  
+
   <div class="col_body">
-  
+
     <div id="folders"></div>
 
   </div>
-  
+
   <div id="folder_actions" class="actions">
   </div>
 
@@ -69,13 +69,13 @@ sessionId = "<?php echo session_id(); ?>";
     <span></span>
     <h2><?php lang('Files'); ?></h2>
   </div>
-  
+
   <div class="col_body">
-  
+
     <div id="files"></div>
 
   </div>
-  
+
   <div id="file_actions" class="actions">
   </div>
 

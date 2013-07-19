@@ -32,7 +32,7 @@
 
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 
     <head>
         <title><?php lang('Fokiz Installer'); ?></title>

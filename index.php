@@ -1,8 +1,8 @@
-<?php 
+<?php
 require_once('config.php');
-require_once('system/modules/url_rewrite/handler.php'); 
+require_once('system/modules/url_rewrite/handler.php');
 ?>
-<!doctype html>
+<!DOCTYPE html>
 
 <!--[if lte IE 8 ]><html class="ie"><![endif]-->
 
@@ -29,7 +29,7 @@ require_once('system/modules/url_rewrite/handler.php');
 <body data-id="<?php echo($load->page_id); ?>">
 
     <header>
-    
+
         <h1>Fokiz Content Management System</h1>
 
         <nav><?php echo($load->navigation); ?></nav>
@@ -42,12 +42,12 @@ require_once('system/modules/url_rewrite/handler.php');
 
     <div class="clear"></div> <!-- Clear out floated columns -->
     </div><!-- /#main -->
-       
+
     <footer>
     <div class="right"><?php echo($load->follow); ?></div>
     <p>Demo of Fokiz Content Management System &nbsp;&nbsp;&middot;&nbsp;&nbsp; Copyright &copy;<?php echo(date('Y')); ?></p>
     </footer>
-    
+
     <?php echo($load->admin_elements); ?>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
