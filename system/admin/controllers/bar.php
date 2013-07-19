@@ -27,8 +27,12 @@ $pag_id = $_GET['page'];
     // Check Login
     //////////////////////////////////////////////////////////////////
 
-    if(empty($_SESSION['admin'])){ require_once('login.php'); exit(); }
-    else{ $_SESSION['cur_page'] = $_GET['page']; }
+    if(empty($_SESSION['usr_id'])){
+        require_once('login.php');
+        exit();
+    }else{
+        $_SESSION['cur_page'] = $_GET['page'];
+    }
 
     //////////////////////////////////////////////////////////////////
     // Determine if page is pending changes

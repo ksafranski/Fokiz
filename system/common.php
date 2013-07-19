@@ -95,7 +95,7 @@
     //////////////////////////////////////////////////////////////////
 
     function checkToken(){
-        if(!isset($_SESSION['admin'])){
+        if(!isset($_SESSION['usr_id'])){
             echo("<script>$(function(){ window.location = '/admin';  });</script>");
             exit();
         }
@@ -132,6 +132,7 @@
 
     $usr_type[0] = $lang['Administrator'];
     $usr_type[1] = $lang['Editor'];
+
 
     //////////////////////////////////////////////////////////////////
     // Default Block Content

@@ -1,26 +1,26 @@
-<?php 
+<?php
 
 /*
- * This file is part of the Fokiz Content Management System 
+ * This file is part of the Fokiz Content Management System
  * <http://www.fokiz.com>
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-require_once('../controllers/user_editor.php'); 
-
+require_once('../controllers/user_editor.php');
 ?>
+
 <h1><?php lang('User Editor'); ?></h1>
 
 <input type="hidden" name="id" value="<?php echo($user->id); ?>" />
@@ -44,14 +44,17 @@ require_once('../controllers/user_editor.php');
 
 </div>
 
-<button id="adm_btn_save" class="btn_left" onclick="saveUser();"><?php lang('Save'); ?></button><button class="btn_right" onclick="modal.open('system/admin/views/users.php',500);"><?php lang('Close'); ?></button>
+<button id="adm_btn_save" class="btn_left" onclick="saveUser();"><?php lang('Save'); ?></button>
+<button class="btn_right" onclick="modal.open('system/admin/views/users.php',500);"><?php lang('Close'); ?></button>
 
 <script>
 
     $(function(){
-        $('input[name="login"]').keyup(function(){ checkUniqueLogin($('input[name="id"]').val(),$('input[name="login"]').val()) });
+        $('input[name="login"]').keyup(function(){
+            checkUniqueLogin($('input[name="id"]').val(),$('input[name="login"]').val())
+        });
     });
-    
+
     function saveUser(){
         var id = $('input[name="id"]').val();
         var l = $('input[name="login"]').val();
@@ -70,16 +73,16 @@ require_once('../controllers/user_editor.php');
             });
         }
     }
-    
+
     function checkPassStrength(){
         var p1 = $('input[name="password1"]').val();
         if(p1.length<8){ return false; }
         else{ return true; }
     }
-    
+
     function checkUniqueLogin(i,l){
         if(i=="new"){ i=0; }
-        var params = { 
+        var params = {
             i : i,
             l : l
         }

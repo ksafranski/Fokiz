@@ -44,7 +44,7 @@ class Block {
         global $conn;
 
         // Admin login - check for temp/edits ////////////////////////
-        if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['usr_id'])){
             $rs = $conn->prepare("SELECT btp_content FROM cms_blocks_temp WHERE btp_blk_id=?");
             $rs->execute(array($this->id));
             if($rs->rowCount() != 0){
@@ -77,26 +77,26 @@ class Block {
         // Save temp/edit block //////////////////////////////////////
         if($this->temp){
             $rs = $conn->prepare("SELECT btp_id FROM cms_blocks_temp WHERE btp_blk_id=?");
-            $rs->execute(array($this-id));
+            $rs->execute(array($this->id));
+            // Create temp
             if($rs->rowCount() == 0){
-                // Create temp
                 $rs = $conn->prepare("INSERT INTO cms_blocks_temp (btp_blk_id,btp_content) VALUES (?,?)");
                 $rs->execute(array($this->id, $this->content));
+            // Update temp
             }else{
-                // Update temp
                 $rs = $conn->prepare("UPDATE cms_blocks_temp SET btp_content=? WHERE btp_blk_id=?");
                 $rs->execute(array($this->content , $this->id));
             }
 
         // Save live content block ///////////////////////////////////
         }else{
+            // Create live
             if($this->id=="new"){
-                // Create live
                 $rs = $conn->prepare("INSERT INTO cms_blocks (blk_content,blk_created) VALUES (?, now())");
                 $rs->execute(array($this->content));
                 $this->id = $conn->lastInsertId();
+            // Update live
             }else{
-                // Update live
                 $rs = $conn->prepare("UPDATE cms_blocks SET blk_content=? WHERE blk_id=?");
                 $rs->execute(array($this->content, $this->id));
             }

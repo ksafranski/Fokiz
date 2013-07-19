@@ -83,7 +83,7 @@ class Page {
         }
 
         // Admin login - check for temp/edits
-        if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['usr_id'])){
 
             $rs = $conn->prepare("SELECT * FROM cms_pages_temp WHERE ptp_pag_id=?");
             $rs->execute(array($this->id));

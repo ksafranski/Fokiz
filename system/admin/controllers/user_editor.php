@@ -33,7 +33,7 @@ checkToken(); // Check Authentication Token
         if($_GET['id']=="new"){
             $user->id = "new";
             $user->login = "";
-            $user->type = 0;
+            $user->type = User::EDITOR;
         }else{
             $user->id = $_GET['id'];
             $user->GetAccount();

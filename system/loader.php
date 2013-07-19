@@ -114,7 +114,7 @@
 
     if((isset($_GET['load']) && $_GET['load']=="admin")
        || (isset($_GET['query']) && $_GET['query']=="admin")
-       || (isset($_SESSION['admin'])))
+       || (isset($_SESSION['usr_id'])))
     {
         $load->add_css .= "<link rel=\"stylesheet\" href=\"" . FOKIZ_PATH . "system/admin/css/screen.css\" media=\"screen\">\n";
         $load->add_css .= "<link rel=\"stylesheet\" href=\"" . FOKIZ_PATH . "system/admin/css/datatables.css\" media=\"screen\">\n";
