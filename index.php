@@ -17,6 +17,7 @@ require_once('system/modules/url_rewrite/handler.php');
     <script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js">IE7_PNG_SUFFIX=".png";</script>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link rel="icon" type="image/x-icon" href="<?php echo(BASE_URL); ?>favicon.ico" />
     <link rel="stylesheet" href="<?php echo(FOKIZ_PATH); ?>css/reset.css" media="screen">
     <link rel="stylesheet" href="<?php echo(FOKIZ_PATH); ?>css/templates.css" media="screen">
     <link rel="stylesheet" href="<?php echo(FOKIZ_PATH); ?>css/screen.css" media="screen">
