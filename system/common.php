@@ -68,6 +68,16 @@
     define("BASE_URL", defineURL());
 
     //////////////////////////////////////////////////////////////////
+    // Get Module Folder
+    //////////////////////////////////////////////////////////////////
+    function getModuleFolder($path){
+        $module_path = explode(DIRECTORY_SEPARATOR, dirname($path));
+        $module_path_nodes = count($module_path);
+        $result = $module_path[($module_path_nodes-1)];
+        return $result;
+    }
+
+    //////////////////////////////////////////////////////////////////
     // Check if installed
     //////////////////////////////////////////////////////////////////
 
@@ -132,7 +142,6 @@
 
     $usr_type[0] = $lang['Administrator'];
     $usr_type[1] = $lang['Editor'];
-
 
     //////////////////////////////////////////////////////////////////
     // Default Block Content
