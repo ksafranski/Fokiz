@@ -58,7 +58,9 @@
         $URL = 'http';
         if(!empty($_SERVER['HTTPS'])){ $URL .= "s"; }
         $URL .= "://";
-        if($_SERVER["SERVER_PORT"]!="80" && $_SERVER["SERVER_PORT"]!="443"){ $URL .= $_SERVER['HTTP_HOST'].":".$_SERVER["SERVER_PORT"]; }
+        if($_SERVER["SERVER_PORT"]!="80" && $_SERVER["SERVER_PORT"]!="443"){
+            $URL .= $_SERVER['HTTP_HOST'].":".$_SERVER["SERVER_PORT"];
+        }
         else { $URL .= $_SERVER['HTTP_HOST']; }
         return $URL . FOKIZ_PATH;
     }
@@ -112,6 +114,15 @@
             echo($lang[$text]);
         }else{
             echo("????????");
+        }
+    }
+
+    function getLang($text){
+        global $lang;
+        if(isset($lang[$text])){
+            return($lang[$text]);
+        }else{
+            return("????????");
         }
     }
 
