@@ -55,8 +55,8 @@
     $lang['Secondary'] = "Teine";
     $lang['Tertiary'] = "Kolmas";
     $lang['ACTIONS'] = "TEGEVUSED";
-    $lang['Move Up'] = "Liigu üles";
-    $lang['Move Down'] = "Liigu alla";
+    $lang['Move Up'] = "Liiguta üles";
+    $lang['Move Down'] = "Liiguta alla";
     $lang['This item is already at the first position.'] = "See on juba esimene.";
     $lang['This item is already at the last position.'] = "See on juba viimane.";
     $lang['Delete this item permanently?'] = "Kustuta see alatiseks?";
@@ -137,7 +137,7 @@
     $lang['Delete the selected user permanently?'] = "Kustuta kasutaja alatiseks?";
 
     $lang['Administrator'] = "Administraator";
-    $lang['Editor'] = "Redaktor";
+    $lang['Editor'] = "Sisuhaldur";
 
     // Installer /////////////////////////////////////////////////////
 
