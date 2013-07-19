@@ -8,8 +8,7 @@ require_once('system/modules/url_rewrite/handler.php');
 
 <head>
     <meta charset="utf-8">
-    <title>
-    <?php echo($load->title); ?></title>
+    <title><?php echo($load->title); ?></title>
     <meta name="description" content="<?php echo($load->description); ?>">
     <meta name="keywords" content="<?php echo($load->keywords); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

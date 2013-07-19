@@ -153,8 +153,10 @@
     function isReserved($t){
         // Defines CMS Action URLs
         $reserved = array("admin","logout");
-        if(in_array(strtolower($t),$reserved)){ return true; }
-        else{ return false; }
+        if(in_array(strtolower($t),$reserved)){
+            return true;
+        }
+        return false;
     }
 
     //////////////////////////////////////////////////////////////////
