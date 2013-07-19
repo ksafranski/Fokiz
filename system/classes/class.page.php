@@ -401,7 +401,7 @@ class Page {
         $output = array();
 
         $rs = $conn->query("SELECT * FROM cms_pages ORDER BY pag_title");
-        if($rs->rowCount == 0){
+        if($rs->rowCount() == 0){
             $output = 0;
         }else{
             while($row = $rs->fetch()){
