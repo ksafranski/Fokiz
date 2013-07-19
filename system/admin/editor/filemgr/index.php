@@ -24,15 +24,16 @@ sessionId = "<?php echo session_id(); ?>";
         */
         var dialog = window.opener.CKEDITOR.dialog.getCurrent();
         <?php
-
-        if($_GET['type']=="File"){
-            echo("dialog.setValueOf('info','protocol','');dialog.setValueOf('info','url',val);");
-        }
-        if($_GET['type']=="Images"){
-            echo("dialog.setValueOf('info','txtUrl',val);");
-        }
-        if($_GET['type']=="Flash"){
-            echo("dialog.setValueOf('info','src',val);");
+        if(isset($_GET['type'])){
+          if($_GET['type']=="File"){
+              echo("dialog.setValueOf('info','protocol','');dialog.setValueOf('info','url',val);");
+          }
+          if($_GET['type']=="Images"){
+              echo("dialog.setValueOf('info','txtUrl',val);");
+          }
+          if($_GET['type']=="Flash"){
+              echo("dialog.setValueOf('info','src',val);");
+          }
         }
 
         ?>
