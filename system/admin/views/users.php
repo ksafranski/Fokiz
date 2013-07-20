@@ -22,9 +22,9 @@ require_once('../controllers/users.php');
 
 ?>
 
-<h1><?php lang('User Management'); ?></h1>
+<h1><?php echo lang('User Management'); ?></h1>
 
-<button onclick="editUser('new');"><?php lang('Create New User'); ?></button>
+<button onclick="editUser('new');"><?php echo lang('Create New User'); ?></button>
 
 <div class="adm_v_spacer"></div>
 
@@ -33,8 +33,8 @@ require_once('../controllers/users.php');
 <table id="users" class="adm_datatable">
     <thead>
         <tr>
-            <th><?php lang('Username'); ?></th>
-            <th><?php lang('Type'); ?></th>
+            <th><?php echo lang('Username'); ?></th>
+            <th><?php echo lang('Type'); ?></th>
             <th width="5" class="no-sort"></th>
             <th width="5" class="no-sort"></th>
             <th width="5" class="no-sort"></th>
@@ -44,22 +44,30 @@ require_once('../controllers/users.php');
         <?php foreach($list as $user){ ?>
         <tr valign="top" id="user_<?php echo($user['id']); ?>">
             <td><?php echo($user['login']); ?></td>
-            <td><?php if($user['type']==0){ lang('Administrator'); }else{ lang('Editor'); } ?></td>
-            <td class="adm_datatable_center">
-                <a onclick="editUser(<?php echo($user['id']); ?>);"><?php lang('Settings'); ?></a>
+            <td>
+                <?php
+                    if($user['type']==0){
+                        echo lang('Administrator');
+                    }else{
+                        echo lang('Editor');
+                    }
+                ?>
             </td>
             <td class="adm_datatable_center">
-                <a onclick="changePassword(<?php echo($user['id']); ?>);"><?php lang('Password'); ?></a>
+                <a onclick="editUser(<?php echo($user['id']); ?>);"><?php echo lang('Settings'); ?></a>
             </td>
             <td class="adm_datatable_center">
-                <a onclick="deleteUser(<?php echo($user['id']); ?>);"><?php lang('Delete'); ?></a>
+                <a onclick="changePassword(<?php echo($user['id']); ?>);"><?php echo lang('Password'); ?></a>
+            </td>
+            <td class="adm_datatable_center">
+                <a onclick="deleteUser(<?php echo($user['id']); ?>);"><?php echo lang('Delete'); ?></a>
             </td>
         </tr>
         <?php } ?>
     </tbody>
 </table>
 
-<button onclick="modal.hide();"><?php lang('Close'); ?></button>
+<button onclick="modal.hide();"><?php echo lang('Close'); ?></button>
 
 <script>
     $(function(){
@@ -78,12 +86,12 @@ require_once('../controllers/users.php');
 
         var count = $('.adm_datatable tr').length;
         if(count==1){
-            alert('<?php lang('You must have at least one user in the system.'); ?>');
+            alert('<?php echo lang('You must have at least one user in the system.'); ?>');
         }else{
             if($('#cur_user').val()==id){
-                alert('<?php lang('You are currently logged in as this user. It cannot be deleted.'); ?>');
+                alert('<?php echo lang('You are currently logged in as this user. It cannot be deleted.'); ?>');
             }else{
-                var answer = confirm('<?php lang('Delete the selected user permanently?'); ?>');
+                var answer = confirm('<?php echo lang('Delete the selected user permanently?'); ?>');
                 if(answer){
                     $.get('system/admin/controllers/users.php?del='+id);
                     $('tr#user_'+id).remove();

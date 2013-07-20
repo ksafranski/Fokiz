@@ -21,31 +21,31 @@
 require_once('../controllers/user_editor.php');
 ?>
 
-<h1><?php lang('User Editor'); ?></h1>
+<h1><?php echo lang('User Editor'); ?></h1>
 
 <input type="hidden" name="id" value="<?php echo($user->id); ?>" />
 
 <div id="adm_error"></div>
-<label><?php lang('Username'); ?></label>
+<label><?php echo lang('Username'); ?></label>
 <input type="text" name="login" autofocus="true" value="<?php echo($user->login); ?>" />
 
-<label><?php lang('Account Type'); ?></label>
+<label><?php echo lang('Account Type'); ?></label>
 <select name="type">
     <?php echo($type_selections); ?>
 </select>
 
 <div<?php if($user->id!="new"){ echo(" style=\"display:none\""); } ?>>
 
-<label><?php lang('Password'); ?></label>
+<label><?php echo lang('Password'); ?></label>
 <input type="password" name="password1" />
 
-<label><?php lang('Verify Password'); ?></label>
+<label><?php echo lang('Verify Password'); ?></label>
 <input type="password" name="password2" />
 
 </div>
 
-<button id="adm_btn_save" class="btn_left" onclick="saveUser();"><?php lang('Save'); ?></button>
-<button class="btn_right" onclick="modal.open('system/admin/views/users.php',500);"><?php lang('Close'); ?></button>
+<button id="adm_btn_save" class="btn_left" onclick="saveUser();"><?php echo lang('Save'); ?></button>
+<button class="btn_right" onclick="modal.open('system/admin/views/users.php',500);"><?php echo lang('Close'); ?></button>
 
 <script>
 
@@ -62,11 +62,11 @@ require_once('../controllers/user_editor.php');
         var p1 = $('input[name="password1"]').val();
         var p2 = $('input[name="password2"]').val();
         if(p1!=p2){
-            errormsg.show('<?php lang('Passwords Do Not Match'); ?>');
+            errormsg.show('<?php echo lang('Passwords Do Not Match'); ?>');
         }else if(!checkPassStrength() && id=="new"){
-            errormsg.show('<?php lang('Password Minimum Of 8 Characters'); ?>');
+            errormsg.show('<?php echo lang('Password Minimum Of 8 Characters'); ?>');
         }else if(l==""){
-            errormsg.show('<?php lang('Username is Required'); ?>');
+            errormsg.show('<?php echo lang('Username is Required'); ?>');
         }else{
             $.post('system/admin/controllers/user_editor.php',{ i : id, t: t, l : l,  p : p1 },function(){
                 modal.open('system/admin/views/users.php',400);
@@ -88,7 +88,7 @@ require_once('../controllers/user_editor.php');
         }
         $.post('system/admin/controllers/user_editor.php?checklogin=t',params,function(data){
             if(data==1){
-                errormsg.show('<?php lang('Username Already In Use'); ?>');
+                errormsg.show('<?php echo lang('Username Already In Use'); ?>');
                 $('#adm_btn_save').attr('disabled', 'disabled').addClass('disabled');
                 return false;
             }else{

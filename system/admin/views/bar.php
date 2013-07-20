@@ -23,35 +23,37 @@ require_once('../controllers/bar.php');
 ?>
 <?php if($pending && $_SESSION['usr_type']==User::ADMIN){ ?>
     <button class="strong btn_left" style="margin-left: 10px;" onclick="modal.open('system/admin/views/publish.php?id='+$('body').attr('data-id'),500);">
-        <?php lang('Save &amp; Publish'); ?>
+        <?php echo lang('Save &amp; Publish'); ?>
     </button>
     <button class="btn_right" onclick="modal.open('system/admin/views/revert.php?id='+$('body').attr('data-id'),300);">
-        <?php lang('Revert'); ?>
+        <?php echo lang('Revert'); ?>
     </button>
 <?php } ?>
 
 <?php if(!$no_edit){ ?>
-    <button id="adm_btn_edit" class="btn_left" rel="0"><?php lang('Edit Content'); ?></button>
+    <button id="adm_btn_edit" class="btn_left" rel="0">
+        <?php echo lang('Edit Content'); ?>
+    </button>
     <button class="btn_right" onclick="modal.open('system/admin/views/page_editor.php?id='+$('body').attr('data-id'),500);">
-        <?php lang('Page Properties'); ?>
+        <?php echo lang('Page Properties'); ?>
     </button>
 <?php } ?>
 
-<button class="btn_left" onclick="modal.open('system/admin/views/assets.php',670);"><?php lang('Assets'); ?></button>
+<button class="btn_left" onclick="modal.open('system/admin/views/assets.php',670);"><?php echo lang('Assets'); ?></button>
 <?php if($_SESSION['usr_type']==User::ADMIN){ ?>
-    <button rel="components" id="adm_btn_components" class="btn_mid"><?php lang('Components'); ?></button>
+    <button rel="components" id="adm_btn_components" class="btn_mid"><?php echo lang('Components'); ?></button>
 <?php } ?>
 
 <?php echo($modules_button); ?>
 
-<button rel="resources" id="adm_btn_resources" class="btn_right"><?php lang('Resources'); ?></button>
+<button rel="resources" id="adm_btn_resources" class="btn_right"><?php echo lang('Resources'); ?></button>
 
 <?php if($_SESSION['usr_type']==User::ADMIN){ ?>
 <ul class="adm_dropdown" id="adm_components">
-    <li><a onclick="modal.open('system/admin/views/pages.php',700);"><?php lang('Page Manager'); ?></a></li>
-    <li><a onclick="modal.open('system/admin/views/navigation.php',600);"><?php lang('Navigation'); ?></a></li>
-    <li><a onclick="modal.open('system/admin/views/system.php',500);"><?php lang('Sitewide Settings'); ?></a></li>
-    <li><a onclick="modal.open('system/admin/views/users.php',500);"><?php lang('User Management'); ?></a></li>
+    <li><a onclick="modal.open('system/admin/views/pages.php',700);"><?php echo lang('Page Manager'); ?></a></li>
+    <li><a onclick="modal.open('system/admin/views/navigation.php',600);"><?php echo lang('Navigation'); ?></a></li>
+    <li><a onclick="modal.open('system/admin/views/system.php',500);"><?php echo lang('Sitewide Settings'); ?></a></li>
+    <li><a onclick="modal.open('system/admin/views/users.php',500);"><?php echo lang('User Management'); ?></a></li>
 </ul>
 <?php } ?>
 
@@ -70,7 +72,7 @@ require_once('../controllers/bar.php');
         }
     }else{
         echo("<li><a>");
-        lang('No Resources Available');
+        echo lang('No Resources Available');
         echo("</a></li>");
     }
     ?>
@@ -79,8 +81,8 @@ require_once('../controllers/bar.php');
 <?php echo($modules_dropdown); ?>
 
 <div class="right">
-    <button class="btn_left" onclick="modal.open('system/admin/views/password.php',300);"><?php lang('Password'); ?></button>
-    <button class="btn_mid" onclick="location.href='<?php echo(BASE_URL); ?>logout';"><?php lang('Log Out'); ?></button>
+    <button class="btn_left" onclick="modal.open('system/admin/views/password.php',300);"><?php echo lang('Password'); ?></button>
+    <button class="btn_mid" onclick="location.href='<?php echo(BASE_URL); ?>logout';"><?php echo lang('Log Out'); ?></button>
     <button onclick="modal.open('system/admin/views/about.php?id='+$('body').attr('data-id'),650);" class="btn_right">
         <img id="fokiz_logo" src="<?php echo(BASE_URL); ?>system/admin/images/fokiz_logo.png" />
     </button>

@@ -88,7 +88,7 @@ $pag_id = $_GET['page'];
 
     if($display_modules==true){
         // Create button
-        $modules_button = "<button rel=\"modules\" id=\"adm_btn_modules\" class=\"btn_mid\">" . getLang("Modules") .  "</button>";
+        $modules_button = "<button rel=\"modules\" id=\"adm_btn_modules\" class=\"btn_mid\">" . lang('Modules') .  "</button>";
 
         // Create Drop-Down
         $modules_dropdown = "<ul class=\"adm_dropdown\" id=\"adm_modules\">";

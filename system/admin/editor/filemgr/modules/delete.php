@@ -10,25 +10,25 @@ function recursive_remove_directory($directory, $empty=FALSE)
      {
          $directory = substr($directory,0,-1);
      }
-  
+
      // if the path is not valid or is not a directory ...
      if(!file_exists($directory) || !is_dir($directory))
      {
          // ... we return false and exit the function
          return FALSE;
-  
+
      // ... if the path is not readable
      }elseif(!is_readable($directory))
      {
          // ... we return false and exit the function
          return FALSE;
-  
+
      // ... else if the path is readable
      }else{
-  
+
          // we open the directory
          $handle = opendir($directory);
-  
+
          // and scan through the items inside
          while (FALSE !== ($item = readdir($handle)))
          {
@@ -38,13 +38,13 @@ function recursive_remove_directory($directory, $empty=FALSE)
              {
                  // we build the new path to delete
                  $path = $directory.'/'.$item;
-  
+
                  // if the new path is a directory
-                 if(is_dir($path)) 
+                 if(is_dir($path))
                  {
                      // we call this function with the new path
                      recursive_remove_directory($path);
-  
+
                  // if the new path is a file
                  }else{
                      // we remove the file
@@ -54,7 +54,7 @@ function recursive_remove_directory($directory, $empty=FALSE)
          }
          // close the directory
          closedir($handle);
-  
+
          // if the option to empty is not set to true
          if($empty == FALSE)
          {
@@ -89,7 +89,7 @@ if (!empty($_GET['del']))
         }
     $message = "$type " . $lang['Successfully Deleted'];
     }
-    
+
 if ($type=="Folder")
   {
     $path = substr_replace($path,"",-1); // Removes trailing slash
@@ -102,20 +102,20 @@ $dir = str_replace($node,"",$path);
 ?>
 <div class="modal_contents">
 <h3>Delete <?php echo($type); ?></h3>
-<?php 
+<?php
 
-if ($message!="") 
-  {    
-  echo("<div class=\"message\">$message</div>"); 
+if ($message!="")
+  {
+  echo("<div class=\"message\">$message</div>");
     }
 else
   {
 ?>
-<p class="bold"><?php lang('Are you sure you wish to delete the selected item?'); ?></p>
-<input type="button" class="button" value="<?php lang('Delete'); ?>" onclick="deleteItem('<?php echo(str_replace(" ","%20",$path)); ?>','<?php echo(strtolower($type)); ?>','<?php echo(str_replace(" ","%20",$dir)); ?>')" />
+<p class="bold"><?php echo lang('Are you sure you wish to delete the selected item?'); ?></p>
+<input type="button" class="button" value="<?php echo lang('Delete'); ?>" onclick="deleteItem('<?php echo(str_replace(" ","%20",$path)); ?>','<?php echo(strtolower($type)); ?>','<?php echo(str_replace(" ","%20",$dir)); ?>')" />
 <?php
   }
 ?>
-<input type="button" class="button" value="<?php lang('Close'); ?>" onclick="$('#dialog').jqmHide()" />
+<input type="button" class="button" value="<?php echo lang('Close'); ?>" onclick="$('#dialog').jqmHide()" />
 <div class="clear"></div>
 </div>

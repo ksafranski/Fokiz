@@ -17,26 +17,26 @@ if (!empty($_GET['save']))
 ?>
 <div class="modal_contents">
 <h3>Create Folder</h3>
-<?php 
+<?php
 
-if ($message!="") 
-  {    
-  echo("<div class=\"message\">$message</div>"); 
+if ($message!="")
+  {
+  echo("<div class=\"message\">$message</div>");
     }
 else
   {
 ?>
 <form name="addfolder" id="addfolder">
 <label>
-<?php lang('Folder Name'); ?>
+<?php echo lang('Folder Name'); ?>
 <input type="text" name="foldername" id="foldername" onkeyup="validName(this.value);" onKeyDown="return ignoreEnter(event)" />
-<div id="name_warning" style="display: none;"><?php lang('Invalid Folder Name'); ?></div>
+<div id="name_warning" style="display: none;"><?php echo lang('Invalid Folder Name'); ?></div>
 </label>
-<input type="button" class="button" id="save_button" value="<?php lang('Save'); ?>" onclick="addFolder('<?php echo($path); ?>',$('#foldername').val());" />
+<input type="button" class="button" id="save_button" value="<?php echo lang('Save'); ?>" onclick="addFolder('<?php echo($path); ?>',$('#foldername').val());" />
 <?php
   }
 ?>
-<input type="button" class="button" value="<?php lang('Close'); ?>" onclick="$('#dialog').jqmHide()" />
+<input type="button" class="button" value="<?php echo lang('Close'); ?>" onclick="$('#dialog').jqmHide()" />
 </form>
 <div class="clear"></div>
 </div>

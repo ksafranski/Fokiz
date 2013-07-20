@@ -29,10 +29,10 @@ else
         $openPath = BASE_URL . str_replace("//","",$assets) . str_replace(" ", "%20", $_GET['file']);
 
       ?>
-    <a onclick="popUp('<?php echo($openPath); ?>');" class="action_icon" id="file_view" target="_blank"><?php lang('Open'); ?></a>
-    <a onclick="openDialog('modules/rename.php?type=file&path=<?php echo(str_replace(" ", "%20", $_GET['file'])); ?>',300);" class="action_icon" id="file_rename"><?php lang('Rename'); ?></a>
+    <a onclick="popUp('<?php echo($openPath); ?>');" class="action_icon" id="file_view" target="_blank"><?php echo lang('Open'); ?></a>
+    <a onclick="openDialog('modules/rename.php?type=file&path=<?php echo(str_replace(" ", "%20", $_GET['file'])); ?>',300);" class="action_icon" id="file_rename"><?php echo lang('Rename'); ?></a>
     <?php if($_SESSION['usr_type']==User::ADMIN){ ?>
-    <a onclick="openDialog('modules/delete.php?type=file&path=<?php echo(str_replace(" ", "%20", $_GET['file'])); ?>',300);" class="action_icon" id="file_delete"><?php lang('Delete'); ?></a>
+    <a onclick="openDialog('modules/delete.php?type=file&path=<?php echo(str_replace(" ", "%20", $_GET['file'])); ?>',300);" class="action_icon" id="file_delete"><?php echo lang('Delete'); ?></a>
     <?php } ?>
     <div id="action_divider"></div>
     <?php
@@ -41,7 +41,7 @@ else
 if ($dir!="")
   {
     ?>
-  <a onclick="activateUploader('<?php echo($assets . str_replace(" ", "%20", $dir)); ?>', '<?php echo("/" . str_replace(" ", "%20", $dir)); ?>');" class="action_icon" id="file_upload"><?php lang('Upload'); ?></a>
+  <a onclick="activateUploader('<?php echo($assets . str_replace(" ", "%20", $dir)); ?>', '<?php echo("/" . str_replace(" ", "%20", $dir)); ?>');" class="action_icon" id="file_upload"><?php echo lang('Upload'); ?></a>
   <?php
     }
     ?>

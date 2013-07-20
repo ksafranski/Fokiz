@@ -121,19 +121,9 @@
     function lang($text){
         global $lang;
         if(isset($lang[$text])){
-            echo($lang[$text]);
-        }else{
-            echo("????????");
+            return $lang[$text];
         }
-    }
-
-    function getLang($text){
-        global $lang;
-        if(isset($lang[$text])){
-            return($lang[$text]);
-        }else{
-            return("????????");
-        }
+        return "????????";
     }
 
     //////////////////////////////////////////////////////////////////
