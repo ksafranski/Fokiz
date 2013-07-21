@@ -337,7 +337,7 @@ class Page {
             if($rs->rowCount() == 0){
                 // Create the block
                 $rsCreateBlock = $conn->prepare("INSERT INTO cms_blocks (blk_content,blk_created,blk_modified) VALUES (?,now(),now())");
-                $rsCreateBlock->execute(array(scrub(DEFAULT_BLOCK_CONTENT)));
+                $rsCreateBlock->execute(array(DEFAULT_BLOCK_CONTENT));
                 // Map the block
                 $rsMapBlock = $conn->prepare("INSERT INTO cms_mapping (map_pag_id,map_blk_id,map_region) VALUES (?,?,?)");
                 $rsMapBlock->execute(array($_SESSION['cur_page'], $conn->lastInsertId(), ($i-1)));

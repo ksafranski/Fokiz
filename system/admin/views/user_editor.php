@@ -44,8 +44,11 @@ require_once('../controllers/user_editor.php');
 
 </div>
 
-<button id="adm_btn_save" class="btn_left" onclick="saveUser();"><?php echo lang('Save'); ?></button>
-<button class="btn_right" onclick="modal.open('system/admin/views/users.php',500);"><?php echo lang('Close'); ?></button>
+<button id="adm_btn_save" class="btn_left" onclick="saveUser();">
+    <?php echo lang('Save'); ?>
+</button><button class="btn_right" onclick="modal.open('system/admin/views/users.php',500);">
+    <?php echo lang('Close'); ?>
+</button>
 
 <script>
 
@@ -62,11 +65,11 @@ require_once('../controllers/user_editor.php');
         var p1 = $('input[name="password1"]').val();
         var p2 = $('input[name="password2"]').val();
         if(p1!=p2){
-            errormsg.show('<?php echo lang('Passwords Do Not Match'); ?>');
+            errormsg.show("<?php echo lang('Passwords Do Not Match'); ?>");
         }else if(!checkPassStrength() && id=="new"){
-            errormsg.show('<?php echo lang('Password Minimum Of 8 Characters'); ?>');
+            errormsg.show("<?php echo lang('Password Minimum Of 8 Characters'); ?>");
         }else if(l==""){
-            errormsg.show('<?php echo lang('Username is Required'); ?>');
+            errormsg.show("<?php echo lang('Username is Required'); ?>");
         }else{
             $.post('system/admin/controllers/user_editor.php',{ i : id, t: t, l : l,  p : p1 },function(){
                 modal.open('system/admin/views/users.php',400);

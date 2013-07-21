@@ -19,7 +19,6 @@
 */
 
 require_once('../../../config.php');
-
 $text = urldecode($_GET['t']);
 
 echo lang($text);

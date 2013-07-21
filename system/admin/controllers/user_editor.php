@@ -19,8 +19,15 @@
 */
 
 require_once('../../../config.php');
-
+permitUser(User::ADMIN, User::EDITOR);
 checkToken(); // Check Authentication Token
+
+    //////////////////////////////////////////////////////////////////
+    // USER TYPES
+    //////////////////////////////////////////////////////////////////
+
+    $usr_type[User::ADMIN] = lang('Administrator');
+    $usr_type[User::EDITOR] = lang('Editor');
 
     //////////////////////////////////////////////////////////////////
     // Get Information
@@ -42,11 +49,13 @@ checkToken(); // Check Authentication Token
         // Build user-type selector
         $type_selections = "";
         foreach($usr_type as $key=>$type){
+            $type_selections .= "<option ";
+
             if($user->type==$key){
-                $type_selections .= "<option selected=\"selected\" value=\"$key\">$type</option>";
-            }else{
-                $type_selections .= "<option value=\"$key\">$type</option>";
+                $type_selections .= "selected=\"selected\" ";
             }
+
+            $type_selections .= "value=\"$key\">$type</option>";
         }
 
     }

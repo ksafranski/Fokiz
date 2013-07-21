@@ -112,6 +112,27 @@
     }
 
     //////////////////////////////////////////////////////////////////
+    // Validate role permissions
+    //////////////////////////////////////////////////////////////////
+
+    function permitUser(){
+        $users = func_get_args();
+        $usersCount = func_num_args();
+
+        if(!isset($_SESSION['usr_type'])){
+            debug_print_backtrace();
+            exit();
+        }
+
+        if(!in_array($_SESSION['usr_type'], $users)){
+            error_log("User-type: ". $_SESSION['usr_type']." is not permitted to access this functionality;");
+            exit();
+        } else {
+            error_log("Permitting user-type: ". $_SESSION['usr_type'].";");
+        }
+    }
+
+    //////////////////////////////////////////////////////////////////
     // Set Language
     //////////////////////////////////////////////////////////////////
 
@@ -125,13 +146,6 @@
         }
         return "????????";
     }
-
-    //////////////////////////////////////////////////////////////////
-    // USER TYPES
-    //////////////////////////////////////////////////////////////////
-
-    $usr_type[0] = $lang['Administrator'];
-    $usr_type[1] = $lang['Editor'];
 
     //////////////////////////////////////////////////////////////////
     // Default Block Content

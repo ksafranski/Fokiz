@@ -1,4 +1,7 @@
-<?php require_once('../../../../config.php'); ?>
+<?php
+  require_once('../../../../config.php');
+  permitUser(User::ADMIN, User::EDITOR);
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
