@@ -33,7 +33,7 @@ checkToken(); // Check Authentication Token
     // Delete User
     //////////////////////////////////////////////////////////////////
 
-    if(!empty($_GET['del'])){
+    if(!empty($_GET['del']) && ($_SESSION['admin'] == $_POST['i'] || $_SESSION['admin_type'] == 0)){
         $user = new User();
         $user->id = $_GET['del'];
         $user->Delete();
