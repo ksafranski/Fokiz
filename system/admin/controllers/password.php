@@ -26,19 +26,23 @@ checkToken(); // Check Authentication Token
     //////////////////////////////////////////////////////////////////
     // Determine Self or Admin Change
     //////////////////////////////////////////////////////////////////
+    const ADMIN_CHANGE = 0;
+    const SELF_CHANGE = 1;
 
     if(!empty($_GET['id'])){
         $usr_id = $_GET['id'];
-        $change_type = 1;
+        $change_type = ADMIN_CHANGE;
     }else{
         $usr_id = $_SESSION['usr_id'];
-        $change_type = 0;
+        $change_type = SELF_CHANGE;
     }
 
     //////////////////////////////////////////////////////////////////
     // Save Password
     //////////////////////////////////////////////////////////////////
-    if(!empty($_POST['p']) && ($_SESSION['admin'] == $_POST['i'] || $_SESSION['admin_type'] == 0)){
+    if(!empty($_POST['p'])
+       && ($_SESSION['usr_id'] == $_POST['i']  || $_SESSION['usr_type'] == User::ADMIN)
+    ){
         $user = new User();
         $user->id = $_POST['i'];
         $user->password = $_POST['p'];

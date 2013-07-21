@@ -35,7 +35,7 @@ require_once('../controllers/password.php');
 <button id="adm_btn_password" class="btn_left">
     <?php echo lang('Change Password'); ?>
 </button><button class="btn_right"
-    <?php if($change_type==0){ ?>
+    <?php if($change_type==SELF_CHANGE){ ?>
         onclick="modal.hide();"
     <?php }else{ ?>
         onclick="modal.open('system/admin/views/users.php',500);"
