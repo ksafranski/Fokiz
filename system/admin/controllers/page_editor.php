@@ -137,7 +137,7 @@ checkToken(); // Check Authentication Token
     if(!empty($_GET['checktitle'])){
         $page = new Page();
         $page->id = $_POST['id'];
-        $page->title = scrub($_POST['title']);       
+        $page->title = $_POST['title'];       
         // Return
         echo($page->CheckTitle());
     }
