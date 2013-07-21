@@ -28,7 +28,7 @@ checkToken(); // Check Authentication Token
 
     if(!empty($_GET['id'])){
         $block = new Block();
-        $block->id = mysql_real_escape_string($_GET['id']);
+        $block->id = $_GET['id'];
         $block->Load();
     }
 

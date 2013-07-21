@@ -37,8 +37,7 @@ checkToken(); // Check Authentication Token
     //////////////////////////////////////////////////////////////////
     // Save Password
     //////////////////////////////////////////////////////////////////
-
-    if(!empty($_POST['p'])){
+    if(!empty($_POST['p']) && ($_SESSION['admin'] == $_POST['i'] || $_SESSION['admin_type'] == 0)){
         $user = new User();
         $user->id = $_POST['i'];
         $user->password = $_POST['p'];
