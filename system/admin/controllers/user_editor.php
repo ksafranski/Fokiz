@@ -19,7 +19,7 @@
 */
 
 require_once('../../../config.php');
-permitUser(User::ADMIN, User::EDITOR);
+permitUser(User::ADMIN);
 checkToken(); // Check Authentication Token
 
     //////////////////////////////////////////////////////////////////

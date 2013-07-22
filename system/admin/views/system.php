@@ -36,11 +36,14 @@ require_once('../controllers/system.php');
 
 <label><?php echo lang('Default (Home) Page)'); ?></label>
 <select name="default_page">
-<?php echo($default_page_options); ?>
+    <?php echo($default_page_options); ?>
 </select>
 
-
-<button id="adm_btn_system" class="btn_left" onclick="saveSystem();"><?php echo lang('Save'); ?></button><button class="btn_right" onclick="modal.hide();"><?php echo lang('Close'); ?></button>
+<button id="adm_btn_system" class="btn_left" onclick="saveSystem();">
+    <?php echo lang('Save'); ?>
+</button><button class="btn_right" onclick="modal.hide();">
+    <?php echo lang('Close'); ?>
+</button>
 
 <script>
     $(function(){
