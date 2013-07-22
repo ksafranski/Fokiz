@@ -118,12 +118,8 @@
     function permitUser(){
         $users = func_get_args();
 
-        if(!isset($_SESSION['usr_type'])){
+        if(!isset($_SESSION['usr_type']) || !in_array($_SESSION['usr_type'], $users)){
             header("Location: " . BASE_URL);
-            exit();
-        }
-
-        if(!in_array($_SESSION['usr_type'], $users)){
             exit();
         }
     }

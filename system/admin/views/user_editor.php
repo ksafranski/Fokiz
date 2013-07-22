@@ -72,7 +72,7 @@ require_once('../controllers/user_editor.php');
             errormsg.show("<?php echo lang('Username is Required'); ?>");
         }else{
             $.post('system/admin/controllers/user_editor.php',{ i : id, t: t, l : l,  p : p1 },function(){
-                modal.open('system/admin/views/users.php',400);
+                modal.open('system/admin/views/users.php',500);
             });
         }
     }
