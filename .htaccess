@@ -6,6 +6,13 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/\.]+)/?$ index.php?load=$1
 RewriteRule ^([^/\.]+)/([^/\.]+)/?$ index.php?load=$1&query=$2 [QSA]
 
+# BEGIN Set charsets
+AddDefaultCharset UTF-8
+DefaultLanguage en-US
+AddCharset UTF-8 .css
+AddCharset UTF-8 .js
+# END Set charsets
+
 # BEGIN Compress text files
 <ifModule mod_deflate.c>
   <filesMatch "\.(css|js|x?html?|php)$">
