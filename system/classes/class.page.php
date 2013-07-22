@@ -197,11 +197,11 @@ class Page {
             $rs = $conn->prepare("UPDATE cms_navigation SET nav_url=? WHERE nav_url=?");
             $rs->execute(array(FOKIZ_PATH . $new_url, FOKIZ_PATH . $cur_url));
             // Update blocks
-            $rs = $conn->prepare("UPDATE cms_blocks SET blk_content = REPLACE(blk_content,'href=?','href=?')");
-            $rs->execute(array(FOKIZ_PATH . $new_url, FOKIZ_PATH . $cur_url));
+            $rs = $conn->prepare("UPDATE cms_blocks SET blk_content = REPLACE(blk_content,?,?)");
+            $rs->execute(array('href=' . FOKIZ_PATH . $new_url, 'href=' . FOKIZ_PATH . $cur_url));
             // Update blocks (temp)
-            $rs = $conn->prepare("UPDATE cms_blocks_temp SET blk_content = REPLACE(blk_content,'href=?','href=?')");
-            $rs->execute(array(FOKIZ_PATH . $cur_url, FOKIZ_PATH . $new_url));
+            $rs = $conn->prepare("UPDATE cms_blocks_temp SET btp_content = REPLACE(btp_content,?,?)");
+            $rs->execute(array('href=' . FOKIZ_PATH . $cur_url, 'href=' . FOKIZ_PATH . $new_url));
         }
 
         // Save page from temp ///////////////////////////////////////
