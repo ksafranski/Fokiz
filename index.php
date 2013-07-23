@@ -8,9 +8,9 @@ require_once('system/modules/url_rewrite/handler.php');
 
 <head>
     <meta charset="utf-8">
-    <title><?php echo($load->title); ?></title>
-    <meta name="description" content="<?php echo($load->description); ?>">
-    <meta name="keywords" content="<?php echo($load->keywords); ?>">
+    <title><?php echo(escape($load->title)); ?></title>
+    <meta name="description" content="<?php echo(escape($load->description)); ?>">
+    <meta name="keywords" content="<?php echo(escape($load->keywords)); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="<?php echo(BASE_URL); ?>" />
     <!--[if lt IE 9]>
@@ -26,7 +26,7 @@ require_once('system/modules/url_rewrite/handler.php');
     <?php echo($load->add_css); ?>
 </head>
 
-<body data-id="<?php echo($load->page_id); ?>">
+<body data-id="<?php echo(escape($load->page_id)); ?>">
 
     <header>
 

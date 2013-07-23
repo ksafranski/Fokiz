@@ -125,6 +125,22 @@
     }
 
     //////////////////////////////////////////////////////////////////
+    // Escape HTML entities.
+    //
+    // ENT_QUOTES       Will convert both double and single quotes.
+    // ENT_HTML5        Handle code as HTML 5.
+    // ENT_SUBSTITUTE   Replace invalid code unit sequences with a
+    //                  Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD;
+    //                  (otherwise) instead of returning an empty string.
+    // false            When double_encode is turned off PHP will not encode
+    //                  existing html entities. The default (true) is to convert everything.
+    //////////////////////////////////////////////////////////////////
+
+    function escape($str){
+        return htmlentities($str, ENT_QUOTES | ENT_HTML5 | ENT_SUBSTITUTE, CHARSET, false);
+    }
+
+    //////////////////////////////////////////////////////////////////
     // Set Language
     //////////////////////////////////////////////////////////////////
 

@@ -38,9 +38,13 @@ checkToken(); // Check Authentication Token
     if($rs->rowCount() != 0){
         while($row = $rs->fetch()){
             if($system->default_page==$row['pag_id']){
-                $default_page_options .= "<option selected=\"selected\" value=\"" . $row['pag_id'] . "\">" . stripslashes($row['pag_title']) . "</option>";
+                $default_page_options .= "<option selected=\"selected\" value=\"" . escape($row['pag_id']) . "\">";
+                $default_page_options .= escape(stripslashes($row['pag_title']));
+                $default_page_options .= "</option>";
             }else{
-                $default_page_options .= "<option value=\"" . $row['pag_id'] . "\">" . stripslashes($row['pag_title']) . "</option>";
+                $default_page_options .= "<option value=\"" . escape($row['pag_id']) . "\">";
+                $default_page_options .= escape(stripslashes($row['pag_title']));
+                $default_page_options .= "</option>";
             }
         }
     }

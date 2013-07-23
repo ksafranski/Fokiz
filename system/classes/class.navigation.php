@@ -52,7 +52,13 @@ class Navigation {
                 if($active_obj == $row['nav_url']){
                     $attr = " class=\"active\"";
                 }
-                $items[] = '<li><a' . $attr . ' href="' . $row['nav_url'] . '">'.stripslashes($row['nav_title'])."</a>".buildStructure($row['nav_id'],$active_obj).'</li>';
+                $liItem = '<li>';
+                $liItem .= '<a' . $attr . ' href="' . $row['nav_url'] . '">';
+                $liItem .= escape(stripslashes($row['nav_title']));
+                $liItem .= "</a>";
+                $liItem .= buildStructure($row['nav_id'],$active_obj);
+                $liItem .= '</li>';
+                $items[] = $liItem;
             }
             if(count($items)){
                 return '<ul>'.implode('', $items).'</ul>';
@@ -169,7 +175,10 @@ class Navigation {
 
     public function Delete(){
         global $conn;
+
         function deleteChildren($id){
+            global $conn;
+
             $rs = $conn->prepare("SELECT nav_id FROM cms_navigation WHERE nav_parent=?");
             $rs->execute(array($id));
             if($rs->rowCount() != 0){

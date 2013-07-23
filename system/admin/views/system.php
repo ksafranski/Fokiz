@@ -26,13 +26,13 @@ require_once('../controllers/system.php');
 <div id="adm_error"></div>
 
 <label><?php echo lang('Title'); ?></label>
-<input type="text" name="title" value="<?php echo($system->title); ?>" />
+<input type="text" name="title" value="<?php echo(escape($system->title)); ?>" />
 
 <label><?php echo lang('Keywords'); ?></label>
-<input type="text" name="keywords" value="<?php echo($system->keywords); ?>" />
+<input type="text" name="keywords" value="<?php echo(escape($system->keywords)); ?>" />
 
 <label><?php echo lang('Description'); ?></label>
-<textarea name="description" rows="3"><?php echo($system->description); ?></textarea>
+<textarea name="description" rows="3"><?php echo(escape($system->description)); ?></textarea>
 
 <label><?php echo lang('Default (Home) Page)'); ?></label>
 <select name="default_page">

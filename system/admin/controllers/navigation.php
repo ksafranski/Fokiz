@@ -34,7 +34,10 @@ checkToken(); // Check Authentication Token
         // Format output
         $output = "";
             foreach($list as $item){
-                $output .= "<option value=\"" . $item['id'] . "|!|" . $item['url'] . "|!|" . $item['title'] . "\">" . $item['title'] . "</option>";
+                $id = escape($item['id']);
+                $url = escape($item['url']);
+                $title = escape($item['title']);
+                $output .= "<option value=\"" . $id . "|!|" . $url . "|!|" . $title . "\">" . $title . "</option>";
             }
         echo($output);
     }

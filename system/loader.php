@@ -99,7 +99,10 @@
     if($follow){
         $follow_list = "<ul class=\"follow\">";
         foreach($follow as $key=>$val){
-            $follow_list .= "<li class=\"" . str_replace(" ","_",strtolower($key)) . "\"><a title=\"" . ucwords($key) . "\" href=\"$val\" target=\"_blank\">" . ucwords($key) . "</a></li>";
+            $follow_list .= "<li class=\"" . str_replace(" ","_",strtolower($key)) . "\">";
+            $follow_list .= "<a title=\"" . ucwords($key) . "\" href=\"" . $val . "\" target=\"_blank\">";
+            $follow_list .= ucwords($key);
+            $follow_list .= "</a></li>";
         }
         $follow_list .= "</ul>";
         $load->follow = $follow_list;

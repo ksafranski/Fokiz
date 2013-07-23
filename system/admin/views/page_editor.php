@@ -26,16 +26,16 @@ require_once('../controllers/page_editor.php');
 
 <div id="adm_error"></div>
 
-<input type="hidden" name="id" value="<?php echo($page->id); ?>" />
+<input type="hidden" name="id" value="<?php echo(escape($page->id)); ?>" />
 
 <label><?php echo lang('Title'); ?></label>
-<input type="text" name="title" value="<?php echo($page->title); ?>" autofocus="autofocus" />
+<input type="text" name="title" value="<?php echo(escape($page->title)); ?>" autofocus="autofocus" />
 
 <label><?php echo lang('Keywords'); ?></label>
-<input type="text" name="keywords" value="<?php echo($page->keywords); ?>" />
+<input type="text" name="keywords" value="<?php echo(escape($page->keywords)); ?>" />
 
 <label><?php echo lang('Description'); ?></label>
-<textarea style="min-height: 50px; height: 50px;" name="description"><?php echo($page->description); ?></textarea>
+<textarea style="min-height: 50px; height: 50px;" name="description"><?php echo(escape($page->description)); ?></textarea>
 
 <label><?php echo lang('Template'); ?></label>
 <select name="template">

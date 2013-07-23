@@ -44,7 +44,7 @@ require_once('../controllers/pages.php');
     </thead>
     <tbody>
         <?php foreach($list as $page){ ?>
-        <tr valign="top" id="page_<?php echo($page['id']); ?>" <?php if($page['pending']){ echo("style=\"font-weight:bold;\""); } ?>>
+        <tr valign="top" id="page_<?php echo(escape($page['id'])); ?>" <?php if($page['pending']){ echo("style=\"font-weight:bold;\""); } ?>>
             <td>
             <?php
             if($page['pending']){
@@ -55,15 +55,15 @@ require_once('../controllers/pages.php');
             <td>
             <?php
 
-            echo($page['title']);
+            echo(escape($page['title']));
 
             ?></td>
-            <td><span class="adm_breakable"><?php echo($page['description']); ?></span></td>
-            <td><span class="adm_breakable"><?php echo($page['keywords']); ?></span></td>
+            <td><span class="adm_breakable"><?php echo(escape($page['description'])); ?></span></td>
+            <td><span class="adm_breakable"><?php echo(escape($page['keywords'])); ?></span></td>
             <td><?php echo(formatTimestamp($page['created'])); ?></td>
             <td><?php echo(formatTimestamp($page['modified'])); ?></td>
-            <td class="adm_datatable_center"><a href="<?php echo(BASE_URL . $page['url']); ?>"><?php echo lang('Go'); ?>&nbsp;&raquo;</a></td>
-            <td class="adm_datatable_center"><a onclick="deletePage(<?php echo($page['id']); ?>);"><?php echo lang('Delete'); ?></a></td>
+            <td class="adm_datatable_center"><a href="<?php echo(BASE_URL . escape($page['url'])); ?>"><?php echo lang('Go'); ?>&nbsp;&raquo;</a></td>
+            <td class="adm_datatable_center"><a onclick="deletePage(<?php echo(escape($page['id'])); ?>);"><?php echo lang('Delete'); ?></a></td>
         </tr>
         <?php } ?>
     </tbody>

@@ -52,9 +52,9 @@ checkToken(); // Check Authentication Token
         $template_options = "";
         foreach($templates as $i=>$t){
             if($page->template==$i){
-                $template_options .= "<option selected=\"selected\" value=\"$i\">" . $t['description'] . "</option>";
+                $template_options .= "<option selected=\"selected\" value=\"$i\">" . escape($t['description']) . "</option>";
             }else{
-                $template_options .= "<option value=\"$i\">" . $t['description'] . "</option>";
+                $template_options .= "<option value=\"$i\">" . escape($t['description']) . "</option>";
             }
         }
 
@@ -62,9 +62,9 @@ checkToken(); // Check Authentication Token
         $tag_options = "";
         foreach($all_tags as $tag){
             if(in_array($tag,$page_tags)){
-                $tag_options .= "<option selected=\"selected\" value=\"$tag\">$tag</option>";
+                $tag_options .= "<option selected=\"selected\" value=\"" . escape($tag) . "\">" . escape($tag) . "</option>";
             }else{
-                $tag_options .= "<option value=\"$tag\">$tag</option>";
+                $tag_options .= "<option value=\"" . escape($tag) . "\">" . escape($tag) . "</option>";
             }
         }
 

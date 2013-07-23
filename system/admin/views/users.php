@@ -28,7 +28,7 @@ require_once('../controllers/users.php');
 
 <div class="adm_v_spacer"></div>
 
-<input id="cur_user" type="hidden" value="<?php echo($_SESSION['usr_id']); ?>" />
+<input id="cur_user" type="hidden" value="<?php echo(escape($_SESSION['usr_id'])); ?>" />
 
 <table id="users" class="adm_datatable">
     <thead>
@@ -42,8 +42,8 @@ require_once('../controllers/users.php');
     </thead>
     <tbody>
         <?php foreach($list as $user){ ?>
-        <tr valign="top" id="user_<?php echo($user['id']); ?>">
-            <td><?php echo($user['login']); ?></td>
+        <tr valign="top" id="user_<?php echo(escape($user['id'])); ?>">
+            <td><?php echo(escape($user['login'])); ?></td>
             <td>
                 <?php
                     if($user['type']==0){
@@ -54,13 +54,13 @@ require_once('../controllers/users.php');
                 ?>
             </td>
             <td class="adm_datatable_center">
-                <a onclick="editUser(<?php echo($user['id']); ?>);"><?php echo lang('Settings'); ?></a>
+                <a onclick="editUser(<?php echo(escape($user['id'])); ?>);"><?php echo lang('Settings'); ?></a>
             </td>
             <td class="adm_datatable_center">
-                <a onclick="changePassword(<?php echo($user['id']); ?>);"><?php echo lang('Password'); ?></a>
+                <a onclick="changePassword(<?php echo(escape($user['id'])); ?>);"><?php echo lang('Password'); ?></a>
             </td>
             <td class="adm_datatable_center">
-                <a onclick="deleteUser(<?php echo($user['id']); ?>);"><?php echo lang('Delete'); ?></a>
+                <a onclick="deleteUser(<?php echo(escape($user['id'])); ?>);"><?php echo lang('Delete'); ?></a>
             </td>
         </tr>
         <?php } ?>
