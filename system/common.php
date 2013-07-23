@@ -68,6 +68,16 @@
     define("BASE_URL", defineURL());
 
     //////////////////////////////////////////////////////////////////
+    // Get Module Folder
+    //////////////////////////////////////////////////////////////////
+    function getModuleFolder($path){
+        $module_path = explode(DIRECTORY_SEPARATOR, dirname($path));
+        $module_path_nodes = count($module_path);
+        $result = $module_path[($module_path_nodes-1)];
+        return $result;
+    }
+
+    //////////////////////////////////////////////////////////////////
     // Check if installed
     //////////////////////////////////////////////////////////////////
 
@@ -95,10 +105,39 @@
     //////////////////////////////////////////////////////////////////
 
     function checkToken(){
-        if(!isset($_SESSION['admin'])){
+        if(!isset($_SESSION['usr_id'])){
             echo("<script>$(function(){ window.location = '/admin';  });</script>");
             exit();
         }
+    }
+
+    //////////////////////////////////////////////////////////////////
+    // Validate role permissions
+    //////////////////////////////////////////////////////////////////
+
+    function permitUser(){
+        $users = func_get_args();
+
+        if(!isset($_SESSION['usr_type']) || !in_array($_SESSION['usr_type'], $users)){
+            header("Location: " . BASE_URL);
+            exit();
+        }
+    }
+
+    //////////////////////////////////////////////////////////////////
+    // Escape HTML entities.
+    //
+    // ENT_QUOTES       Will convert both double and single quotes.
+    // ENT_HTML5        Handle code as HTML 5.
+    // ENT_SUBSTITUTE   Replace invalid code unit sequences with a
+    //                  Unicode Replacement Character U+FFFD (UTF-8) or &#FFFD;
+    //                  (otherwise) instead of returning an empty string.
+    // false            When double_encode is turned off PHP will not encode
+    //                  existing html entities. The default (true) is to convert everything.
+    //////////////////////////////////////////////////////////////////
+
+    function escape($str){
+        return htmlentities($str, ENT_QUOTES | ENT_HTML5 | ENT_SUBSTITUTE, CHARSET, false);
     }
 
     //////////////////////////////////////////////////////////////////
@@ -111,27 +150,10 @@
     function lang($text){
         global $lang;
         if(isset($lang[$text])){
-            echo($lang[$text]);
-        }else{
-            echo("????????");
+            return $lang[$text];
         }
+        return "????????";
     }
-
-    function getLang($text){
-        global $lang;
-        if(isset($lang[$text])){
-            return($lang[$text]);
-        }else{
-            return("????????");
-        }
-    }
-
-    //////////////////////////////////////////////////////////////////
-    // USER TYPES
-    //////////////////////////////////////////////////////////////////
-
-    $usr_type[0] = $lang['Administrator'];
-    $usr_type[1] = $lang['Editor'];
 
     //////////////////////////////////////////////////////////////////
     // Default Block Content

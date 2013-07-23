@@ -28,6 +28,7 @@
     define("DB_NAME", "fokiz_database");
 
     define("DB_CHARSET", "utf8");
+    define("CHARSET", "utf-8");
     define("DB_DSN", "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=".DB_CHARSET);
 
     //////////////////////////////////////////////////////////////////

@@ -6,6 +6,13 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/\.]+)/?$ index.php?load=$1
 RewriteRule ^([^/\.]+)/([^/\.]+)/?$ index.php?load=$1&query=$2 [QSA]
 
+# BEGIN Set charsets
+AddDefaultCharset UTF-8
+DefaultLanguage en-US
+AddCharset UTF-8 .css
+AddCharset UTF-8 .js
+# END Set charsets
+
 # BEGIN Compress text files
 <ifModule mod_deflate.c>
   <filesMatch "\.(css|js|x?html?|php)$">
@@ -13,7 +20,7 @@ RewriteRule ^([^/\.]+)/([^/\.]+)/?$ index.php?load=$1&query=$2 [QSA]
   </filesMatch>
 </ifModule>
 # END Compress text files
- 
+
 # BEGIN Expire headers
 <ifModule mod_expires.c>
   ExpiresActive On
@@ -31,7 +38,7 @@ RewriteRule ^([^/\.]+)/([^/\.]+)/?$ index.php?load=$1&query=$2 [QSA]
   ExpiresByType application/xhtml+xml "access plus 600 seconds"
 </ifModule>
 # END Expire headers
- 
+
 # BEGIN Cache-Control Headers
 <ifModule mod_headers.c>
   <filesMatch "\.(ico|jpe?g|png|gif|swf)$">
@@ -48,16 +55,22 @@ RewriteRule ^([^/\.]+)/([^/\.]+)/?$ index.php?load=$1&query=$2 [QSA]
   </filesMatch>
 </ifModule>
 # END Cache-Control Headers
- 
+
 # BEGIN Turn ETags Off
 <ifModule mod_headers.c>
   Header unset ETag
 </ifModule>
 FileETag None
 # END Turn ETags Off
- 
+
 # BEGIN Remove Last-Modified Header
 <ifModule mod_headers.c>
   Header unset Last-Modified
 </ifModule>
 # END Remove Last-Modified Header
+
+# BEGIN Set cookies to use httpOnly flag
+<IfModule php5_module>
+    php_value session.cookie_httponly true
+</IfModule>
+# END Set cookies to use httpOnly flag

@@ -19,6 +19,9 @@
 */
 
 class User {
+    const ADMIN = 0;
+    const EDITOR = 1;
+    const VISITOR = 2;
 
     //////////////////////////////////////////////////////////////////
     // PROPERTIES
@@ -27,7 +30,7 @@ class User {
     public $id            = 0;
     public $login         = "";
     public $password      = "";
-    public $type          = 0; // 0 = Admin, 1 = Standard
+    public $type          = self::VISITOR;
 
     //////////////////////////////////////////////////////////////////
     // METHODS
@@ -51,8 +54,8 @@ class User {
         }
 
         $row = $rs->fetch();
-        $_SESSION['admin'] = $row['usr_id'];
-        $_SESSION['admin_type'] = $row['usr_type'];
+        $_SESSION['usr_id'] = $row['usr_id'];
+        $_SESSION['usr_type'] = $row['usr_type'];
         return 1;
     }
 

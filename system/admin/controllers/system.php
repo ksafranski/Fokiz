@@ -19,6 +19,7 @@
 */
 
 require_once('../../../config.php');
+permitUser(User::ADMIN);
 global $conn;
 
 checkToken(); // Check Authentication Token
@@ -37,9 +38,13 @@ checkToken(); // Check Authentication Token
     if($rs->rowCount() != 0){
         while($row = $rs->fetch()){
             if($system->default_page==$row['pag_id']){
-                $default_page_options .= "<option selected=\"selected\" value=\"" . $row['pag_id'] . "\">" . stripslashes($row['pag_title']) . "</option>";
+                $default_page_options .= "<option selected=\"selected\" value=\"" . escape($row['pag_id']) . "\">";
+                $default_page_options .= escape(stripslashes($row['pag_title']));
+                $default_page_options .= "</option>";
             }else{
-                $default_page_options .= "<option value=\"" . $row['pag_id'] . "\">" . stripslashes($row['pag_title']) . "</option>";
+                $default_page_options .= "<option value=\"" . escape($row['pag_id']) . "\">";
+                $default_page_options .= escape(stripslashes($row['pag_title']));
+                $default_page_options .= "</option>";
             }
         }
     }
@@ -50,9 +55,9 @@ checkToken(); // Check Authentication Token
 
     if(!empty($_GET['save'])){
         $system = new System();
-        $system->title = scrub($_POST['title']);
-        $system->keywords = scrub($_POST['keywords']);
-        $system->description = scrub($_POST['description']);
+        $system->title = $_POST['title'];
+        $system->keywords = $_POST['keywords'];
+        $system->description = $_POST['description'];
         $system->default_page = $_POST['default_page'];
         $system->Save();
     }
