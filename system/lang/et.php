@@ -2,162 +2,162 @@
 
     $lang = Array();
 
-    $lang['Fokiz Content Management System'] = "Fokiz CMS";
+    $lang['Fokiz Content Management System'] = "Fokiz sisuhaldussüsteem";
 
     // Global ////////////////////////////////////////////////////////
 
-    $lang['Title'] = "Tytuł";
+    $lang['Title'] = "Pealkiri";
     $lang['URL'] = "URL";
-    $lang['Save'] = "Zapisz";
-    $lang['Save Changes'] = "Zapisz zmiany";
-    $lang['Close'] = "Zamknij";
-    $lang['Delete'] = "Usuń";
-    $lang['Loading'] = "Ładowanie";
-    $lang['Settings'] = "Ustawienia";
-    $lang['Modify'] = "Zmodyfikuj";
-    $lang['Change'] = "Zmień";
-    $lang['Password'] = "Hasło";
+    $lang['Save'] = "Salvesta";
+    $lang['Save Changes'] = "Salvesta muudatused";
+    $lang['Close'] = "Sulge";
+    $lang['Delete'] = "Kustuta";
+    $lang['Loading'] = "Laeb";
+    $lang['Settings'] = "Seaded";
+    $lang['Modify'] = "Muuda";
+    $lang['Change'] = "Muuda";
+    $lang['Password'] = "Salasõna";
 
     // Login /////////////////////////////////////////////////////////
 
-    $lang['Username'] = "Login";
-    $lang['Login'] = "Zaloguj";
-    $lang['Failed Login Attempt'] = "Nieudana Próba Zalogowania";
+    $lang['Username'] = "Kasutajanimi";
+    $lang['Login'] = "Logi";
+    $lang['Failed Login Attempt'] = "Logimine ebaõnnestus";
 
     // Top Bar ///////////////////////////////////////////////////////
 
-    $lang['Save &amp; Publish'] = "Zapisz i Opublikuj";
-    $lang['Revert'] = "Cofnij";
-    $lang['Edit Content'] = "Edycja Treści";
-    $lang['Done Editing'] = "Koniec Edycji";
-    $lang['Page Properties'] = "Ustawienia Strony";
-    $lang['Assets'] = "Pliki";
-    $lang['Components'] = "Komponenty";
-    $lang['Modules'] = "Moduły";
-    $lang['Resources'] = "Zasoby";
-    $lang['No Resources Available'] = "Brak Dostępnych Zasobów";
-    $lang['Log Out'] = "Wyloguj";
+    $lang['Save &amp; Publish'] = "Salvesta &amp; Avalda";
+    $lang['Revert'] = "Taasta";
+    $lang['Edit Content'] = "Täienda";
+    $lang['Done Editing'] = "Valmis täiendustega";
+    $lang['Page Properties'] = "Lehe seaded";
+    $lang['Assets'] = "Varad";
+    $lang['Components'] = "Osad";
+    $lang['Modules'] = "Moodulid";
+    $lang['Resources'] = "Ressursid";
+    $lang['No Resources Available'] = "Ressursid pole saadaval";
+    $lang['Log Out'] = "Logi välja";
 
     // Components ////////////////////////////////////////////////////
 
-    $lang['Page Manager'] = "Menadżer Stron";
-    $lang['Navigation'] = "Nawigacja";
-    $lang['Sitewide Settings'] = "Ustawienia Witryny";
-    $lang['User Management'] = "Zarządzanie Użytkownikami";
+    $lang['Page Manager'] = "Lehe haldur";
+    $lang['Navigation'] = "Lingid";
+    $lang['Sitewide Settings'] = "Üldseaded";
+    $lang['User Management'] = "Kasutajate haldus";
 
     // Content Editor ////////////////////////////////////////////////
 
-    $lang['Content Saved'] = "Treść Zapisana";
+    $lang['Content Saved'] = "Sisu on salvestatud";
 
     // Navigation ////////////////////////////////////////////////////
 
-    $lang['Primary'] = "Pierwszorzędne";
-    $lang['Secondary'] = "Drugorzędne";
-    $lang['Tertiary'] = "Trzeciorzędne";
-    $lang['ACTIONS'] = "AKCJE";
-    $lang['Move Up'] = "W Góre";
-    $lang['Move Down'] = "W Dół";
-    $lang['This item is already at the first position.'] = "Ten element już jest na pierwszej pozycji.";
-    $lang['This item is already at the last position.'] = "Ten element już jest na ostatniej pozycji.";
-    $lang['Delete this item permanently?'] = "Usunąć ten element pernamentnie?";
-    $lang['SAVED'] = "ZAPISANO";
+    $lang['Primary'] = "Esimene";
+    $lang['Secondary'] = "Teine";
+    $lang['Tertiary'] = "Kolmas";
+    $lang['ACTIONS'] = "TEGEVUSED";
+    $lang['Move Up'] = "Liiguta üles";
+    $lang['Move Down'] = "Liiguta alla";
+    $lang['This item is already at the first position.'] = "See on juba esimene.";
+    $lang['This item is already at the last position.'] = "See on juba viimane.";
+    $lang['Delete this item permanently?'] = "Kustuta see alatiseks?";
+    $lang['SAVED'] = "SALVESTATUD";
 
     // Page Properties & Manager /////////////////////////////////////
 
-    $lang['Page Properties'] = "Ustawienia Strony";
-    $lang['Create New Page'] = "Stwórz Nową Stronę";
-    $lang['Keywords'] = "Słowa Kluczowe";
-    $lang['Description'] = "Opis";
-    $lang['Created'] = "Utworzono";
-    $lang['Modified'] = "Zmieniono";
-    $lang['Go'] = "Idż";
-    $lang['Template'] = "Szablon";
-    $lang['Tags'] = "Tagi";
-    $lang['CTRL+Click to select multiple or'] = "CTRL+LPM by wybrać wiele lub";
-    $lang['Add Tag'] = "Dodaj Tag";
-    $lang['Feed'] = "Kanał";
-    $lang['INCLUDE this page in Feed'] = "ZAWRZYJ tę stronę w Kanale";
-    $lang['DO NOT INCLUDE this page in Feed'] = "NIE ZAWIERAJ tej strony w Kanale";
-    $lang['Page Title Already In Use'] = "Tytuł Strony Już Jest W Użyciu";
-    $lang['Title, Keywords and Description Must Be Completed'] = "Tytuł, Słowa kluczowe oraz Opis Muszą Być Wypełnione";
-    $lang['You are currently viewing this page. You must move to a different page first.'] = "Już wyświetlasz tę stronę. Musisz przejść najpierw do innej.";
-    $lang['The page selected is the website default and cannot be deleted.'] = "Strona została wybrana jako domyślna witryny i nie może być usunięta.";
-    $lang['Delete page permanantly?'] = "Usunąć stronę pernamentnie?";
+    $lang['Page Properties'] = "Lehe seaded";
+    $lang['Create New Page'] = "Loo uus leht";
+    $lang['Keywords'] = "Võtmesõnad";
+    $lang['Description'] = "Kirjeldus";
+    $lang['Created'] = "Loodud";
+    $lang['Modified'] = "Muudetud";
+    $lang['Go'] = "Mine";
+    $lang['Template'] = "Mall";
+    $lang['Tags'] = "Sildid";
+    $lang['CTRL+Click to select multiple or'] = "CTRL+klikk, et valida mitu või";
+    $lang['Add Tag'] = "Lisa silt";
+    $lang['Feed'] = "Voog";
+    $lang['INCLUDE this page in Feed'] = "LISA see leht andmevoogu";
+    $lang['DO NOT INCLUDE this page in Feed'] = "ÄRA LISA seda leht andmevoogu";
+    $lang['Page Title Already In Use'] = "Lehekülje pealkiri on kasutusel";
+    $lang['Title, Keywords and Description Must Be Completed'] = "Pealkiri, võtmesõnad and kirjeldus peavad olema täidetud";
+    $lang['You are currently viewing this page. You must move to a different page first.'] = "Hetkel vaatate seda lehte, kuid peate ennem liikuma teisele lehele.";
+    $lang['The page selected is the website default and cannot be deleted.'] = "Seda lehte ei saa kustutada, sest see on vaikeleht.";
+    $lang['Delete page permanantly?'] = "Kustuta leht alatiseks?";
 
     // Asset Manager /////////////////////////////////////////////////
 
-    $lang['Folders'] = "Foldery";
-    $lang['Files'] = "Pliki";
-    $lang['Use Selected File'] = "Użyj Wybranego Pliku";
-    $lang['Upload'] = "Wyślij";
-    $lang['Open'] = "Otwórz";
-    $lang['Add'] = "Dodaj";
-    $lang['Rename'] = "Zmień";
-    $lang['Successfully Renamed Item'] = "Pomyślnie Zmieniono Nazwę Elementu";
-    $lang['Name'] = "Nazwa";
-    $lang['Invlaid Name'] = "Nieprawidłowa Nazwa";
-    $lang['Folder Name'] = "Nazwa Folderu";
-    $lang['Invalid Folder Name'] = "Nieprawidłowa Nazwa Folderu";
-    $lang['Folder Successfully Created'] = "Folder Został Pomyslnie Utworzony";
-    $lang['Are you sure you wish to delete the selected item?'] = "Czy na pewno chcesz usunąć wybrany element?";
-    $lang['Successfully Deleted'] = "Usunięto Pomyslnie";
+    $lang['Folders'] = "Kaustad";
+    $lang['Files'] = "Failid";
+    $lang['Use Selected File'] = "Kasuta valitud faile";
+    $lang['Upload'] = "Üleslaadimine";
+    $lang['Open'] = "Ava";
+    $lang['Add'] = "Lisa";
+    $lang['Rename'] = "Nimeta";
+    $lang['Successfully Renamed Item'] = "Edukalt ümbernimetatud";
+    $lang['Name'] = "Nimi";
+    $lang['Invlaid Name'] = "Vigane nimi";
+    $lang['Folder Name'] = "Kausta nimi";
+    $lang['Invalid Folder Name'] = "Vigane kausta nimi";
+    $lang['Folder Successfully Created'] = "Kaust on edukalt loodud";
+    $lang['Are you sure you wish to delete the selected item?'] = "Olete kindel, et soovite valitud asja kustutada?";
+    $lang['Successfully Deleted'] = "Edukalt kustutatud";
 
     // Password //////////////////////////////////////////////////////
 
-    $lang['Change Password'] = "Zmień Hasło";
-    $lang['New Password'] = "Nowe Hasło";
-    $lang['Verify New Password'] = "Potwierdż Nowe Hasło";
-    $lang['Passwords Do Not Match'] = "Hasła nie pasują";
-    $lang['Password Minimum Of 8 Characters'] = "Hasło Musi Mieć Minimum 8 Znaków";
-    $lang['Password Changed!'] = "Zmieniono Hasło!";
+    $lang['Change Password'] = "Muuda salasõna";
+    $lang['New Password'] = "Uus salasõna";
+    $lang['Verify New Password'] = "Korda uut salasõna";
+    $lang['Passwords Do Not Match'] = "Salasõnad pole samad";
+    $lang['Password Minimum Of 8 Characters'] = "Salasõna peab olema vähemalt 8 märki";
+    $lang['Password Changed!'] = "Salasõna on muudetud!";
 
     // Publish / Revert //////////////////////////////////////////////
 
-    $lang['Proceeding will make the content and all changes to this page publicly available'] = "Kontynuowanie uczyni treść oraz wszystkie zmiany tej strony publicznie dostępnymi";
-    $lang['Notes'] = "Notatki";
+    $lang['Proceeding will make the content and all changes to this page publicly available'] = "Jätkamisel tehakse sisu ja kõik muudatused sel lehel avalikult nähtavaks";
+    $lang['Notes'] = "Notes";
 
-    $lang['<strong>Warning:</strong> Reverting will remove all changes made and return to the current live state of the page'] = "<strong>Uwaga:</strong> Cofnięcie usunie wszystkie zmiany i przywróci obecny stan strony";
+    $lang['<strong>Warning:</strong> Reverting will remove all changes made and return to the current live state of the page'] = "<strong>Hoiatus:</strong> Taastamisel eemaldatakse kõik seni tehtud muudatused ja kuvatakse viimane seis";
 
     // Sitewide Settings /////////////////////////////////////////////
 
-    $lang['Title Cannot Be Blank'] = "Tytuł Nie Może Być Pusty";
-    $lang['Default (Home) Page)'] = "Domyślna Strona (Domowa)";
+    $lang['Title Cannot Be Blank'] = "Pealkiri ei tohi ülla tühi";
+    $lang['Default (Home) Page)'] = "Vaike (kodu)leht)";
 
     // User Management ///////////////////////////////////////////////
 
-    $lang['User Editor'] = "Edytor Użytkownika";
-    $lang['Account Type'] = "Typ Konta";
-    $lang['Type'] = "Typ";
-    $lang['Create New User'] = "Stwórz Nowego Użytkownika";
-    $lang['Verify Password'] = "Potwierdż Hasło";
-    $lang['Username is Required'] = "Nazwa Użytkownika jest Wymagana";
-    $lang['Username Already In Use'] = "Nazwa Użytkownika Jest Już W Użyciu";
-    $lang['You must have at least one user in the system.'] = "Musisz mieć przynajmniej jednego użytkownika w systemie.";
-    $lang['You are currently logged in as this user. It cannot be deleted.'] = "Jesteś obecnie zalogowany/a jako ten użytkownik. Nie może być usunięty.";
-    $lang['Delete the selected user permanently?'] = "Usunąć wybranego uzytkownika pernamentnie?";
+    $lang['User Editor'] = "Kasutaja redaktor";
+    $lang['Account Type'] = "Konto tüüp";
+    $lang['Type'] = "Tüüp";
+    $lang['Create New User'] = "Loo uus kasutaja";
+    $lang['Verify Password'] = "Kontrolli parooli";
+    $lang['Username is Required'] = "Kasutajanimi on nõutud";
+    $lang['Username Already In Use'] = "Kasutajanimi on juba kasutusel";
+    $lang['You must have at least one user in the system.'] = "Peab olema vähemalt üks kasutaja.";
+    $lang['You are currently logged in as this user. It cannot be deleted.'] = "Kasutajat ei saa kustutada, sest sa oled sellena sisse loginud.";
+    $lang['Delete the selected user permanently?'] = "Kustuta kasutaja alatiseks?";
 
-    $lang['Administrator'] = "Administrator";
-    $lang['Editor'] = "Edytor";
+    $lang['Administrator'] = "Administraator";
+    $lang['Editor'] = "Sisuhaldur";
 
     // Installer /////////////////////////////////////////////////////
 
-    $lang['Fokiz Installer'] = "Fokiz Installer";
-    $lang['Something is not right. The system check returned the following:'] = "Something is not right. The system check returned the following:";
-    $lang['must be writeable'] = "must be writeable";
-    $lang['Could not connect to database (Check /config.php)'] = "Could not connect to database (Check /config.php)";
-    $lang['Once you have remedied the issues above please press the button to check requirements.'] = "Once you have remedied the issues above please press the button to check requirements.";
-    $lang['Check Requirements'] = "Check Requirements";
-    $lang['After a quick check it appears that all requirements have been met!<br />Please provide a username and password for the system, then press the [Install Fokiz] button to continue:'] = "After a quick check it appears that all requirements have been met!<br />Please provide a username and password for the system, then press the [Install Fokiz] button to continue:";
+    $lang['Fokiz Installer'] = "Fokiz paigaldaja";
+    $lang['Something is not right. The system check returned the following:'] = "Midagi on paigast ära. Süsteemi kontrollides ilmnes:";
+    $lang['must be writeable'] = "peab olema kirjutatav";
+    $lang['Could not connect to database (Check /config.php)'] = "Andmebaasiga ei saa ühendust (Kontrolli /config.php)";
+    $lang['Once you have remedied the issues above please press the button to check requirements.'] = "Kui olete probleemi lahendanud vajutage nuppu, et nõudeid kontrollida.";
+    $lang['Check Requirements'] = "Kontrolli nõudeid";
+    $lang['After a quick check it appears that all requirements have been met!<br />Please provide a username and password for the system, then press the [Install Fokiz] button to continue:'] = "Pärast kiiret kontrolli tundub, et kõik on korras!<br />Palun täitke alljärgnevad lahtrid ja vajutage jätkamiseks [Paigalda Fokiz] nuppu:";
     $lang['Install Fokiz'] = "Install Fokiz";
-    $lang['There was a problem installing the system. It is highly suggested you check all requirements and try again.'] = "There was a problem installing the system. It is highly suggested you check all requirements and try again.";
-    $lang['The system has been successfully installed.<br />To continue to the website, please click the button below.'] = "The system has been successfully installed.<br />To continue to the website, please click the button below.";
-    $lang['Proceed to Website'] = "Proceed to Website";
-    $lang['All Fields Must Be Filled Out'] = "All Fields Must Be Filled Out";
+    $lang['There was a problem installing the system. It is highly suggested you check all requirements and try again.'] = "Süsteemi paigaldamisel tekkis tõrge. Soovitatav on kontrollida seadeid ja proovida uuesti.";
+    $lang['The system has been successfully installed.<br />To continue to the website, please click the button below.'] = "Süsteem on edukalt paigaldatud.<br />Saidile liikumiseks vajutage alljärgnevat nuppu.";
+    $lang['Proceed to Website'] = "Mine saidile";
+    $lang['All Fields Must Be Filled Out'] = "Kõik väljad peavad olema täidetud";
 
 
     // About /////////////////////////////////////////////////////////
 
-    $lang['Open Fokiz Website'] = "Otwórz Stronę Fokiz";
+    $lang['Open Fokiz Website'] = "Ava Fokiz veebileht";
 
     //////////////////////////////////////////////////////////////////
     // GPL / License /////////////////////////////////////////////////
@@ -329,4 +329,3 @@ If the disclaimer of warranty and limitation of liability provided above cannot 
 ";
 
 ?>
-

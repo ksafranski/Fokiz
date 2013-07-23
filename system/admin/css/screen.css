@@ -1,19 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 /*
- * This file is part of the Fokiz Content Management System 
+ * This file is part of the Fokiz Content Management System
  * <http://www.fokiz.com>
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -52,7 +52,7 @@
 #adm_bar_control a.down { background: url(../images/bar_down.png) no-repeat 7px center #999; }
 #adm_bar_control a:hover { background-color: #666; }
 
-.adm_dropdown { display: none; position: fixed; margin: 0; padding: 0 0 4px 0; width: 150px; background: #dfdfdf; z-index: 9999999; border: 2px solid #fff; 
+.adm_dropdown { display: none; position: fixed; margin: 0; padding: 0 0 4px 0; width: 150px; background: #dfdfdf; z-index: 9999999; border: 2px solid #fff;
      -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
     -webkit-box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, .2);  -moz-box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, .2); box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, .2);
 }
@@ -125,12 +125,12 @@
     border-radius: 5px 0px 0px 5px;
 }
 
-#adm_bar .btn_mid, #adm_modal .btn_mid { margin: 0; border-left: none;
+#adm_bar .btn_mid, #adm_modal .btn_mid { margin: 0 0 0 -3px; border-left: none;
     -moz-border-radius-topleft: 0px; -moz-border-radius-topright: 0px; -moz-border-radius-bottomright: 0px; -moz-border-radius-bottomleft: 0px; -webkit-border-radius: 0px 0px 0px 0px;
     border-radius: 0px 0px 0px 0px;
 }
 
-#adm_bar .btn_right, #adm_bar .select_right, #adm_modal .btn_right { margin: 0 10px 0 0; border-left: none;
+#adm_bar .btn_right, #adm_bar .select_right, #adm_modal .btn_right { margin: 0 10px 0 -3px; border-left: none;
     -moz-border-radius-topleft: 0px; -moz-border-radius-topright: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 0px; -webkit-border-radius: 0px 5px 5px 0px;
     border-radius: 0px 5px 5px 0px;
 }

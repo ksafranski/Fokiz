@@ -27,8 +27,12 @@ $pag_id = $_GET['page'];
     // Check Login
     //////////////////////////////////////////////////////////////////
 
-    if(empty($_SESSION['admin'])){ require_once('login.php'); exit(); }
-    else{ $_SESSION['cur_page'] = $_GET['page']; }
+    if(empty($_SESSION['usr_id'])){
+        require_once('login.php');
+        exit();
+    }else{
+        $_SESSION['cur_page'] = $_GET['page'];
+    }
 
     //////////////////////////////////////////////////////////////////
     // Determine if page is pending changes
@@ -84,7 +88,7 @@ $pag_id = $_GET['page'];
 
     if($display_modules==true){
         // Create button
-        $modules_button = "<button rel=\"modules\" id=\"adm_btn_modules\" class=\"btn_mid\">Modules</button>";
+        $modules_button = "<button rel=\"modules\" id=\"adm_btn_modules\" class=\"btn_mid\">" . lang('Modules') .  "</button>";
 
         // Create Drop-Down
         $modules_dropdown = "<ul class=\"adm_dropdown\" id=\"adm_modules\">";
