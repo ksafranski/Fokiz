@@ -83,7 +83,7 @@ class Page {
         }
 
         // Admin login - check for temp/edits
-        if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['usr_id'])){
 
             $rs = $conn->prepare("SELECT * FROM cms_pages_temp WHERE ptp_pag_id=?");
             $rs->execute(array($this->id));
@@ -197,11 +197,11 @@ class Page {
             $rs = $conn->prepare("UPDATE cms_navigation SET nav_url=? WHERE nav_url=?");
             $rs->execute(array(FOKIZ_PATH . $new_url, FOKIZ_PATH . $cur_url));
             // Update blocks
-            $rs = $conn->prepare("UPDATE cms_blocks SET blk_content = REPLACE(blk_content,'href=?','href=?')");
-            $rs->execute(array(FOKIZ_PATH . $new_url, FOKIZ_PATH . $cur_url));
+            $rs = $conn->prepare("UPDATE cms_blocks SET blk_content = REPLACE(blk_content,?,?)");
+            $rs->execute(array('href=' . FOKIZ_PATH . $new_url, 'href=' . FOKIZ_PATH . $cur_url));
             // Update blocks (temp)
-            $rs = $conn->prepare("UPDATE cms_blocks_temp SET blk_content = REPLACE(blk_content,'href=?','href=?')");
-            $rs->execute(array(FOKIZ_PATH . $cur_url, FOKIZ_PATH . $new_url));
+            $rs = $conn->prepare("UPDATE cms_blocks_temp SET btp_content = REPLACE(btp_content,?,?)");
+            $rs->execute(array('href=' . FOKIZ_PATH . $cur_url, 'href=' . FOKIZ_PATH . $new_url));
         }
 
         // Save page from temp ///////////////////////////////////////
@@ -337,7 +337,7 @@ class Page {
             if($rs->rowCount() == 0){
                 // Create the block
                 $rsCreateBlock = $conn->prepare("INSERT INTO cms_blocks (blk_content,blk_created,blk_modified) VALUES (?,now(),now())");
-                $rsCreateBlock->execute(array(scrub(DEFAULT_BLOCK_CONTENT)));
+                $rsCreateBlock->execute(array(DEFAULT_BLOCK_CONTENT));
                 // Map the block
                 $rsMapBlock = $conn->prepare("INSERT INTO cms_mapping (map_pag_id,map_blk_id,map_region) VALUES (?,?,?)");
                 $rsMapBlock->execute(array($_SESSION['cur_page'], $conn->lastInsertId(), ($i-1)));

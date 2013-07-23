@@ -1,54 +1,57 @@
-<?php 
+<?php
 
 /*
- * This file is part of the Fokiz Content Management System 
+ * This file is part of the Fokiz Content Management System
  * <http://www.fokiz.com>
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-require_once('../controllers/system.php'); 
+require_once('../controllers/system.php');
 
 ?>
-<h1><?php lang('Sitewide Settings'); ?></h1>
+<h1><?php echo lang('Sitewide Settings'); ?></h1>
 
 <div id="adm_error"></div>
 
-<label><?php lang('Title'); ?></label>
-<input type="text" name="title" value="<?php echo($system->title); ?>" />
+<label><?php echo lang('Title'); ?></label>
+<input type="text" name="title" value="<?php echo(escape($system->title)); ?>" />
 
-<label><?php lang('Keywords'); ?></label>
-<input type="text" name="keywords" value="<?php echo($system->keywords); ?>" />
+<label><?php echo lang('Keywords'); ?></label>
+<input type="text" name="keywords" value="<?php echo(escape($system->keywords)); ?>" />
 
-<label><?php lang('Description'); ?></label>
-<textarea name="description" rows="3"><?php echo($system->description); ?></textarea>
+<label><?php echo lang('Description'); ?></label>
+<textarea name="description" rows="3"><?php echo(escape($system->description)); ?></textarea>
 
-<label><?php lang('Default (Home) Page)'); ?></label>
+<label><?php echo lang('Default (Home) Page)'); ?></label>
 <select name="default_page">
-<?php echo($default_page_options); ?>
+    <?php echo($default_page_options); ?>
 </select>
 
-
-<button id="adm_btn_system" class="btn_left" onclick="saveSystem();"><?php lang('Save'); ?></button><button class="btn_right" onclick="modal.hide();"><?php lang('Close'); ?></button>
+<button id="adm_btn_system" class="btn_left" onclick="saveSystem();">
+    <?php echo lang('Save'); ?>
+</button><button class="btn_right" onclick="modal.hide();">
+    <?php echo lang('Close'); ?>
+</button>
 
 <script>
     $(function(){
-        $('input,textarea').keypress(function(){ changeButton('<?php lang('Save Changes'); ?>'); });
-        $('select').change(function(){ changeButton('<?php lang('Save Changes'); ?>'); });
+        $('input,textarea').keypress(function(){ changeButton('<?php echo lang('Save Changes'); ?>'); });
+        $('select').change(function(){ changeButton('<?php echo lang('Save Changes'); ?>'); });
         $('input[name="title"]').keyup(function(){
             if($(this).val()==""){
-                errormsg.show('<?php lang('Title Cannot Be Blank'); ?>');
+                errormsg.show('<?php echo lang('Title Cannot Be Blank'); ?>');
                 $('#adm_btn_system').attr('disabled', 'disabled').addClass('disabled');
             }else{
                 errormsg.hide();
@@ -56,9 +59,9 @@ require_once('../controllers/system.php');
             }
         });
     });
-    
+
     function changeButton(t){ $('#adm_btn_system').html(t); }
-    
+
     function saveSystem(){
         var params = {
             title : $('input[name="title"]').val(),
@@ -67,8 +70,8 @@ require_once('../controllers/system.php');
             default_page : $('select[name="default_page"]').val()
         };
         $.post('system/admin/controllers/system.php?save=t',params,function(){
-            changeButton('<?php lang('SAVED'); ?>');
+            changeButton('<?php echo lang('SAVED'); ?>');
         });
     }
-    
+
 </script>

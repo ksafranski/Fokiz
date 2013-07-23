@@ -55,13 +55,13 @@ class System {
 
     public function Save(){
         global $conn;
-        $stmt = $conn->prepare("UPDATE cms_system SET
-                             sys_title='?',
-                             sys_description='?',
-                             sys_keywords='?',
-                             sys_default_page='?'
-                             WHERE sys_id=1");
-        $stmt->execute(array($this->title, $this->description, $this->keywords, $this->default_page));
+        $rs = $conn->prepare("UPDATE cms_system SET
+                                sys_title=?,
+                                sys_description=?,
+                                sys_keywords=?,
+                                sys_default_page=?
+                                WHERE sys_id=1");
+        $rs->execute(array($this->title, $this->description, $this->keywords, $this->default_page));
     }
 
 }

@@ -1,11 +1,11 @@
 <?php
 
     $lang = Array();
-    
+
     $lang['Fokiz Content Management System'] = "Fokiz Content Management System";
-    
+
     // Global ////////////////////////////////////////////////////////
-    
+
     $lang['Title'] = "Title";
     $lang['URL'] = "URL";
     $lang['Save'] = "Save";
@@ -17,15 +17,15 @@
     $lang['Modify'] = "Modify";
     $lang['Change'] = "Change";
     $lang['Password'] = "Password";
-    
+
     // Login /////////////////////////////////////////////////////////
-    
+
     $lang['Username'] = "Username";
     $lang['Login'] = "Login";
     $lang['Failed Login Attempt'] = "Failed Login Attempt";
-    
+
     // Top Bar ///////////////////////////////////////////////////////
-    
+
     $lang['Save &amp; Publish'] = "Save &amp; Publish";
     $lang['Revert'] = "Revert";
     $lang['Edit Content'] = "Edit Content";
@@ -33,23 +33,24 @@
     $lang['Page Properties'] = "Page Properties";
     $lang['Assets'] = "Assets";
     $lang['Components'] = "Components";
+    $lang['Modules'] = "Modules";
     $lang['Resources'] = "Resources";
-    $lang['No Resources Available'] = "No Resources Available";    
+    $lang['No Resources Available'] = "No Resources Available";
     $lang['Log Out'] = "Log Out";
-    
+
     // Components ////////////////////////////////////////////////////
-    
+
     $lang['Page Manager'] = "Page Manager";
     $lang['Navigation'] = "Navigation";
     $lang['Sitewide Settings'] = "Sitewide Settings";
     $lang['User Management'] = "User Management";
-    
+
     // Content Editor ////////////////////////////////////////////////
-   
+
     $lang['Content Saved'] = "Content Saved";
-    
+
     // Navigation ////////////////////////////////////////////////////
-    
+
     $lang['Primary'] = "Primary";
     $lang['Secondary'] = "Secondary";
     $lang['Tertiary'] = "Tertiary";
@@ -60,9 +61,9 @@
     $lang['This item is already at the last position.'] = "This item is already at the last position.";
     $lang['Delete this item permanently?'] = "Delete this item permanently?";
     $lang['SAVED'] = "SAVED";
-    
+
     // Page Properties & Manager /////////////////////////////////////
-    
+
     $lang['Page Properties'] = "Page Properties";
     $lang['Create New Page'] = "Create New Page";
     $lang['Keywords'] = "Keywords";
@@ -82,9 +83,9 @@
     $lang['You are currently viewing this page. You must move to a different page first.'] = "You are currently viewing this page. You must move to a different page first.";
     $lang['The page selected is the website default and cannot be deleted.'] = "The page selected is the website default and cannot be deleted.";
     $lang['Delete page permanantly?'] = "Delete page permanantly?";
-    
+
     // Asset Manager /////////////////////////////////////////////////
-    
+
     $lang['Folders'] = "Folders";
     $lang['Files'] = "Files";
     $lang['Use Selected File'] = "Use Selected File";
@@ -97,33 +98,33 @@
     $lang['Invlaid Name'] = "Invalid Name";
     $lang['Folder Name'] = "Folder Name";
     $lang['Invalid Folder Name'] = "Invalid Folder Name";
-    $lang['Folder Successfully Created'] = "Folder Successfully Created";    
+    $lang['Folder Successfully Created'] = "Folder Successfully Created";
     $lang['Are you sure you wish to delete the selected item?'] = "Are you sure you wish to delete the selected item?";
-    $lang['Successfully Deleted'] = "Successfully Deleted"; 
-    
+    $lang['Successfully Deleted'] = "Successfully Deleted";
+
     // Password //////////////////////////////////////////////////////
-    
+
     $lang['Change Password'] = "Change Password";
     $lang['New Password'] = "New Password";
     $lang['Verify New Password'] = "Verify New Password";
     $lang['Passwords Do Not Match'] = "Passwords Do Not Match";
     $lang['Password Minimum Of 8 Characters'] = "Password Minimum Of 8 Characters";
     $lang['Password Changed!'] = "Password Changed!";
-    
+
     // Publish / Revert //////////////////////////////////////////////
-    
+
     $lang['Proceeding will make the content and all changes to this page publicly available'] = "Proceeding will make the content and all changes to this page publicly available";
     $lang['Notes'] = "Notes";
-    
-    $lang['<strong>Warning:</strong> Reverting will remove all changes made and return to the current live state of the page'] = "<strong>Warning:</strong> Reverting will remove all changes made and return to the current live state of the page"; 
-        
+
+    $lang['<strong>Warning:</strong> Reverting will remove all changes made and return to the current live state of the page'] = "<strong>Warning:</strong> Reverting will remove all changes made and return to the current live state of the page";
+
     // Sitewide Settings /////////////////////////////////////////////
-    
+
     $lang['Title Cannot Be Blank'] = "Title Cannot Be Blank";
     $lang['Default (Home) Page)'] = "Default (Home) Page)";
-    
+
     // User Management ///////////////////////////////////////////////
-    
+
     $lang['User Editor'] = "User Editor";
     $lang['Account Type'] = "Account Type";
     $lang['Type'] = "Type";
@@ -134,12 +135,12 @@
     $lang['You must have at least one user in the system.'] = "You must have at least one user in the system.";
     $lang['You are currently logged in as this user. It cannot be deleted.'] = "You are currently logged in as this user. It cannot be deleted.";
     $lang['Delete the selected user permanently?'] = "Delete the selected user permanently?";
-    
+
     $lang['Administrator'] = "Administrator";
     $lang['Editor'] = "Editor";
-    
+
     // Installer /////////////////////////////////////////////////////
-    
+
     $lang['Fokiz Installer'] = "Fokiz Installer";
     $lang['Something is not right. The system check returned the following:'] = "Something is not right. The system check returned the following:";
     $lang['must be writeable'] = "must be writeable";
@@ -152,22 +153,22 @@
     $lang['The system has been successfully installed.<br />To continue to the website, please click the button below.'] = "The system has been successfully installed.<br />To continue to the website, please click the button below.";
     $lang['Proceed to Website'] = "Proceed to Website";
     $lang['All Fields Must Be Filled Out'] = "All Fields Must Be Filled Out";
-    
-    
+
+
     // About /////////////////////////////////////////////////////////
-    
+
     $lang['Open Fokiz Website'] = "Open Fokiz Website";
-    
+
     //////////////////////////////////////////////////////////////////
     // GPL / License /////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////
-    
-    $lang['FOKIZ_LICENSE'] = 
-    
+
+    $lang['FOKIZ_LICENSE'] =
+
 "Fokiz Content Managment System License
 -----------------------------------------------------------------------------------------
 
-The Fokiz Content Management System is distributed under the GNU General Public License 
+The Fokiz Content Management System is distributed under the GNU General Public License
 (See below) and is released AS-IS with no warranty.
 
 For more information please visit <http://www.fokiz.com>
