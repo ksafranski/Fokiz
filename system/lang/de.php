@@ -145,7 +145,7 @@
     $lang['Something is not right. The system check returned the following:'] = "Etwas ist schiefgegangen. Der Systemcheck meldet:";
     $lang['must be writeable'] = "muss schreibbar sein";
     $lang['Could not connect to database (Check /config.php)'] = "Verbindung zur Datenbank konnte nicht hergsetellt werden (Check /config.php)";
-    $lang['Once you have remedied the issues above please press the button to check requirements.'] = "Wenn Sie Once you have remedied the issues above please press the button to check requirements.";
+    $lang['Once you have remedied the issues above please press the button to check requirements.'] = "Wenn Sie die oben aufgeführten Probleme gelöst haben, klicken Sie den Button zur Überprüfung der Anforderungen.";
     $lang['Check Requirements'] = "Anforderungen überprüfen";
     $lang['After a quick check it appears that all requirements have been met!<br />Please provide a username and password for the system, then press the [Install Fokiz] button to continue:'] = "Alle Anforderungen wurden erfüllt!<br />Bitte definieren Sie einen Benutzernamen und Passwort für das System, und klicken Sie dann auf [Fokiz Installieren] Button um weiterzufahren:";
     $lang['Install Fokiz'] = "Fokiz installieren";
